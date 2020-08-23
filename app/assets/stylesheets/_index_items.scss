@@ -1,0 +1,75 @@
+.top-image {
+  height: 560px;
+  width: 100%;
+  background-color: aqua;
+  padding: 0 60px;
+  display: flex;
+  align-items: center;
+  .content {
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 35px;
+    &__title {
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      font-size: 60px;
+      line-height: 1.2;
+      color: #fff;
+    }
+    &__text {
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      font-size: 18px;
+      color: #fff;
+      line-height: 1.77778;
+      margin-top: 16px;
+    }
+    &__btn {
+      display: flex;
+      margin-top: 24px;
+      &--apple {
+        width: 180px;
+        margin-right: 10px;
+      }
+      &--google {
+        width: 180px;
+      }
+    }
+  }
+}
+
+.choose {
+  height: 400px;
+  width: 100%;
+  background-color: #f8f8f8;
+}
+
+.middle-image {
+  height: 400px;
+  width: 100%;
+  background-color: aqua;
+  display: flex;
+  align-items: center;
+}
+
+.feature {
+  height: 400px;
+  width: 100%;
+  background-color: #f8f8f8;
+}
+
+.pickup {
+  height: 400px;
+  width: 100%;
+  background-color: #f8f8f8;
+}
+.bottom-image {
+  height: 400px;
+  width: 100%;
+  background-color: aqua;
+}
+.footer {
+  height: 243px;
+  width: 100%;
+  color: #fff;
+  background-color: #272727;
+}
