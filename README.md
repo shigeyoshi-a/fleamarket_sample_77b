@@ -105,7 +105,8 @@ Things you may want to cover:
 |sending_area|string|null: false|                         #発送元地域
 |sending_days|string|null: false|                         #発送日数
 |price|string|null: false|                                #価格
-|user_id|integer|null: false, foreign_key: true|          #usersテーブルのid
+|buyer_id|integer|null: false, foreign_key: true|         #usersテーブルのid（購入者）
+|saler_id|integer|null: false, foreign_key: true|         #usersテーブルのid（出品者）
 |category_id|integer|null: false, foreign_key: true|      #categoriesテーブルのid
 
 ### Association
