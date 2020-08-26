@@ -64,12 +64,12 @@ Things you may want to cover:
 |first_name|string|null: false|                           #名前
 |family_name_reading|string|null: false|                  #苗字（ふりがな）
 |first_name_reading|string|null: false|                   #名前（ふりがな）
-|post_code|integer|null: false|                           #郵便番号
+|post_code|string|null: false|                            #郵便番号
 |prefectures|string|null: false|                          #都道府県
 |municipality|string|null: false|                         #市区町村
 |street_number|string|null: false|                        #番地
 |apartment_name|string||                                  #マンション名やビル名、部屋番号（任意）
-|telephone_number|integer||                               #電話番号は（任意）
+|telephone_number|string||                               #電話番号は（任意）
 |user_id|integer|null: false, foreign_key: true|          #usersテーブルのid
 
 ### Association
@@ -85,7 +85,7 @@ Things you may want to cover:
 |first_name|string|null: false|                           #名前
 |family_name_reading|string|null: false|                  #苗字（ふりがな）
 |first_name_reading|string|null: false|                   #名前（ふりがな）
-|birthday|integer|null: false|                            #生年月日
+|birthday|string|null: false|                             #生年月日
 |user_id|integer|null: false, foreign_key: true|          #usersテーブルのid
 
 ### Association
@@ -133,7 +133,7 @@ Things you may want to cover:
 ## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|ancestry|string|null: false, add_index|                 #カテゴリー名
+|category|string|null: false, add_index|                 #カテゴリー名
 
 ### Association
 - has_many :items
