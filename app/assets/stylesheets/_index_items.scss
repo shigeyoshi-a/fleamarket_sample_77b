@@ -2,11 +2,10 @@
   height: 560px;
   width: 100%;
   background-color: aqua;
-  padding: 0 60px;
   display: flex;
   align-items: center;
   .content {
-    max-width: 1280px;
+    max-width: 1040px;
     width: 100%;
     margin: 0 auto;
     padding-top: 35px;
@@ -41,7 +40,7 @@
   height: 400px;
   width: 100%;
   background-color: #f8f8f8;
-  padding: 60px 20px;
+  padding-top: 60px;
   .title {
     text-align: center;
     font-size: 26px;
@@ -50,6 +49,38 @@
     margin-bottom: 25px;
     padding-bottom: 15px;
     position: relative;
+  }
+  .lists {
+    text-align: center;
+    display: flex;
+    max-width: 1020px;
+    width: 100%;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    .list {
+      width: 30%;
+      margin: 16px 5% 0 0;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      &__pict {
+        position: relative;
+        margin-bottom: 20px;
+      }
+      &__text {
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 50px;
+        margin: 0 0 0 2px;
+      }
+      &__description {
+        font-size: 18px;
+        line-height: 1.5;
+        margin: 16px 0 0;
+      }
+    }
   }
 }
 
@@ -93,7 +124,7 @@
 .feature {
   height: 400px;
   width: 100%;
-  padding: 60px 100px;
+  padding-top: 60px ;
   background-color: #fff;
   .title {
     font-size: 27px;
@@ -109,7 +140,6 @@
     width: 100%;
     margin: 0 auto;
     display: flex;
-    flex-wrap: wrap;
     .item {
       display: flex;
       flex-direction: column;
@@ -140,11 +170,49 @@
   height: 400px;
   width: 100%;
   background-color: #f8f8f8;
+  .title {
+    text-align: center;
+    font-size: 28px;
+    line-height: 1.4;
+    font-weight: bold;
+    padding-top: 60px;
+  }
+  .products {
+    &__title {
+      text-align: center;
+    }
+    &__lists {
+      width: 780px;
+      margin: 26px auto;
+      display: flex;
+      justify-content: space-around;
+    }
+  }
 }
 .bottom-image {
   height: 400px;
   width: 100%;
   background-color: aqua;
+  .contents {
+    color: #fff;
+    text-align: center;
+    &__title {
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      font-size: 24px;
+      font-weight: bold;
+      line-height: 1.4;
+    }
+    &__text {
+      font-size: 35px;
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+    }
+    &__btn {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin: 20px auto 0;
+    }
+  }
 }
 .footer {
   height: 243px;
