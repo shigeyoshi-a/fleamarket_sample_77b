@@ -104,7 +104,7 @@ Things you may want to cover:
 |delivery_fee|string|null: false|                         #送料負担
 |sending_area|string|null: false|                         #発送元地域
 |sending_days|string|null: false|                         #発送日数
-|price|string|null: false|                                #価格
+|price|integer|null: false|                               #価格
 |buyer_id|integer|null: false, foreign_key: true|         #usersテーブルのid（購入者）
 |saler_id|integer|null: false, foreign_key: true|         #usersテーブルのid（出品者）
 |category_id|integer|null: false, foreign_key: true|      #categoriesテーブルのid
