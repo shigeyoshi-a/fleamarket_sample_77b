@@ -134,6 +134,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |category|string|null: false, add_index|                 #カテゴリー名
+|ancestry|string||                                       #ancestry
 
 ### Association
 - has_many :items
