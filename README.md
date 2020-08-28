@@ -69,7 +69,7 @@ Things you may want to cover:
 |municipality|string|null: false|                         #市区町村
 |street_number|string|null: false|                        #番地
 |apartment_name|string||                                  #マンション名やビル名、部屋番号（任意）
-|telephone_number|string||                               #電話番号は（任意）
+|telephone_number|string||                                #電話番号は（任意）
 |user_id|integer|null: false, foreign_key: true|          #usersテーブルのid
 
 ### Association
