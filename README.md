@@ -38,7 +38,7 @@ Things you may want to cover:
 - has_many :comments
 - has_many :items
 - has_one :card
-- has_one :addresse
+- has_one :address
 - has_one :profile
 
 
