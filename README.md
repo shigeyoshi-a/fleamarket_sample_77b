@@ -112,7 +112,7 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 - belongs_to :category
-- has_many :images
+- has_many :item_images
 - has_many :comments
 
 
@@ -133,7 +133,7 @@ Things you may want to cover:
 ## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|category|string|null: false, add_index|                 #カテゴリー名
+|category|string|null: false, index: true|               #カテゴリー名
 |ancestry|string||                                       #ancestry
 
 ### Association
