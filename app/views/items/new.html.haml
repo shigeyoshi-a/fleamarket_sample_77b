@@ -1,0 +1,95 @@
+.container
+  .container__main-content
+    = form_for @item do |f|
+      .container__main-content__item-image
+        %ul
+          %li  
+            .topic 出品画像
+          %li
+            .necessarily 必須
+        .description 最大10枚までアップロードできます
+        #image-box.image-form
+          = f.fields_for :item_images do |i|
+            = i.file_field :image
+      .container__main-content__item
+        %ul
+          %li  
+            .topic 商品名
+          %li
+            .necessarily 必須
+        .name-form
+          = f.text_field :name
+        %ul
+          %li  
+            .topic 商品の説明
+          %li
+            .necessarily 必須
+        .description-form
+          = f.text_area :description
+      .container__main-content__item-detail
+        .theme 商品の詳細
+        %ul
+          %li  
+            .topic カテゴリー
+          %li
+            .necessarily 必須
+        .category-form
+        %ul
+          %li  
+            .topic ブランド
+          %li
+            .free 任意
+        .brand-form
+          = f.text_field :brand
+        %ul
+          %li  
+            .topic 商品の状態
+          %li
+            .necessarily 必須
+        .condition-form
+          = f.collection_select(:condition_id, Condition.all, :id, :name,{include_blank: "---"})
+      .container__main-content__delivery
+        .theme 配送について
+        %ul
+          %li  
+            .topic 配送料の負担
+          %li
+            .necessarily 必須
+        .delivery_fee-form
+          = f.collection_select(:delivery_fee_id, DeliveryFee.all, :id, :name,{include_blank: "---"})
+        %ul
+          %li  
+            .topic 発送元の地域
+          %li
+            .necessarily 必須
+        .sending_area-form
+          = f.collection_select(:sending_area_id, SendingArea.all, :id, :name,{include_blank: "---"})
+        %ul
+          %li  
+            .topic 発送までの日数
+          %li
+            .necessarily 必須
+        .sending_days-form
+          = f.collection_select(:sending_days_id, SendingDays.all, :id, :name,{include_blank: "---"})
+      .container__main-content__price
+        .theme 価格（¥300〜9,999,999）
+        %ul
+          %li  
+            .topic 販売価格
+          %li
+            .necessarily 必須
+        .price-form
+          = f.number_field :price
+        .charge
+          販売手数料（10%）
+        .profit
+          販売利益
+      .container__main-content__selling-form
+        .selling-btn
+          出品する
+        .draft-save-btn
+          下書きに保存
+        .back-btn
+          戻る
+        .attention
+          禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。

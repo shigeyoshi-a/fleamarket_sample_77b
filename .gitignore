@@ -25,3 +25,6 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# public/uploads/配下に保存される画像は、Githubにアップロードする必要がないため
+/public/uploads

@@ -1,0 +1,231 @@
+.container{
+  width: 100vw;
+  height: 100%;
+  background-color: #f8f8ff;
+  &__main-content{
+    width: 700px;
+    height: auto;
+    margin: 0 auto;
+    background-color: #fff;
+    border: solid 1px #bbbbbb;
+    &__item-image{  
+      margin-top: 30px;
+      ul{
+        display: flex;
+        li{  
+          .topic{
+            font-weight: bold;
+            margin-left: 25px;
+          }
+          .necessarily{
+            background-color: #ff0000;
+            color: #fff;
+          }
+        }
+      }
+      .description{
+        margin: 10px 0;
+        margin-left: 25px;
+      }
+      .image-form{
+        width: 650px;
+        height: 100px;
+        border: solid 1px #bbbbbb;
+        margin: 0 auto;
+      }
+    }
+    &__item{  
+      margin-top: 10px;
+      ul{
+        display: flex;
+        li{  
+          margin-top: 10px;
+          .topic{
+            font-weight: bold;
+            margin-left: 25px;
+          }
+          .necessarily{
+            background-color: #ff0000;
+            color: #fff;
+          }
+        }
+      }
+      .name-form{
+        width: 650px;
+        height: 35px;
+        border: solid 1px #bbbbbb;
+        margin: 0 auto;
+        margin-top: 10px;
+      }
+      .description-form{
+        width: 650px;
+        height: 100px;
+        border: solid 1px #bbbbbb;
+        margin: 0 auto;
+        margin-top: 10px;
+      }
+    }
+    &__item-detail{
+      .theme{
+        color: #555555;
+        margin-left: 25px;
+        margin-top: 10px;
+      }
+      ul{
+        display: flex;
+        li{  
+          margin-top: 10px;
+          .topic{
+            font-weight: bold;
+            margin-left: 25px;
+          }
+          .necessarily{
+            background-color: #ff0000;
+            color: #fff;
+          }
+          .free{
+            color: #fff;
+            background-color: #aaaaaa;
+          }
+        }
+      }
+      .category-form{
+        width: 650px;
+        height: 35px;
+        border: solid 1px #bbbbbb;
+        margin: 0 auto;
+        margin-top: 10px;
+      }
+      .brand-form{
+        width: 650px;
+        height: 35px;
+        border: solid 1px #bbbbbb;
+        margin: 0 auto;
+        margin-top: 10px;
+      }
+      .condition-form{
+        width: 650px;
+        height: 35px;
+        border: solid 1px #bbbbbb;
+        margin: 0 auto;
+        margin-top: 10px;
+      }
+    }
+    &__delivery{
+      .theme{
+        color: #555555;
+        margin-left: 25px;
+        margin-top: 10px;
+      }
+      ul{
+        display: flex;
+        li{  
+          margin-top: 10px;
+          .topic{
+            font-weight: bold;
+            margin-left: 25px;
+          }
+          .necessarily{
+            background-color: #ff0000;
+            color: #fff;
+          }
+          .free{
+            color: #fff;
+            background-color: #aaaaaa;
+          }
+        }
+      }
+      .delivery_fee-form{
+        width: 650px;
+        height: 35px;
+        border: solid 1px #bbbbbb;
+        margin: 0 auto;
+        margin-top: 10px;
+      }
+      .sending_area-form{
+        width: 650px;
+        height: 35px;
+        border: solid 1px #bbbbbb;
+        margin: 0 auto;
+        margin-top: 10px;
+      }
+      .sending_days-form{
+        width: 650px;
+        height: 35px;
+        border: solid 1px #bbbbbb;
+        margin: 0 auto;
+        margin-top: 10px;
+      }
+    }
+    &__price{
+      .theme{
+        color: #555555;
+        margin-left: 25px;
+        margin-top: 10px;
+      }
+      ul{
+        display: flex;
+        li{  
+          margin-top: 10px;
+          .topic{
+            font-weight: bold;
+            margin-left: 25px;
+          }
+          .necessarily{
+            background-color: #ff0000;
+            color: #fff;
+          }
+          .free{
+            color: #fff;
+            background-color: #aaaaaa;
+          }
+        }
+      }
+      .price-form{
+        width: 650px;
+        height: 35px;
+        border: solid 1px #bbbbbb;
+        margin: 0 auto;
+        margin-top: 10px;
+      }
+      .charge{
+        margin-left: 25px;
+        margin-top: 10px;
+      }
+      .profit{
+        margin-left: 25px;
+        margin-top: 10px;
+      }
+    }
+    &__selling-form{
+      .selling-btn{
+        background-color: #ff0000;
+        color: #fff;
+        font-weight: bold;
+        text-align: center;
+        width: 650px;
+        height: 35px;
+        margin: 10px auto;
+      }  
+      .draft-save-btn{
+        background-color: #bbbbbb;
+        font-weight: bold;
+        text-align: center;
+        width: 650px;
+        height: 35px;
+        margin: 10px auto;
+      }
+      .back-btn{
+        font-weight: bold;
+        text-align: center;
+        color: #2c7cff;
+        width: 650px;
+        height: 35px;
+        margin: 10px auto;
+      }
+      .attention{
+        margin: 10px 25px;
+      }
+    }
+  }
+}
