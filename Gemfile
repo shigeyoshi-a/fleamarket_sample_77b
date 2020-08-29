@@ -75,3 +75,4 @@ end
 gem 'haml-rails'
 gem 'carrierwave'
 gem 'fog-aws'
+gem 'mini_magick'
