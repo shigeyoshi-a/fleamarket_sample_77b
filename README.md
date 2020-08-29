@@ -66,10 +66,10 @@ Things you may want to cover:
 ## addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|family_name|string|null: false|                          #苗字
-|first_name|string|null: false|                           #名前
-|family_name_reading|string|null: false|                  #苗字（ふりがな）
-|first_name_reading|string|null: false|                   #名前（ふりがな）
+|receiving_family_name|string|null: false|                #苗字
+|receiving_first_name|string|null: false|                 #名前
+|receiving_family_name_reading|string|null: false|        #苗字（ふりがな）
+|receiving_first_name_reading|string|null: false|         #名前（ふりがな）
 |post_code|string|null: false|                            #郵便番号
 |prefecture_id(acitve_hash)|integer|null: false|          #都道府県
 |municipality|string|null: false|                         #市区町村
