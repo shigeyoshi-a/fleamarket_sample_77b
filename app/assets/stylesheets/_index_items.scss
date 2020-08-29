@@ -69,6 +69,10 @@
         height: 305px;
         position: relative;
         margin-bottom: 20px;
+        img {
+          width: 305px;
+          height: 305px;
+        }
       }
       &__text {
         font-weight: bold;
@@ -143,15 +147,15 @@
       text-align: center;
       padding: 0 20px;
       &__img {
-        background-image: url("icon-01.png");
-        background-size: cover;
-        width: 250px;
-        height: 350px;
         margin: 0 auto;
         line-height: 120px;
+        img {
+          width: 250px;
+          height: 354px;
+        }
       }
       &__title {
-        margin: 38px 0 10px;
+        margin: 10px 0 10px;
         font-size: 19px;
         font-weight: bold;
       }
