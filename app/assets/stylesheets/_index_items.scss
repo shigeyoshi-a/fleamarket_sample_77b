@@ -29,11 +29,8 @@
       display: flex;
       margin-top: 24px;
       &--apple {
-        width: 180px;
-        margin-right: 10px;
       }
       &--google {
-        width: 180px;
       }
     }
   }
@@ -116,13 +113,6 @@
     &__btn {
       display: flex;
       margin-top: 24px;
-      &--apple {
-        width: 180px;
-        margin-right: 10px;
-      }
-      &--google {
-        width: 180px;
-      }
     }
   }
 }
@@ -247,13 +237,6 @@
       display: flex;
       justify-content: center;
       margin: 20px auto 0;
-      &--apple {
-        width: 180px;
-        margin-right: 10px;
-      }
-      &--google {
-        width: 180px;
-      }
     }
   }
 }
