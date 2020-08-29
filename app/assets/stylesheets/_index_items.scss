@@ -179,13 +179,37 @@
   }
   .products {
     &__title {
-      text-align: center;
-    }
-    &__lists {
       width: 780px;
       margin: 26px auto;
       display: flex;
       justify-content: space-around;
+    }
+    &__box {
+      background-color: white;
+      width: 220px;
+      display: inline-block;
+      float: left;
+      &__image {
+        width: 220px;
+        height: 150px;
+        position: relative;
+        overflow: hidden;
+        margin: 0;
+        z-index: auto;
+      }
+      &__body {
+        color: #333;
+        padding: 16px;
+        .name {
+        }
+        .price {
+        }
+        .review {
+          float: right;
+        }
+        .tax {
+        }
+      }
     }
   }
 }
@@ -196,6 +220,8 @@
   .contents {
     color: #fff;
     text-align: center;
+    padding: 100px 40px;
+    position: relative;
     &__title {
       text-shadow: 0 0 5px rgba(0,0,0,0.4);
       font-size: 24px;
@@ -211,6 +237,13 @@
       display: flex;
       justify-content: center;
       margin: 20px auto 0;
+      &--apple {
+        width: 180px;
+        margin-right: 10px;
+      }
+      &--google {
+        width: 180px;
+      }
     }
   }
 }
@@ -219,4 +252,34 @@
   width: 100%;
   color: #fff;
   background-color: #272727;
+  text-align: center;
+  padding: 60px 0;
+  .contents {
+    max-width: 840px;
+    margin: 0 auto;
+    display: flex;
+    .content {
+      display: flex;
+      flex-direction: column;
+      width: calc(1 / 3 * 100%);
+      margin: 0 2% 0 0;
+      &__title {
+        margin: 0 0 20px;
+        font-size: 16px;
+        font-weight: bold;
+      }
+      &__texts {
+        &__text {
+          margin-bottom: 15px;
+          font-size:12px;
+        }
+      }
+    }
+  }
+  &__logo {
+    max-width: 160px;
+    width: 100%;
+    margin: 0 auto;
+    background-color: aqua;
+  }
 }

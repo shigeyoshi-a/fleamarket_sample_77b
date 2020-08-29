@@ -81,19 +81,61 @@
     ピックアップカテゴリー
   .products
     .products__title
-      %a 新規投稿商品
-    .products__lists
-%section.pickup
+      新規投稿商品
+    .products__box
+      .products__box__image
+        画像
+      .products__box__body
+        %h3.name
+          いわし
+        .price
+          200円
+        .review
+          ★0
+        .tax（税込）
+
 %section.bottom-image
   .contents
     .contents__title
       だれでもかんたん、人生を変えるフリマアプリ
     .contents__text
       今すぐ無料ダウンロード！
-    .content__btn
-      .content__btn--apple
+    .contents__btn
+      .contents__btn--apple
         apple
-      .content__btn--google
+      .contents__btn--google
         google
 %section.footer
-  aaa
+  .contents
+    .content
+      %h2.content__title
+        FURIMAについて
+      %ul.content__texts
+        %li.content__texts__text
+          会社概要（運営会社）
+        %li.content__texts__text
+          プライバシーポリシー
+        %li.content__texts__text
+          FURIMA利用規約
+        %li.content__texts__text
+          ポイントに関する特約
+    .content
+      %h2.content__title
+        FURIMAを見る
+      %ul.content__texts
+        %li.content__texts__text
+          カテゴリー一覧
+        %li.content__texts__text
+          ブランド一覧
+    .content
+      %h2.content__title
+        ヘルプ＆ガイド
+      %ul.content__texts
+        %li.content__texts__text
+          FURIMAガイド
+        %li.content__texts__text
+          FURIMAロゴ利用ガイドライン
+        %li.content__texts__text
+          お知らせ
+  .footer__logo
+    © FURIMA
