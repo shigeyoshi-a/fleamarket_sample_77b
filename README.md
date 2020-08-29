@@ -33,6 +33,12 @@ Things you may want to cover:
 |nickname|string|null: false, unique: true|              #ユーザー名（一意性）
 |email|string|null: false, unique: true|                 #Eメール（一意性）
 |password|string|null: false|                            #パスワード
+|family_name|string|null: false|                         #苗字
+|first_name|string|null: false|                          #名前
+|family_name_reading|string|null: false|                 #苗字（ふりがな）
+|first_name_reading|string|null: false|                  #名前（ふりがな）
+|birthday|string|null: false|                            #生年月日
+
 
 ### Association
 - has_many :comments
@@ -70,22 +76,6 @@ Things you may want to cover:
 |street_number|string|null: false|                        #番地
 |apartment_name|string||                                  #マンション名やビル名、部屋番号（任意）
 |telephone_number|string||                                #電話番号は（任意）
-|user_id|integer|null: false, foreign_key: true|          #usersテーブルのid
-
-### Association
-- belongs_to :user
-
-
-
-
-## profilesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|family_name|string|null: false|                          #苗字
-|first_name|string|null: false|                           #名前
-|family_name_reading|string|null: false|                  #苗字（ふりがな）
-|first_name_reading|string|null: false|                   #名前（ふりがな）
-|birthday|string|null: false|                             #生年月日
 |user_id|integer|null: false, foreign_key: true|          #usersテーブルのid
 
 ### Association
@@ -134,7 +124,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |category|string|null: false, index: true|               #カテゴリー名
-|ancestry|string||                                       #ancestry
+|ancestry|string|null: false|                            #ancestry
 
 ### Association
 - has_many :items
