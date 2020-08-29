@@ -39,13 +39,11 @@ Things you may want to cover:
 |first_name_reading|string|null: false|                  #名前（ふりがな）
 |birthday|string|null: false|                            #生年月日
 
-
 ### Association
 - has_many :comments
 - has_many :items
 - has_one :card
 - has_one :address
-- has_one :profile
 
 
 
