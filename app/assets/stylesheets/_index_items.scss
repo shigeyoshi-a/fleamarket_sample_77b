@@ -1,7 +1,10 @@
 .top-image {
   height: 560px;
   width: 100%;
-  background-color: aqua;
+  background-image: url("bg-mainVisual-pict_pc.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
   display: flex;
   align-items: center;
   .content {
@@ -37,7 +40,7 @@
 }
 
 .choose {
-  height: 400px;
+  height: 600px;
   width: 100%;
   background-color: #f8f8f8;
   padding-top: 60px;
@@ -63,6 +66,10 @@
       text-align: center;
       padding: 0 20px;
       &__pict {
+        background-image: url("pict-reason-01.jpg");
+        background-size: cover;
+        width: 305px;
+        height: 305px;
         position: relative;
         margin-bottom: 20px;
       }
@@ -84,7 +91,9 @@
 .middle-image {
   height: 400px;
   width: 100%;
-  background-color: aqua;
+  background-image: url("bg-topMiddleDl-pict.jpg");
+  background-position: bottom right;
+  background-size: cover;
   display: flex;
   align-items: center;
   .content{
@@ -119,7 +128,7 @@
 }
 
 .feature {
-  height: 400px;
+  height: 620px;
   width: 100%;
   padding-top: 60px ;
   background-color: #fff;
@@ -144,7 +153,10 @@
       text-align: center;
       padding: 0 20px;
       &__img {
-        width: 70%;
+        background-image: url("icon-01.png");
+        background-size: cover;
+        width: 250px;
+        height: 350px;
         margin: 0 auto;
         line-height: 120px;
       }
@@ -212,7 +224,9 @@
 .bottom-image {
   height: 400px;
   width: 100%;
-  background-color: aqua;
+  background-image: url("bg-appBanner-pict.jpg");
+  background-size: cover;
+  background-position: center;
   .contents {
     color: #fff;
     text-align: center;
@@ -276,6 +290,14 @@
     max-width: 160px;
     width: 100%;
     margin: 0 auto;
-    background-color: aqua;
+    &__image {
+      background-image: url("logo-white.png");
+      background-size: cover;
+      background-position: center;
+      width: 160px;
+      height: 47px;
+    }
+    &__text {
+    }
   }
 }
