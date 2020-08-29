@@ -16,6 +16,7 @@
   .contents
     .content
       .content__pict
+        %spen.number 1
         = image_tag ("pict-reason-01.jpg")
       %h3.content__text
         3分ですぐに出品
@@ -23,6 +24,7 @@
         スマホで入力するだけで<br>簡単に出品できる！
     .content
       .content__pict
+        %spen.number 2
         = image_tag ("pict-reason-02.jpg")
       %h3.content__text
         シンプルで使いやすい
@@ -30,6 +32,7 @@
         めんどくさい入力は必要なく<br>検索も購入もスムーズ！
     .content
       .content__pict
+        %spen.number 3
         = image_tag ("pict-reason-03.jpg")
       %h3.content__text
         手数料業界最安値
@@ -80,7 +83,7 @@
   %h2.title
     ピックアップカテゴリー
   .subtitle
-    新規投稿商品
+    = link_to "新規投稿商品", new_item_path
   .products
     .products__box
       .products__box__image
@@ -152,32 +155,32 @@
         FURIMAについて
       %ul.content__texts
         %li.content__texts__text
-          会社概要（運営会社）
+          = link_to "会社概要（運営会社）", root_path
         %li.content__texts__text
-          プライバシーポリシー
+          = link_to "プライバシーポリシー", root_path
         %li.content__texts__text
-          FURIMA利用規約
+          = link_to "FURIMA利用規約", root_path
         %li.content__texts__text
-          ポイントに関する特約
+          = link_to "ポイントに関する特約", root_path
     .content
       %h2.content__title
         FURIMAを見る
       %ul.content__texts
         %li.content__texts__text
-          カテゴリー一覧
+          = link_to "カテゴリー一覧", root_path
         %li.content__texts__text
-          ブランド一覧
+          = link_to "ブランド一覧", root_path
     .content
       %h2.content__title
         ヘルプ＆ガイド
       %ul.content__texts
         %li.content__texts__text
-          FURIMAガイド
+          = link_to "FURIMAガイド", root_path
         %li.content__texts__text
-          FURIMAロゴ利用ガイドライン
+          = link_to "FURIMAロゴ利用ガイドライン", root_path
         %li.content__texts__text
-          お知らせ
+          = link_to "お知らせ", root_path
   .footer__logo
     .footer__logo__image
     .footer__logo__text
-    © FURIMA
+      © FURIMA
