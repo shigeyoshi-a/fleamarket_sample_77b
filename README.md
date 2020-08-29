@@ -65,7 +65,7 @@ Things you may want to cover:
 |family_name_reading|string|null: false|                  #苗字（ふりがな）
 |first_name_reading|string|null: false|                   #名前（ふりがな）
 |post_code|string|null: false|                            #郵便番号
-|prefectures|string|null: false|                          #都道府県
+|prefecture_id(acitve_hash)|integer|null: false|          #都道府県
 |municipality|string|null: false|                         #市区町村
 |street_number|string|null: false|                        #番地
 |apartment_name|string||                                  #マンション名やビル名、部屋番号（任意）
@@ -100,10 +100,10 @@ Things you may want to cover:
 |name|string|null: false|                                 #商品名
 |description|text|null: false|                            #商品説明
 |brand|string||                                           #ブランド（任意）
-|condition|string|null: false|                            #商品状態
-|delivery_fee|string|null: false|                         #送料負担
-|sending_area|string|null: false|                         #発送元地域
-|sending_days|string|null: false|                         #発送日数
+|condition_id(acitve_hash)|integer|null: false|           #商品状態
+|delivery_fee_id(acitve_hash)|integer|null: false|        #送料負担
+|sending_area_id(acitve_hash)|integer|null: false|        #発送元地域
+|sending_days_id(acitve_hash)|integer|null: false|        #発送日数
 |price|integer|null: false|                               #価格
 |buyer_id|integer|null: false, foreign_key: true|         #usersテーブルのid（購入者）
 |saler_id|integer|null: false, foreign_key: true|         #usersテーブルのid（出品者）
