@@ -13,6 +13,12 @@
             .js-file_group{data: {index: {id: i.index}}}
               = i.file_field :image, class: 'js-file'
               .js-remove 削除
+            - if @item.persisted?
+              = i.check_box :_destroy, data: {index: {id: i.index}}, class: 'hidden-destroy'
+          - if @item.persisted?
+            .js-file_group{data: {index: {id: @item.item_images.count}}}
+              = file_field_tag :image, name: "item[item_images_attributes][#{@item.item_images.count}][image]", class: 'js-file'
+              .js-remove 削除
       .container__main-content__item
         %ul
           %li  
@@ -81,17 +87,24 @@
           %li
             .necessarily 必須
         .price-form
-          = f.number_field :price
-        .charge
-          販売手数料（10%）
-        .profit
-          販売利益
+          ¥
+          = f.number_field :price, id: "price_calc", class: "price_form-box"
+        .charge-line
+          .charge-line_left
+            販売手数料（10%）
+          .charge-line_right
+            ー
+          .profit-line
+            .profit-line_left
+              販売利益
+            .profit-line_right
+              ー
       .container__main-content__selling-form
         .selling-btn
-          出品する
+          = f.submit
         .draft-save-btn
           下書きに保存
         .back-btn
-          戻る
+          = link_to "戻る", root_path, class: 'back-btn'
         .attention
           禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
