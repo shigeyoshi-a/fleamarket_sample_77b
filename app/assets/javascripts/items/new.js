@@ -28,17 +28,18 @@ $(document).on('turbolinks:load', ()=> {
   });
 });
 
-$('#price_calc').on('input', function(){
-  var data = $('#price_calc').val();
-  var profit = Math.round(data * 0.9)
-  var fee = (data - profit)
-  console.log("a");
-  $('.charge-line_right').html(fee)
-  $('.charge-line_right').prepend('¥')
-  $('.profit-line_right').html(profit)
-  $('.profit-line_right').prepend('¥')
-  if(profit == '') {
-  $('.charge-line_right').html('');
-  $('.profit-line_right').html('');
-  }
+$(function(){
+  $('#price_calc').on('keyup', function(){
+    var data = $('#price_calc').val();
+    var profit = Math.round(data * 0.9)
+    var fee = (data - profit)
+    $('.charge-line_right').html(fee)
+    $('.charge-line_right').prepend('¥')
+    $('.profit-line_right').html(profit)
+    $('.profit-line_right').prepend('¥')
+    if(profit == '') {
+    $('.charge-line_right').html('ー');
+    $('.profit-line_right').html('ー');
+    }
+  })
 })
