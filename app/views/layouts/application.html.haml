@@ -8,4 +8,43 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
+    %section.header
+      .header__contents
+        .header__contents__top
+          .icon
+            = image_tag ("logo.png")
+          .searchBox
+            .searchBox__input
+              sss
+            .searchBox__submit
+              = image_tag ("icon-search 1.png")
+        .header__contents__btm
+          .leftbox
+            .leftbox__category
+              カテゴリー
+            .leftbox__brand
+              ブランド
+          .rightbox
+            - if user_signed_in?
+              .rightbox__login
+                = link_to "マイページ", root_path
+              .rightbox__sign_up
+                = link_to "ログアウト", destroy_user_session_path, method: :delete 
+            - else
+              .rightbox__login
+                = link_to "新規会員登録", new_user_registration_path
+              .rightbox__sign_up
+                = link_to "ログイン", new_user_session_path
+             
+  
+  
+
+  
+  
     = yield
+    %section.register
+      .register__title
+        出品する
+      .register__icon
+        =link_to new_item_path do
+          = image_tag ("icon_camera.png")
