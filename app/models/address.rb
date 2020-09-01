@@ -14,4 +14,6 @@ class Address < ApplicationRecord
   format: { with: /\A([ァ-ン]|ー)+\z/, message: 'を全角カタカナで入力してください' }
   validates :receiving_first_name_reading,
   format: { with: /\A([ァ-ン]|ー)+\z/, message: 'を全角カタカナで入力してください' }
+  validates :municipality,
+  format: {with: /\A[ぁ-んァ-ン一-龥]/, message: 'を全角で入力してください' }
 end
