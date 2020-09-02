@@ -18,7 +18,7 @@
         = f.label :都道府県
         %span.necessarily 必須
         %br/
-        = f.collection_select(:prefecture_id, SendingArea.all, :id, :name,{include_blank: "---"}, {class: "test"})
+        = f.collection_select(:prefecture_id, SendingArea.all, :id, :name,{include_blank: "---"}, {class: "field__prefecture"})
       - if @address.errors.include?(:prefecture_id)
         %p 都道府県を選択してください
       %br/

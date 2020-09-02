@@ -64,7 +64,7 @@
         %br/
         = f.password_field :password, autocomplete: "new-password", placeholder: " 7文字以上で入力してください"
       - if @user.errors.include?(:password)
-        %p パスワードを入力してください
+        %p パスワードを７文字以上の半角で入力してください
     .field
       .field__label
         = f.label :パスワード（確認）
