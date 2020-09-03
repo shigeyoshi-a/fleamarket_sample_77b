@@ -78,3 +78,4 @@ gem 'fog-aws'
 gem 'mini_magick'
 gem 'active_hash'
 gem 'jquery-rails'
+gem "font-awesome-sass"

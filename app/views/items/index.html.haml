@@ -89,15 +89,20 @@
     = link_to "新規投稿商品", new_item_path
   .products
     .products__box
-      .products__box__image
-        画像
-      .products__box__body
-        %h3.name
-          いわし
-        .price
-          200円（税込）
-        .review
-          ★0
+      = link_to new_item_path do
+        .products__box__image
+          = image_tag ("icon-01.png")
+        .products__box__body
+          %h3.name
+            いわし
+          %ul.details
+            %li.details__price
+              200円
+            %li.details__icon
+              = icon("fas", "star")
+            %li.details__count
+              1
+          .tax（税込）
     .products__box
       .products__box__image
         画像

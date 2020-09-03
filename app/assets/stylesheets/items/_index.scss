@@ -218,10 +218,15 @@
   .subtitle {
     text-align: center;
     margin: 15px 0;
+    font-weight: bold;
+    font-size: 24px;
+    a {
+      color: #3CCACE;
+    }
   }
   .products {
     width: 780px;
-    margin: 26px auto;
+    margin: 30px auto;
     display: flex;
     justify-content: space-around;
     &__box {
@@ -244,10 +249,28 @@
         color: #333;
         padding: 16px;
         .name {
+          overflow: hidden;
+          line-height: 1.5;
+          font-size: 16px;
+          text-align: left;
         }
-        .price {
+        .details {
+          font-size: 15px;
+          display: flex;
+          -webkit-justify-content: flex-start;
+          justify-content: flex-start;
+          &__price {
+          }
+          &__icon {
+            margin-left: auto;
+          }
+          &__count {
+            margin-left: 5px;
+          }
         }
-        .review {
+        .tax {
+          font-size: 10px;
+          text-align: left;
         }
       }
     }
