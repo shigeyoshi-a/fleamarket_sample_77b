@@ -39,10 +39,11 @@
                 = link_to "ログイン", new_user_session_path
                 
     = yield
-    = link_to new_item_path do
-      %section.register
-        .register__title
-          出品する
-        .register__icon
-          = image_tag ("icon_camera.png")
+    - if controller_name != "registrations" && controller_name != "sessions" && controller_name != "passwords"
+      = link_to new_item_path do
+        %section.register
+          .register__title
+            出品する
+          .register__icon
+            = image_tag ("icon_camera.png")
 
