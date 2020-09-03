@@ -6,16 +6,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
   def new
-    # ユーザーインスタンス生成
     @user = User.new
   end
 
 
   # POST /resource
   def create
-    # データの作成
     @user = User.new(sign_up_params)
-    # バリデーションチェック
     unless @user.valid?
       flash.now[:alert] = @user.errors.full_messages
       render :new and return
@@ -28,18 +25,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create_address
-    # 先に作成したデータ
     @user = User.new(session["devise.regist_data"]["user"])
-    # 住所データの生成
     @address = Address.new(address_params)
     unless @address.valid?
       flash.now[:alert] = @address.errors.full_messages
       render :new_address and return
     end
     @user.build_address(@address.attributes)
-    # ユーザーデータとして保存
+
     @user.save
-    # sessionのデータを削除
     session["devise.regist_data"]["user"].clear
     sign_in(:user, @user)
   end
