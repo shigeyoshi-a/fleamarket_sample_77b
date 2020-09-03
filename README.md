@@ -93,7 +93,7 @@ Things you may want to cover:
 |sending_area_id(acitve_hash)|integer|null: false|        #発送元地域
 |sending_days_id(acitve_hash)|integer|null: false|        #発送日数
 |price|integer|null: false|                               #価格
-|buyer_id|integer|null: false, foreign_key: true|         #usersテーブルのid（購入者）
+|buyer_id|integer|foreign_key: true|                      #usersテーブルのid（購入者）
 |saler_id|integer|null: false, foreign_key: true|         #usersテーブルのid（出品者）
 |category_id|integer|null: false, foreign_key: true|      #categoriesテーブルのid
 
