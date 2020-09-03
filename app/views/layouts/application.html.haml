@@ -12,8 +12,8 @@
       .header__contents
         .header__contents__top
           .icon
-            = link_to "/" do
-              = image_tag ("logo.png")
+            = image_tag ("logo.png")
+
           .searchBox
             .searchBox__input
               sss
@@ -26,6 +26,7 @@
             .leftbox__brand
               ブランド
           .rightbox
+
             - if user_signed_in?
               .rightbox__login
                 = link_to "マイページ", root_path
@@ -38,9 +39,10 @@
                 = link_to "ログイン", new_user_session_path
                 
     = yield
-    %section.register
-      .register__title
-        出品する
-      .register__icon
-        =link_to new_item_path do
+    = link_to new_item_path do
+      %section.register
+        .register__title
+          出品する
+        .register__icon
           = image_tag ("icon_camera.png")
+
