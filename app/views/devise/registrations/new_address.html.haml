@@ -1,0 +1,89 @@
+.Wrapper
+  = render "header"
+  %h2.user__title 発送元・お届け先住所情報登録
+  = form_for @address do |f|
+    -# = render "devise/shared/error_messages", resource: @address
+    .field
+      .field__label
+        = f.label :郵便番号
+        %span.necessarily 必須
+        %br/
+        = f.text_field :post_code, autofocus: true, placeholder: " 例）123-4567"
+      - if @address.errors.include?(:post_code)
+        %p 郵便番号を入力してください
+      %br/
+
+    .field
+      .field__label
+        = f.label :都道府県
+        %span.necessarily 必須
+        %br/
+        = f.collection_select(:prefecture_id, SendingArea.all, :id, :name,{include_blank: "---"}, {class: "field__prefecture"})
+      - if @address.errors.include?(:prefecture_id)
+        %p 都道府県を選択してください
+      %br/
+
+    .field
+      .field__label
+        = f.label :市区町村
+        %span.necessarily 必須
+        %br/
+        = f.text_field :municipality, autofocus: true, placeholder: " 例）渋谷区"
+      - if @address.errors.include?(:municipality)
+        %p 市区町村を入力してください
+      %br/
+
+    .field
+      .field__label
+        = f.label :番地
+        %span.necessarily 必須
+        %br/
+        = f.text_field :street_number,autofocus: true, placeholder: " 例）神南1-2-3"
+      - if @address.errors.include?(:street_number)
+        %p 番地を入力してください
+      %br/
+
+    .field
+      .field__label
+        = f.label :建物名
+        %span.optional 任意
+        %br/
+        = f.text_field :apartment_name,autofocus: true, placeholder: " 例）〇〇ビル 101"
+      %br/
+
+    .field
+      .field__label
+        = f.label :お名前
+        %span.necessarily 必須
+        %br/
+        = f.text_field :receiving_family_name,autofocus: true, placeholder: " 例）田中"
+        %br/
+      .field__label
+        = f.text_field :receiving_first_name,autofocus: true, placeholder: " 例）太郎"
+      - if @address.errors.include?(:receiving_family_name) || @address.errors.include?(:receiving_first_name)
+        %p お名前を全角で入力してください
+      %br/
+    .field
+      .field__label
+        = f.label :お名前（カタカナ）
+        %span.necessarily 必須
+        %br/
+        = f.text_field :receiving_family_name_reading, autofocus: true, placeholder: " 例）タナカ"
+        %br/
+        = f.text_field :receiving_first_name_reading, autofocus: true, placeholder: " 例）タロウ"
+      - if @address.errors.include?(:receiving_family_name_reading) || @address.errors.include?(:receiving_first_name_reading)
+        %p お名前を全角カタカナで入力してください
+      %br/
+
+    .field
+      .field__label
+        = f.label :電話番号
+        %span.optional 任意
+        %br/
+        = f.text_field :telephone_number,autofocus: true, placeholder: " 例）080-123-4567"
+      %br/
+
+    .actions
+      = f.submit "登録する" , class: "submit__btn"
+    = render "footer"
+  - render "devise/shared/links"
