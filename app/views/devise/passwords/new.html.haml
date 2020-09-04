@@ -1,13 +1,14 @@
 = render "devise/registrations/header"
-%h2.user__title Forgot your password?
+
 = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
   = render "devise/shared/error_messages", resource: resource
   .field
+    %h2.user__title Forgot your password?
     = f.label :メールアドレス
     = f.email_field :email, autofocus: true, autocomplete: "email"
   .actions
     = f.submit "パスワードの再発行",class: "submit__btn"
     %br/
 
-  = link_to "戻る", root_path
+  = link_to "トップへ戻る", root_path, class: "link__btn__center"
   = render 'devise/registrations/footer'

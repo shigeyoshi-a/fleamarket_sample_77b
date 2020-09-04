@@ -1,14 +1,15 @@
 .Wrapper
   = render "header"
-  %h2.user__title 発送元・お届け先住所情報登録
+  
   = form_for @address do |f|
     -# = render "devise/shared/error_messages", resource: @address
     .field
+      %h2.user__title 発送元・お届け先住所情報登録
       .field__label
         = f.label :郵便番号
         %span.necessarily 必須
         %br/
-        = f.text_field :post_code, autofocus: true, placeholder: " 例）123-4567"
+        = f.text_field :post_code, autofocus: true, placeholder: " 例）1234567"
       - if @address.errors.include?(:post_code)
         %p 郵便番号を入力してください
       %br/
@@ -48,7 +49,7 @@
         = f.label :建物名
         %span.optional 任意
         %br/
-        = f.text_field :apartment_name,autofocus: true, placeholder: " 例）〇〇ビル 101"
+        = f.text_field :apartment_name,autofocus: true, placeholder: " 例）神南ビル 101"
       %br/
 
     .field
@@ -85,5 +86,6 @@
 
     .actions
       = f.submit "登録する" , class: "submit__btn"
+      = link_to "トップへ戻る", root_path, class:"link__btn__center"
     = render "footer"
   - render "devise/shared/links"

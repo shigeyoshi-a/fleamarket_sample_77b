@@ -1,8 +1,10 @@
 .Wrapper
   = render "header"
-  %h2.user__title ユーザー情報登録
+
   = form_for(@user, url: user_registration_path) do |f|
     -# = render "devise/shared/error_messages", resource: @user
+    .field
+      %h2.user__title ユーザー情報登録
     .field
       .field__label
         = f.label :ニックネーム 
@@ -75,5 +77,6 @@
   
     .actions
       = f.submit "次へ進む", class: "submit__btn"
+      = link_to "トップへ戻る", root_path, class:"link__btn__center"
   = render "footer"
   -# = render "devise/shared/links"
