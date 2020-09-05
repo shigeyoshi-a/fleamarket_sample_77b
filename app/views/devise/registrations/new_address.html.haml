@@ -11,7 +11,7 @@
         %br/
         = f.text_field :post_code, autofocus: true, placeholder: " 例）1234567"
       - if @address.errors.include?(:post_code)
-        %p 郵便番号を入力してください
+        %p.error_message 郵便番号を入力してください
       %br/
 
     .field
@@ -21,7 +21,7 @@
         %br/
         = f.collection_select(:prefecture_id, SendingArea.all, :id, :name,{include_blank: "---"}, {class: "field__prefecture"})
       - if @address.errors.include?(:prefecture_id)
-        %p 都道府県を選択してください
+        %p.error_message 都道府県を選択してください
       %br/
 
     .field
@@ -31,7 +31,7 @@
         %br/
         = f.text_field :municipality, autofocus: true, placeholder: " 例）渋谷区"
       - if @address.errors.include?(:municipality)
-        %p 市区町村を入力してください
+        %p.error_message 市区町村を入力してください
       %br/
 
     .field
@@ -41,7 +41,7 @@
         %br/
         = f.text_field :street_number,autofocus: true, placeholder: " 例）神南1-2-3"
       - if @address.errors.include?(:street_number)
-        %p 番地を入力してください
+        %p.error_message 番地を入力してください
       %br/
 
     .field
@@ -62,7 +62,7 @@
       .field__label
         = f.text_field :receiving_first_name,autofocus: true, placeholder: " 例）太郎"
       - if @address.errors.include?(:receiving_family_name) || @address.errors.include?(:receiving_first_name)
-        %p お名前を全角で入力してください
+        %p.error_message お名前を全角で入力してください
       %br/
     .field
       .field__label
@@ -73,7 +73,7 @@
         %br/
         = f.text_field :receiving_first_name_reading, autofocus: true, placeholder: " 例）タロウ"
       - if @address.errors.include?(:receiving_family_name_reading) || @address.errors.include?(:receiving_first_name_reading)
-        %p お名前を全角カタカナで入力してください
+        %p.error_message お名前を全角カタカナで入力してください
       %br/
 
     .field
