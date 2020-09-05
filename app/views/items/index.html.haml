@@ -87,63 +87,49 @@
   %h2.title
     ピックアップカテゴリー
   .subtitle
-    = link_to "新規投稿商品", new_item_path
+    = link_to "新規投稿商品", root_path
   .products
-    = link_to new_item_path do
-      .products__box__image
-        = image_tag ("icon-01.png")
-      .products__box__body
-        %h3.name
-          いわし
-        %ul.details
-          %li.details__price
-            200円
-          %li.details__icon
-            = icon("fas", "star")
-          %li.details__count
-            1
-        .tax（税込）
-    .products__box
-      .products__box__image
-        画像
-      .products__box__body
-        %h3.name
-          いわし
-        .price
-          200円（税込）
-        .review
-          ★0
-    .products__box
-      .products__box__image
-        画像
-      .products__box__body
-        %h3.name
-          いわし
-        .price
-          200円（税込）
-        .review
-          ★0
-    .products__box
-      .products__box__image
-        画像
-      .products__box__body
-        %h3.name
-          いわし
-        .price
-          200円（税込）
-        .review
-          ★0
-    .products__box
-      .products__box__image
-        画像
-      .products__box__body
-        %h3.name
-          いわし
-        .price
-          200円（税込）
-        .review
-          ★0
+    - @newitems.each do |newitem|
+      = link_to new_item_path do
+        .products__box__image
+          gazou
+        .products__box__body
+          %h3.name
+            = newitem.name
+          %ul.details
+            %li.details__price
+              = newitem.price.to_s
+              %spen円
+            %li.details__icon
+              = icon("fas", "star")
+            %li.details__count
+              0
+          .tax
+            = "（税込）"
 
+%section.pickup
+  %h2.title
+    ピックアップブランド
+  .subtitle
+    = link_to "アーカイバ", root_path
+  .products
+    - @branditems.each do |branditem|
+      = link_to new_item_path do
+        .products__box__image
+          gazou
+        .products__box__body
+          %h3.name
+            = branditem.name
+          %ul.details
+            %li.details__price
+              = branditem.price.to_s
+              %spen円
+            %li.details__icon
+              = icon("fas", "star")
+            %li.details__count
+              0
+          .tax
+            = "（税込）"
 
 %section.bottom-image
   .contents
