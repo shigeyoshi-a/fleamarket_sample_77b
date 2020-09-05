@@ -15,13 +15,12 @@
       .field
         = f.check_box :remember_me
         = f.label :remember_me
-    .actions
-      = f.submit "ログイン", class: "submit__btn"
-    = link_to "トップへ戻る", root_path, class: "link__btn__center"
-    = link_to "パスワードを忘れた場合はこちら", new_password_path(resource_name),class: "link__btn__center"
+      .field   
+        = f.submit "ログイン", class: "submit__btn"
+        = link_to "トップへ戻る", root_path, class: "link__btn__center"
+        = link_to "パスワードを忘れた場合はこちら", new_password_path(resource_name),class: "link__btn__center"
     -# = render "devise/shared/links"
-
+    %br/
     = render 'devise/registrations/footer'
 
 
-    

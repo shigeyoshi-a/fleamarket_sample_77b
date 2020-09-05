@@ -74,9 +74,10 @@
         = f.password_field :password_confirmation, autocomplete: "new-password",placeholder: " 確認用のパスワードを入力してください"
       - if @user.errors.include?(:password_confirmation)
         = @user.errors.full_messages_for(:password_confirmation).first
-  
-    .actions
+      %br/
+    .field
       = f.submit "次へ進む", class: "submit__btn"
       = link_to "トップへ戻る", root_path, class:"link__btn__center"
+    %br/
   = render "footer"
   -# = render "devise/shared/links"

@@ -83,9 +83,9 @@
         %br/
         = f.text_field :telephone_number,autofocus: true, placeholder: " 例）080-123-4567"
       %br/
-
-    .actions
+    .field
       = f.submit "登録する" , class: "submit__btn"
       = link_to "トップへ戻る", root_path, class:"link__btn__center"
+    %br/
     = render "footer"
   - render "devise/shared/links"
