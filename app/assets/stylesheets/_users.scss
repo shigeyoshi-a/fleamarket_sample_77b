@@ -11,6 +11,7 @@
 .user__logo{
   text-align: center;
   margin: 20px;
+  text-decoration: none;
   img{
   width: 180px;
   height: 50px;
@@ -21,6 +22,9 @@
   font-size: 30px;
   margin-bottom: 20px;
   font-weight: bold;
+  border-bottom: 1px solid #acafad ;
+  padding-bottom: 10px;
+  padding-top: 10px;
 }
 .field {
   display: flex;
@@ -39,6 +43,10 @@
     width: 300px;
     height: 35px;
   }
+}
+
+.error_message{
+  color: red;
 }
 
 .necessarily{
@@ -64,7 +72,14 @@
   width: 300px;
   text-align: center;
   border-radius: 10px;
-  height: 50px;
+  height: 35px;
   margin: 0 auto;
 }
-
+.link__btn{
+  &__center{
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  margin: 10px;
+  }
+}
