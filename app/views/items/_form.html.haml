@@ -1,0 +1,106 @@
+= form_for @item do |f|
+  = render 'error_messages', model: f.object
+  .container__main-content__item-image
+    %ul
+      %li  
+        .topic 出品画像
+      %li
+        .necessarily 必須
+    .description 最大10枚までアップロードできます
+    #image-box.image-form
+      #previews
+        - if @item.persisted?
+          - @item.item_images.each_with_index do |image, i|
+            = image_tag image.src.url, data: { index: {id: i}}, width: "100", height: "100"
+      = f.fields_for :item_images do |i|
+        .js-file_group{data: {index: {id: i.index}}}
+          = i.file_field :src, class: 'js-file'
+          .js-remove 削除
+        - if @item.persisted?
+          = i.check_box :_destroy, data: {index: {id: i.index}}, class: 'hidden-destroy'
+      - if @item.persisted?
+        .js-file_group{data: {index: {id: @item.item_images.count}}}
+          = file_field_tag :src, name: "item[item_images_attributes][#{@item.item_images.count}][src]", class: 'js-file'
+          .js-remove 削除
+  .container__main-content__item
+    %ul
+      %li  
+        .topic 商品名
+      %li
+        .necessarily 必須
+    = f.text_field :name, placeholder: " 40文字まで" ,class: "name-form"
+    %ul
+      %li  
+        .topic 商品の説明
+      %li
+        .necessarily 必須
+    = f.text_area :description, placeholder: " 商品の説明（必須 1,000文字以内）", class: "description-form"
+  .container__main-content__item-detail
+    .theme 商品の詳細
+    %ul
+      %li  
+        .topic カテゴリー
+      %li
+        .necessarily 必須
+    = f.text_field :category, class: "category-form"
+    %ul
+      %li  
+        .topic ブランド
+      %li
+        .free 任意
+    = f.text_field :brand, class: "brand-form"
+    %ul
+      %li  
+        .topic 商品の状態
+      %li
+        .necessarily 必須
+    = f.collection_select(:condition_id, Condition.all, :id, :name,{include_blank: "選択してください"}, class: "condition-form")
+  .container__main-content__delivery
+    .theme 配送について
+    %ul
+      %li  
+        .topic 配送料の負担
+      %li
+        .necessarily 必須
+    = f.collection_select(:delivery_fee_id, DeliveryFee.all, :id, :name,{include_blank: "選択してください"}, class: "delivery_fee-form")
+    %ul
+      %li  
+        .topic 発送元の地域
+      %li
+        .necessarily 必須
+    = f.collection_select(:sending_area_id, SendingArea.all, :id, :name,{include_blank: "選択してください"}, class: "sending_area-form")
+    %ul
+      %li  
+        .topic 発送までの日数
+      %li
+        .necessarily 必須
+    = f.collection_select(:sending_days_id, SendingDays.all, :id, :name,{include_blank: "選択してください"}, class: "sending_days-form")
+  .container__main-content__price
+    .theme 価格（¥300〜9,999,999）
+    %ul
+      %li  
+        .topic 販売価格
+      %li
+        .necessarily 必須
+      %li
+        .price-form
+          .price_mark ¥
+          = f.number_field :price, placeholder: " 0", id: "price_calc", class: "price_form-box"
+    .charge-line
+      .charge-line_left
+        販売手数料（10%）
+      .charge-line_right
+        ー
+    .profit-line
+      .profit-line_left
+        販売利益
+      .profit-line_right
+        ー
+  .container__main-content__selling-form
+    = f.submit "出品する", class: "selling-btn"
+    .draft-save-btn
+      下書きに保存
+    .back-btn
+      = link_to "戻る", root_path, class: 'back-btn'
+    .attention
+      禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
