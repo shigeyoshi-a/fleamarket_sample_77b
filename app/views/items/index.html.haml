@@ -89,16 +89,20 @@
   .subtitle
     = link_to "新規投稿商品", new_item_path
   .products
-    .products__box
+    = link_to new_item_path do
       .products__box__image
-        画像
+        = image_tag ("icon-01.png")
       .products__box__body
         %h3.name
           いわし
-        .price
-          200円（税込）
-        .review
-          ★0
+        %ul.details
+          %li.details__price
+            200円
+          %li.details__icon
+            = icon("fas", "star")
+          %li.details__count
+            1
+        .tax（税込）
     .products__box
       .products__box__image
         画像
@@ -186,5 +190,7 @@
           = link_to "お知らせ", root_path
   .footer__logo
     .footer__logo__image
+      = link_to root_path do
+        = image_tag ("logo-white.png")
     .footer__logo__text
       © FURIMA
