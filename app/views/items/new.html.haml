@@ -1,6 +1,7 @@
 .container
   .container__main-content
     = form_for @item do |f|
+      = render 'error_messages', model: f.object
       .container__main-content__item-image
         %ul
           %li  
@@ -25,15 +26,13 @@
             .topic 商品名
           %li
             .necessarily 必須
-        .name-form
-          = f.text_field :name
+        = f.text_field :name, placeholder: " 40文字まで" ,class: "name-form"
         %ul
           %li  
             .topic 商品の説明
           %li
             .necessarily 必須
-        .description-form
-          = f.text_area :description
+        = f.text_area :description, placeholder: " 商品の説明（必須 1,000文字以内）", class: "description-form"
       .container__main-content__item-detail
         .theme 商品の詳細
         %ul
@@ -41,22 +40,19 @@
             .topic カテゴリー
           %li
             .necessarily 必須
-        .category-form
-          = f.text_field :category
+        = f.text_field :category, class: "category-form"
         %ul
           %li  
             .topic ブランド
           %li
             .free 任意
-        .brand-form
-          = f.text_field :brand
+        = f.text_field :brand, class: "brand-form"
         %ul
           %li  
             .topic 商品の状態
           %li
             .necessarily 必須
-        .condition-form
-          = f.collection_select(:condition_id, Condition.all, :id, :name,{include_blank: "---"})
+        = f.collection_select(:condition_id, Condition.all, :id, :name,{include_blank: "選択してください"}, class: "condition-form")
       .container__main-content__delivery
         .theme 配送について
         %ul
@@ -64,22 +60,19 @@
             .topic 配送料の負担
           %li
             .necessarily 必須
-        .delivery_fee-form
-          = f.collection_select(:delivery_fee_id, DeliveryFee.all, :id, :name,{include_blank: "---"})
+        = f.collection_select(:delivery_fee_id, DeliveryFee.all, :id, :name,{include_blank: "選択してください"}, class: "delivery_fee-form")
         %ul
           %li  
             .topic 発送元の地域
           %li
             .necessarily 必須
-        .sending_area-form
-          = f.collection_select(:sending_area_id, SendingArea.all, :id, :name,{include_blank: "---"})
+        = f.collection_select(:sending_area_id, SendingArea.all, :id, :name,{include_blank: "選択してください"}, class: "sending_area-form")
         %ul
           %li  
             .topic 発送までの日数
           %li
             .necessarily 必須
-        .sending_days-form
-          = f.collection_select(:sending_days_id, SendingDays.all, :id, :name,{include_blank: "---"})
+        = f.collection_select(:sending_days_id, SendingDays.all, :id, :name,{include_blank: "選択してください"}, class: "sending_days-form")
       .container__main-content__price
         .theme 価格（¥300〜9,999,999）
         %ul
@@ -87,22 +80,22 @@
             .topic 販売価格
           %li
             .necessarily 必須
-        .price-form
-          ¥
-          = f.number_field :price, id: "price_calc", class: "price_form-box"
+          %li
+            .price-form
+              .price_mark ¥
+              = f.number_field :price, placeholder: " 0", id: "price_calc", class: "price_form-box"
         .charge-line
           .charge-line_left
             販売手数料（10%）
           .charge-line_right
             ー
-          .profit-line
-            .profit-line_left
-              販売利益
-            .profit-line_right
-              ー
+        .profit-line
+          .profit-line_left
+            販売利益
+          .profit-line_right
+            ー
       .container__main-content__selling-form
-        .selling-btn
-          = f.submit
+        = f.submit "出品する", class: "selling-btn"
         .draft-save-btn
           下書きに保存
         .back-btn
