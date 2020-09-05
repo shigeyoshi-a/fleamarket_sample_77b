@@ -11,10 +11,12 @@
       = f.label :パスワード
       %br/
       = f.password_field :password, autocomplete: "current-password"
+      %br/
     - if devise_mapping.rememberable?
       .field
         = f.check_box :remember_me
-        = f.label :remember_me
+        = f.label :ログインを記憶する
+        %br/
       .field   
         = f.submit "ログイン", class: "submit__btn"
         = link_to "トップへ戻る", root_path, class: "link__btn__center"
