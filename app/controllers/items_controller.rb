@@ -38,6 +38,8 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     grandchild = @item.category
     child = grandchild.parent
+
+    @category_parent_array = Category.where(ancestry: nil)
     @parent_array = []
     @parent_array << @item.category.parent.parent.name
     @parent_array << @item.category.parent.parent.id
