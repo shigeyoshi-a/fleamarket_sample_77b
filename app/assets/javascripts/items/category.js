@@ -32,7 +32,6 @@ $(function(){
   }
 
   $('#parent_category').on('change', function(){
-    console.log(document.getElementById('parent_category').val)
     var parentCategory = document.getElementById('parent_category').value;
     if (parentCategory != "---"){
       $.ajax({

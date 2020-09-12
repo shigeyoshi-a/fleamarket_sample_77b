@@ -15,7 +15,7 @@ class ItemsController < ApplicationController
   end
 
   def get_category_children
-    @category_children = Category.find_by("#{params[:parent_id]}", ancestry: nil).children
+    @category_children = Category.find("#{params[:parent_id]}").children
   end
 
   def get_category_grandchildren
@@ -23,6 +23,7 @@ class ItemsController < ApplicationController
   end
 
   def create
+
     @item = Item.new(item_params)
     if @item.save
       redirect_to root_path, notice: '商品を出品しました'
@@ -31,7 +32,7 @@ class ItemsController < ApplicationController
       Category.where(ancestry: nil).each do |parent|
         @category_parent_array << parent.name
       end
-      render action: :new
+      render :new
     end
   end
 
@@ -54,6 +55,6 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :description, :category_id, :brand, :condition_id, :delivery_fee_id, :sending_area_id, :sending_days_id, :price, item_images_attributes: [:image, :_destroy, :id]).merge(saler_id: current_user.id)
+    params.require(:item).permit(:name, :description, :category_id, :brand, :condition_id, :delivery_fee_id, :sending_area_id, :sending_days_id, :price, item_images_attributes: [:image, :_destroy, :id]).merge(saler_id: current_user.id, user_id: current_user.id)
   end
 end
