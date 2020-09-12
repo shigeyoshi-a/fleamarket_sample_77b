@@ -1,7 +1,7 @@
 .top-image {
   height: 560px;
   width: 100%;
-  background-image: url("bg-mainVisual-pict_pc.jpg");
+  background-image: url("app/assets/images/bg-mainVisual-pict_pc.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;
@@ -115,7 +115,7 @@
 .middle-image {
   height: 400px;
   width: 100%;
-  background-image: url("bg-topMiddleDl-pict.jpg");
+  background-image: url("app/assets/images/bg-topMiddleDl-pict.jpg");
   background-position: bottom right;
   background-size: cover;
   display: flex;
@@ -288,7 +288,7 @@
 .bottom-image {
   height: 400px;
   width: 100%;
-  background-image: url("bg-appBanner-pict.jpg");
+  background-image: url("app/assets/images/bg-appBanner-pict.jpg");
   background-size: cover;
   background-position: center;
   .contents {
