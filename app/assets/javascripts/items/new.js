@@ -3,8 +3,8 @@ $(document).on('turbolinks:load', ()=> {
   const buildFileField = (index)=> {
     const html = `<div data-index="${index}" class="js-file_group">
                     <input class="js-file" type="file"
-                    name="product[images_attributes][${index}][src]"
-                    id="product_images_attributes_${index}_src"><br>
+                    name="product[images_attributes][${index}][image]"
+                    id="product_images_attributes_${index}_image"><br>
                     <div class="js-remove">削除</div>
                   </div>`;
     return html;
@@ -30,7 +30,7 @@ $(document).on('turbolinks:load', ()=> {
     const blobUrl = window.URL.createObjectURL(file);
 
     if (img = $(`img[data-index="${targetIndex}"]`)[0]){
-      img.setAttribute('src', blobUrl);
+      img.setAttribute('image', blobUrl);
     } else {
       $('#previews').append(buildImg(targetIndex, blobUrl));
       // fileIndexの先頭の数字を使ってinputを作る
