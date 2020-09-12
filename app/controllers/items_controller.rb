@@ -23,7 +23,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-
+    binding.pry
     @item = Item.new(item_params)
     if @item.save
       redirect_to root_path, notice: '商品を出品しました'
@@ -38,6 +38,21 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
+    grandchild = @item.category
+    child = grandchild.parent
+    @parent_array = []
+    @parent_array << @item.category.parent.parent.name
+    @parent_array << @item.category.parent.parent.id
+
+    @category_children_array = Category.where(ancestry: child.ancestry)
+    @child_array = []
+    @child_array << child.name
+    @child_array << child.id
+
+    @category_grandchildren_array = Category.where(ancestry: grandchild.ancestry)
+    @grandchild_array = []
+    @grandchild_array << child.name
+    @grandchild_array << child.id
   end
 
   def update
