@@ -89,17 +89,21 @@
   .subtitle
     = link_to "新規投稿商品", root_path
   .products
-    - @newitems.each do |newitem|
-      = link_to new_item_path do
+    - @items.each do |item|
+      = link_to item_path(item.id) do
         .products__box__image
-          gazou
+          - if item.buyer_id
+            = image_tag ("icon-04.png")
+            %spen.out SOLD
+          - else
+            = image_tag ("icon-01.png")
         .products__box__body
           %h3.name
-            = newitem.name
+            = item.name
           %ul.details
             %li.details__price
-              = newitem.price.to_s
-              %spen円
+              = item.price.to_s
+              %spen.unit円
             %li.details__icon
               = icon("fas", "star")
             %li.details__count
@@ -113,17 +117,21 @@
   .subtitle
     = link_to "アーカイバ", root_path
   .products
-    - @branditems.each do |branditem|
-      = link_to new_item_path do
+    - @items.each do |item|
+      = link_to item_path(item.id) do
         .products__box__image
-          gazou
+          - if item.brand and item.buyer_id
+            = image_tag ("icon-04.png")
+            %spen.out SOLD
+          - else item.brand
+            = image_tag ("icon-01.png")
         .products__box__body
           %h3.name
-            = branditem.name
+            = item.name
           %ul.details
             %li.details__price
-              = branditem.price.to_s
-              %spen円
+              = item.price.to_s
+              %spen.unit円
             %li.details__icon
               = icon("fas", "star")
             %li.details__count
