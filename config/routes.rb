@@ -9,5 +9,10 @@ Rails.application.routes.draw do
   
   root 'items#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :items, only: [:new, :create, :edit, :update, :show]
+  resources :items, only: [:new, :create, :edit, :update, :show] do
+    collection do
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
+    end
+  end
 end

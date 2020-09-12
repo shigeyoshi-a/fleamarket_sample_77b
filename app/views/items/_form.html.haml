@@ -11,16 +11,16 @@
       #previews
         - if @item.persisted?
           - @item.item_images.each_with_index do |image, i|
-            = image_tag image.src.url, data: { index: {id: i}}, width: "100", height: "100"
+            = image_tag item_image.image.url, data: { index: {id: i}}, width: "100", height: "100"
       = f.fields_for :item_images do |i|
         .js-file_group{data: {index: {id: i.index}}}
-          = i.file_field :src, class: 'js-file'
+          = i.file_field :image,name: "item[item_images_attributes][#{@item.item_images.count}][image]", class: 'js-file'
           .js-remove 削除
         - if @item.persisted?
           = i.check_box :_destroy, data: {index: {id: i.index}}, class: 'hidden-destroy'
       - if @item.persisted?
         .js-file_group{data: {index: {id: @item.item_images.count}}}
-          = file_field_tag :src, name: "item[item_images_attributes][#{@item.item_images.count}][src]", class: 'js-file'
+          = i.file_field :image, name: "item[item_images_attributes][#{@item.item_images.count}][image]", class: 'js-file'
           .js-remove 削除
   .container__main-content__item
     %ul
@@ -36,13 +36,14 @@
         .necessarily 必須
     = f.text_area :description, placeholder: " 商品の説明（必須 1,000文字以内）", class: "description-form"
   .container__main-content__item-detail
-    .theme 商品の詳細
-    %ul
-      %li  
-        .topic カテゴリー
-      %li
-        .necessarily 必須
-    = f.text_field :category, class: "category-form"
+    .item-detail__category
+      .theme 商品の詳細
+      %ul
+        %li  
+          .topic カテゴリー
+        %li
+          .necessarily 必須
+      = f.collection_select(:category_id, Category.roots, :id, :name, {include_blank: "---"}, {class: "category-form", id: 'parent_category'})
     %ul
       %li  
         .topic ブランド
