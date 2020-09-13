@@ -1,0 +1,27 @@
+.another_item
+  -if @item.category.parent != nil
+    = link_to "#{@item.category.parent.parent.name}"
+  -else
+    = link_to "#{@item.category.name}"
+  = link_to " をもっと見る","#" , class: "another_item__category"
+  .another_item__box
+    .another_item__box__link
+      = link_to "#" do
+        = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png"
+        %h3 product
+        %ul
+          %li 30000円
+          %li 
+            = icon("fa","star")
+            0
+        %p.another_item__tax (税込)
+    .another_item__box__link
+      = link_to "#" do
+        = image_tag "https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/18/beef.JPG"
+        %h3 product2
+        %ul
+          %li 30000円
+          %li 
+            = icon("fa","star")
+            1
+        %p.another_item__tax (税込)
