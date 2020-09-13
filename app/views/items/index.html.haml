@@ -89,27 +89,41 @@
   .subtitle
     = link_to "新規投稿商品", root_path
   .products
-    - @items.each do |item|
+    - @newitems.each do |item|
       = link_to item_path(item.id) do
-        .products__box__image
-          - if item.buyer_id
-            = image_tag ("icon-04.png")
+        - if item.buyer_id.present?
+          .products__box__image
+            = image_tag item.item_images[0].image.url
             %spen.out SOLD
-          - else
-            = image_tag ("icon-01.png")
-        .products__box__body
-          %h3.name
-            = item.name
-          %ul.details
-            %li.details__price
-              = item.price.to_s
-              %spen.unit円
-            %li.details__icon
-              = icon("fas", "star")
-            %li.details__count
-              0
-          .tax
-            = "（税込）"
+          .products__box__body
+            %h3.name
+              = item.name
+            %ul.details
+              %li.details__price
+                = item.price.to_s
+                %spen.unit円
+              %li.details__icon
+                = icon("fas", "star")
+              %li.details__count
+                0
+            .tax
+              = "（税込）"
+        - else
+          .products__box__image
+            = image_tag item.item_images[0].image.url
+          .products__box__body
+            %h3.name
+              = item.name
+            %ul.details
+              %li.details__price
+                = item.price.to_s
+                %spen.unit円
+              %li.details__icon
+                = icon("fas", "star")
+              %li.details__count
+                0
+            .tax
+              = "（税込）"
 
 %section.pickup
   %h2.title
@@ -117,27 +131,42 @@
   .subtitle
     = link_to "アーカイバ", root_path
   .products
-    - @items.each do |item|
+    - @branditems.each do |item|
       = link_to item_path(item.id) do
-        .products__box__image
-          - if item.brand and item.buyer_id
-            = image_tag ("icon-04.png")
+        - if item.buyer_id.present? && item.brand.present?
+          .products__box__image
+            = image_tag item.item_images[0].image.url
             %spen.out SOLD
-          - else item.brand
-            = image_tag ("icon-01.png")
-        .products__box__body
-          %h3.name
-            = item.name
-          %ul.details
-            %li.details__price
-              = item.price.to_s
-              %spen.unit円
-            %li.details__icon
-              = icon("fas", "star")
-            %li.details__count
-              0
-          .tax
-            = "（税込）"
+          .products__box__body
+            %h3.name
+              = item.name
+            %ul.details
+              %li.details__price
+                = item.price.to_s
+                %spen.unit円
+              %li.details__icon
+                = icon("fas", "star")
+              %li.details__count
+                0
+            .tax
+              = "（税込）"
+        - elsif item.brand.present?
+          .products__box__image
+            = image_tag item.item_images[0].image.url
+          .products__box__body
+            %h3.name
+              = item.name
+            %ul.details
+              %li.details__price
+                = item.price.to_s
+                %spen.unit円
+              %li.details__icon
+                = icon("fas", "star")
+              %li.details__count
+                0
+            .tax
+              = "（税込）"
+
 
 %section.bottom-image
   .contents
