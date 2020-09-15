@@ -1,7 +1,8 @@
 class ItemsController < ApplicationController
   def index
-    @items = Item.includes(:user).order("created_at DESC").limit(5)
     @parents = Category.where(ancestry: nil)
+    @newitems = Item.includes(:item_images).order("created_at DESC").limit(5)
+    @branditems = Item.includes(:item_images).order("brand DESC").limit(5)
   end
 
   def new
