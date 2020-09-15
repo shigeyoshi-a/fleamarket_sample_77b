@@ -28,10 +28,6 @@
     &__btn {
       display: flex;
       margin-top: 24px;
-      &--apple {
-      }
-      &--google {
-      }
     }
   }
 }
@@ -60,11 +56,10 @@
     left: 50%;
     transform: translateX(-50%);
   }
-
   .contents {
     text-align: center;
     display: flex;
-    max-width: 1020px;
+    max-width: 980px;
     width: 100%;
     margin: 0 auto;
     .content {
@@ -88,8 +83,7 @@
           border-radius: 4%;
           font-size: 30px;
           text-align: center;
-          margin: 0 5px 0 0;
-          padding: 10px 20px;
+          padding: 8px 18px;
           background-color: #3CCACE;
           color: #fff;
         }
@@ -167,7 +161,7 @@
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-}
+  }
   .contents {
     max-width: calc(1040px + 20px);
     width: 100%;
@@ -182,8 +176,8 @@
       &__img {
         margin: 0 auto;
         line-height: 120px;
-        max-width: 245px;
-        max-height: 348px;
+        max-width: 242px;
+        max-height: 342px;
         img {
           width: 100%;
           height: 100%
@@ -191,12 +185,12 @@
       }
       &__title {
         margin: 10px 0 10px;
-        font-size: 19px;
+        font-size: 1.3em;
         font-weight: bold;
       }
       &__text {
         margin: 0 0 40px;
-        font-size: 17px;
+        font-size: 16px;
         font-weight: 200;
         text-align: left;
       }
@@ -303,78 +297,4 @@
     }
   }
 }
-.bottom-image {
-  height: 400px;
-  width: 100%;
-  background-image: image-url("bg-appBanner-pict.jpg");
-  background-size: cover;
-  background-position: center;
-  .contents {
-    color: #fff;
-    text-align: center;
-    padding: 100px 40px;
-    position: relative;
-    &__title {
-      text-shadow: 0 0 5px rgba(0,0,0,0.4);
-      font-size: 24px;
-      font-weight: bold;
-      line-height: 1.4;
-    }
-    &__text {
-      font-size: 35px;
-      text-shadow: 0 0 5px rgba(0,0,0,0.4);
-    }
-    &__btn {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      margin: 20px auto 0;
-    }
-  }
-}
-.footer {
-  height: 243px;
-  width: 100%;
-  color: #fff;
-  background-color: #272727;
-  text-align: center;
-  padding: 60px 0;
-  .contents {
-    max-width: 840px;
-    margin: 0 auto;
-    display: flex;
-    .content {
-      display: flex;
-      flex-direction: column;
-      width: calc(1 / 3 * 100%);
-      &__title {
-        margin: 0 0 20px;
-        font-size: 16px;
-        font-weight: bold;
-      }
-      &__texts {
-        &__text {
-          margin-bottom: 15px;
-          font-size:12px;
-          a {
-            color: #fff;
-          }
-        }
-      }
-    }
-  }
-  &__logo {
-    max-width: 160px;
-    width: 100%;
-    margin: 0 auto;
-    &__image {
-      img {
-        width: 150px;
-        height: 47px;
-      }
-    }
-    &__text {
-      font-size: 10px;
-    }
-  }
-}
+

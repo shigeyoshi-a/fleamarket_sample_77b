@@ -40,6 +40,7 @@
                 = link_to "ログイン", new_user_session_path
                 
     = yield
+    -# 出品ボタン
     - if controller_name != "registrations" && controller_name != "sessions" && controller_name != "passwords"
       = link_to new_item_path do
         %section.register
@@ -47,4 +48,56 @@
             出品する
           .register__icon
             = image_tag ("icon_camera.png")
+
+    - if controller_name != "registrations" && controller_name != "sessions" && controller_name != "passwords"
+      %section.bottom-image
+        .contents
+          .contents__title
+            だれでもかんたん、人生を変えるフリマアプリ
+          .contents__text
+            今すぐ無料ダウンロード！
+          .contents__btn
+            .contents__btn--apple
+              <a href="#" style="display:inline-block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/ja-jp/badge-lrg.svg?releaseDate=2015-11-12&kind=iossoftware&bubble=ios_apps) no-repeat;width:218px; height:65px; margin:16px; background-size:contain;">​</a>
+            .contents__btn--google
+              <a href='#'><img src='https://play.google.com/intl/us-en/badges/images/generic/ja_badge_web_generic.png'width="250px" height="97px"/></a>
+
+    %section.footer
+      .contents
+        .content
+          %h2.content__title
+            FURIMAについて
+          %ul.content__texts
+            %li.content__texts__text
+              = link_to "会社概要（運営会社）", root_path
+            %li.content__texts__text
+              = link_to "プライバシーポリシー", root_path
+            %li.content__texts__text
+              = link_to "FURIMA利用規約", root_path
+            %li.content__texts__text
+              = link_to "ポイントに関する特約", root_path
+        .content
+          %h2.content__title
+            FURIMAを見る
+          %ul.content__texts
+            %li.content__texts__text
+              = link_to "カテゴリー一覧", root_path
+            %li.content__texts__text
+              = link_to "ブランド一覧", root_path
+        .content
+          %h2.content__title
+            ヘルプ＆ガイド
+          %ul.content__texts
+            %li.content__texts__text
+              = link_to "FURIMAガイド", root_path
+            %li.content__texts__text
+              = link_to "FURIMAロゴ利用ガイドライン", root_path
+            %li.content__texts__text
+              = link_to "お知らせ", root_path
+      .footer__logo
+        .footer__logo__image
+          = link_to root_path do
+            = image_tag ("logo-white.png")
+        .footer__logo__text
+          © FURIMA
 
