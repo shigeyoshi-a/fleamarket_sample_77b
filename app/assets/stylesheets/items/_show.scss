@@ -238,15 +238,10 @@ justify-content: space-between;
     font-size: 20px;
   }
   &__box{
-    display: flex;
     padding: 5px;
     margin-top: 20px;
     &__link{
-      width: 230px;
-      padding: 20px;
-      background-color: white;
-      margin-right: 15px;
-      height: 250px;
+      display: flex;
         a{
           color: black;
         }
@@ -267,4 +262,11 @@ justify-content: space-between;
   &__tax{
     font-size: 12px;
   }
+}
+.product{
+  width: 230px;
+  padding: 20px;
+  background-color: white;
+  margin-right: 15px;
+  height: 250px;
 }
