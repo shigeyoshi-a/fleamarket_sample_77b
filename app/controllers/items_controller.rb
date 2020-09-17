@@ -69,7 +69,7 @@ class ItemsController < ApplicationController
     @sending_area = SendingArea.find_by_id @item.sending_area_id
     @sending_days = SendingDays.find_by_id @item.sending_days_id
     @category = Category.find_by_id @item.category_id
-    @categories =  @category.items
+    @categories =  @category.items.order("created_at DESC").limit(3)
   end
 
   private
