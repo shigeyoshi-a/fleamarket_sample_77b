@@ -59,16 +59,18 @@
             %td サイズ指定はありません
           %tr
             %th 商品の状態
-            %td= @item.condition_id
+            %td= @condition.name
           %tr
             %th 配送料の負担
-            %td= @item.delivery_fee_id
+            %td= @delivery_fee.name
           %tr
             %th 発送元の地域
-            %td= @item.sending_area_id
+            %td
+              = link_to "#" do
+                = @sending_area.name
           %tr
             %th 発送日の目安
-            %td= @item.sending_days_id
+            %td= @sending_days.name
     .check_btn
       .check_btn__like
         =link_to "#" do
