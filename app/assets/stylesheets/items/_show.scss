@@ -233,18 +233,22 @@ justify-content: space-between;
   padding: 30px;
   padding-left: 350px;
   &__category{
+    a{
     color: rgb(31, 207, 199);
     font-weight: bold;
     font-size: 20px;
+    }
   }
   &__box{
     padding: 5px;
     margin-top: 20px;
     &__link{
       display: flex;
-        a{
-          color: black;
-        }
+
+      &__name{
+        font-size: 14px;
+        margin-top: 10px;
+      }
         img{
           width: 200px;
           object-fit: cover;
@@ -253,6 +257,7 @@ justify-content: space-between;
       ul{
         display: flex;
         justify-content: space-between;
+        font-size: 16px;
         li{
           font-weight: bold;
         }
@@ -260,7 +265,7 @@ justify-content: space-between;
     }
   }
   &__tax{
-    font-size: 12px;
+    font-size: 10px;
   }
 }
 .product{
