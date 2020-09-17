@@ -20,7 +20,7 @@
               = item.name
             %ul
               %li 
-                = item.price
+                = item.price.to_s(:delimited)
                 %spen.unit円              
               %li 
                 = icon("fa","star")
