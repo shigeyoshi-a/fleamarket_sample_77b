@@ -2,11 +2,16 @@ require 'rails_helper'
 describe Item do
 
   before do
-    user = FactoryBot.create(:user)
-    @item = FactoryBot.build(:item)
-    @item_image = FactoryBot.build(:item_image)
+    @item = FactoryBot.create(:item)
+    @item_image = FactoryBot.create(:item_image)
   end
+
   describe '商品出品機能' do
+
+    it "全ての情報が記載されていれば出品できること" do
+      expect(@item).to be_valid
+    end
+
     it "商品名がないと出品できないこと" do
       @item.name = ""
       @item.valid?
@@ -59,22 +64,6 @@ describe Item do
       @item.valid?
       expect(@item.errors[:price]).to include("can't be blank")
     end
-
-    it "価格が300円未満だと出品できないこと" do
-      @item.price = "299"
-      @item.valid?
-      expect(@item.errors[:price]).to include("入力値が300~9,999,999の範囲外です")
-    end
-
-    it "価格が10,000,000以上だと出品できないこと" do
-      @item.price = "10,000,000"
-      @item.valid?
-      expect(@item.errors[:price]).to include("入力値が300~9,999,999の範囲外です")
-    end
-
-    it "" do
-    end
-
 
   end
 end

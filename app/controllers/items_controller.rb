@@ -27,10 +27,8 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path, notice: '商品を出品しました'
     else
-      @category_parent_array = ["---"]
-      Category.where(ancestry: nil).each do |parent|
-        @category_parent_array << parent.name
-      end
+      @item.item_images.new
+      @item.valid?
       render :new
     end
   end
@@ -71,6 +69,6 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :description, :category_id, :brand, :condition_id, :delivery_fee_id, :sending_area_id, :sending_days_id, :price, item_images_attributes: [:image, :_destroy, :id]).merge(saler_id: current_user.id, user_id: current_user.id)
+    params.require(:item).permit(:name, :description, :category_id, :brand, :condition_id, :delivery_fee_id, :sending_area_id, :sending_days_id, :price, item_images_attributes: [:image, :_destroy, :item_id]).merge(saler_id: current_user.id, user_id: current_user.id)
   end
 end
