@@ -42,11 +42,11 @@
             %th カテゴリー    
             %td
               -if @item.category.parent != nil
-                = link_to "#{@item.category.parent.parent.name}"
+                = link_to "#{@item.category.parent.parent.name}",category_path(@item.category_id), method: :get
                 %br/
-                = link_to "#{@item.category.parent.name}" 
+                = link_to "#{@item.category.parent.name}" ,category_path(@item.category_id), method: :get
                 %br/
-              = link_to "#{@item.category.name}"
+              = link_to "#{@item.category.name}",category_path(@item.category_id), method: :get
           %tr
             %th ブランド
             %td 

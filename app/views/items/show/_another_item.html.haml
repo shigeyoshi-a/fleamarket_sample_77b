@@ -1,10 +1,10 @@
 .another_item
   .another_item__category
     -if @item.category.parent != nil
-      = link_to "#{@item.category.parent.parent.name}","#"
+      = link_to "#{@item.category.parent.parent.name}", category_path(@item.category_id),method: :get
     -else
-      = link_to "#{@item.category.name}" ,"#"
-    = link_to " をもっと見る", "#"
+      = link_to "#{@item.category.name}" ,category_path(@item.category_id), method: :get
+    = link_to " をもっと見る", category_path(@item.category_id), method: :get
   .another_item__box
     .another_item__box__link
       -@categories.each do |item|
