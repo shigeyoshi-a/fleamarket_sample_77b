@@ -64,11 +64,11 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    @condition = Condition.find_by_id @item.condition_id
-    @delivery_fee = DeliveryFee.find_by_id @item.delivery_fee_id
-    @sending_area = SendingArea.find_by_id @item.sending_area_id
-    @sending_days = SendingDays.find_by_id @item.sending_days_id
-    @category = Category.find_by_id @item.category_id
+    @condition = @item.condition
+    @delivery_fee = @item.delivery_fee
+    @sending_area = @item.sending_area
+    @sending_days = @item.sending_days
+    @category = @item.category
     @categories =  @category.items.order("created_at DESC").limit(3)
   end
 
