@@ -1,0 +1,38 @@
+.categories_item{
+  &__box{
+    padding: 5px;
+    margin-top: 20px;
+    width: 680px;
+    &__link{
+      display: flex;
+      width: 200px;
+      &__name{
+        font-size: 14px;
+        margin-top: 10px;
+      }
+        img{
+          width: 180px;
+          object-fit: cover;
+          height: 150px;
+        }
+      ul{
+        display: flex;
+        justify-content: space-between;
+        font-size: 16px;
+        li{
+          font-weight: bold;
+        }
+      }
+    }
+  }
+  &__tax{
+    font-size: 10px;
+  }
+}
+.product{
+  width: 200px;
+  padding: 20px;
+  background-color: white;
+  margin-right: 15px;
+  height: 250px;
+}

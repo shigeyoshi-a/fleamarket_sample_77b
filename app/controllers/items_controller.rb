@@ -65,6 +65,12 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @condition = @item.condition
+    @delivery_fee = @item.delivery_fee
+    @sending_area = @item.sending_area
+    @sending_days = @item.sending_days
+    @category = @item.category
+    @categories =  @category.items.order("created_at DESC").limit(3)
   end
 
   private

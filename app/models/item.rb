@@ -1,9 +1,15 @@
 class Item < ApplicationRecord
+  extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :user
   belongs_to :category
   belongs_to :saler, class_name: "User"
   has_many :item_images
   has_many :comments
+  belongs_to_active_hash :condition
+  belongs_to_active_hash :delivery_fee
+  belongs_to_active_hash :sending_days
+  belongs_to_active_hash :sending_area
+
   accepts_nested_attributes_for :item_images, allow_destroy: true
   validates_associated :item_images
   
