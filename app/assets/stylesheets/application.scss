@@ -2,10 +2,12 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "common";
+@import "category";
 @import "items/index";
 @import "items/new";
-@import "users";
-@import "category";
 @import "items/error_messages";
 @import "items/show";
 @import "items/categories";
+@import "users/devise";
+@import "users/mypage";
+

@@ -23,7 +23,7 @@
         %spen.weight 3分
         ですぐに出品
       %p.content__description
-        スマホで入力するだけで<br>簡単に出品できる！
+        スマホで入力するだけで<br>簡単に出品できる!!
     .content
       .content__pict
         %spen.number 2
@@ -32,7 +32,7 @@
         %spen.weight シンプル
         で使いやすい
       %p.content__description
-        めんどくさい入力は必要なく<br>検索も購入もスムーズ！
+        めんどくさい入力は必要なく<br>検索も購入もスムーズ!!
     .content
       .content__pict
         %spen.number 3
@@ -41,7 +41,7 @@
         手数料
         %spen.weight 業界最安
       %p.content__description
-        最大3%でお得に出品&購入！
+        最大3%でお得に出品&購入!!
 
 %section.middle-image
   .content
@@ -89,27 +89,41 @@
   .subtitle
     = link_to "新規投稿商品", root_path
   .products
-    - @items.each do |item|
+    - @newitems.each do |item|
       = link_to item_path(item.id) do
-        .products__box__image
-          - if item.buyer_id
-            = image_tag ("icon-04.png")
+        - if item.buyer_id.present?
+          .products__box__image
+            = image_tag item.item_images[0].image.url
             %spen.out SOLD
-          - else
-            = image_tag ("icon-01.png")
-        .products__box__body
-          %h3.name
-            = item.name
-          %ul.details
-            %li.details__price
-              = item.price.to_s
-              %spen.unit円
-            %li.details__icon
-              = icon("fas", "star")
-            %li.details__count
-              0
-          .tax
-            = "（税込）"
+          .products__box__body
+            %h3.name
+              = item.name
+            %ul.details
+              %li.details__price
+                = item.price.to_s
+                %spen.unit円
+              %li.details__icon
+                = icon("fas", "star")
+              %li.details__count
+                0
+            .tax
+              = "（税込）"
+        - else
+          .products__box__image
+            = image_tag item.item_images[0].image.url
+          .products__box__body
+            %h3.name
+              = item.name
+            %ul.details
+              %li.details__price
+                = item.price.to_s
+                %spen.unit円
+              %li.details__icon
+                = icon("fas", "star")
+              %li.details__count
+                0
+            .tax
+              = "（税込）"
 
 %section.pickup
   %h2.title
@@ -117,74 +131,38 @@
   .subtitle
     = link_to "アーカイバ", root_path
   .products
-    - @items.each do |item|
+    - @branditems.each do |item|
       = link_to item_path(item.id) do
-        .products__box__image
-          - if item.brand and item.buyer_id
-            = image_tag ("icon-04.png")
+        - if item.buyer_id.present? && item.brand.present?
+          .products__box__image
+            = image_tag item.item_images[0].image.url
             %spen.out SOLD
-          - else item.brand
-            = image_tag ("icon-01.png")
-        .products__box__body
-          %h3.name
-            = item.name
-          %ul.details
-            %li.details__price
-              = item.price.to_s
-              %spen.unit円
-            %li.details__icon
-              = icon("fas", "star")
-            %li.details__count
-              0
-          .tax
-            = "（税込）"
-
-%section.bottom-image
-  .contents
-    .contents__title
-      だれでもかんたん、人生を変えるフリマアプリ
-    .contents__text
-      今すぐ無料ダウンロード！
-    .contents__btn
-      .contents__btn--apple
-        <a href="#" style="display:inline-block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/ja-jp/badge-lrg.svg?releaseDate=2015-11-12&kind=iossoftware&bubble=ios_apps) no-repeat;width:218px; height:65px; margin:16px; background-size:contain;">​</a>
-      .contents__btn--google
-        <a href='#'><img src='https://play.google.com/intl/us-en/badges/images/generic/ja_badge_web_generic.png'width="250px" height="97px"/></a>
-%section.footer
-  .contents
-    .content
-      %h2.content__title
-        FURIMAについて
-      %ul.content__texts
-        %li.content__texts__text
-          = link_to "会社概要（運営会社）", root_path
-        %li.content__texts__text
-          = link_to "プライバシーポリシー", root_path
-        %li.content__texts__text
-          = link_to "FURIMA利用規約", root_path
-        %li.content__texts__text
-          = link_to "ポイントに関する特約", root_path
-    .content
-      %h2.content__title
-        FURIMAを見る
-      %ul.content__texts
-        %li.content__texts__text
-          = link_to "カテゴリー一覧", root_path
-        %li.content__texts__text
-          = link_to "ブランド一覧", root_path
-    .content
-      %h2.content__title
-        ヘルプ＆ガイド
-      %ul.content__texts
-        %li.content__texts__text
-          = link_to "FURIMAガイド", root_path
-        %li.content__texts__text
-          = link_to "FURIMAロゴ利用ガイドライン", root_path
-        %li.content__texts__text
-          = link_to "お知らせ", root_path
-  .footer__logo
-    .footer__logo__image
-      = link_to root_path do
-        = image_tag ("logo-white.png")
-    .footer__logo__text
-      © FURIMA
+          .products__box__body
+            %h3.name
+              = item.name
+            %ul.details
+              %li.details__price
+                = item.price.to_s
+                %spen.unit円
+              %li.details__icon
+                = icon("fas", "star")
+              %li.details__count
+                0
+            .tax
+              = "（税込）"
+        - elsif item.brand.present?
+          .products__box__image
+            = image_tag item.item_images[0].image.url
+          .products__box__body
+            %h3.name
+              = item.name
+            %ul.details
+              %li.details__price
+                = item.price.to_s
+                %spen.unit円
+              %li.details__icon
+                = icon("fas", "star")
+              %li.details__count
+                0
+            .tax
+              = "（税込）"

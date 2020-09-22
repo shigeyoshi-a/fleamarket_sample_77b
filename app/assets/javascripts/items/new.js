@@ -30,7 +30,7 @@ $(document).on('turbolinks:load', ()=> {
     const blobUrl = window.URL.createObjectURL(file);
 
     if (img = $(`img[data-index="${targetIndex}"]`)[0]){
-      img.setAttribute('image', blobUrl);
+      img.setAttribute('src', blobUrl);
     } else {
       $('#previews').append(buildImg(targetIndex, blobUrl));
       // fileIndexの先頭の数字を使ってinputを作る
@@ -52,20 +52,19 @@ $(document).on('turbolinks:load', ()=> {
     // 画像入力欄が0個にならないようにしておく
     if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
   });
-});
-
-$(function(){
-  $('#price_calc').on('keyup', function(){
-    var data = $('#price_calc').val();
-    var profit = Math.round(data * 0.9)
-    var fee = (data - profit)
-    $('.charge-line_right').html(fee)
-    $('.charge-line_right').prepend('¥')
-    $('.profit-line_right').html(profit)
-    $('.profit-line_right').prepend('¥')
-    if(profit == '') {
-    $('.charge-line_right').html('ー');
-    $('.profit-line_right').html('ー');
-    }
+  $(function(){
+    $('#price_calc').on('keyup', function(){
+      var data = $('#price_calc').val();
+      var profit = Math.round(data * 0.9)
+      var fee = (data - profit)
+      $('.charge-line_right').html(fee)
+      $('.charge-line_right').prepend('¥')
+      $('.profit-line_right').html(profit)
+      $('.profit-line_right').prepend('¥')
+      if(profit == '') {
+      $('.charge-line_right').html('ー');
+      $('.profit-line_right').html('ー');
+      }
+    })
   })
-})
+});

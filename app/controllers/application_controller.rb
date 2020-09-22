@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
   def parents
     @parents = Category.where(ancestry: nil)
   end
-  
+
   protected
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :family_name,:first_name,:family_name_reading,:first_name_reading,:birthday])
@@ -37,7 +37,6 @@ class ApplicationController < ActionController::Base
   def production?
     Rails.env.production?
   end
-  
 
   def basic_auth
     authenticate_or_request_with_http_basic do |username, password|

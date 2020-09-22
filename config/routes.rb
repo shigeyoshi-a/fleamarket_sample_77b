@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'users/show'
   devise_for :users ,controllers: {
     registrations: 'users/registrations',
   }
@@ -7,6 +8,7 @@ Rails.application.routes.draw do
     post 'addresses', to: 'users/registrations#create_address'
   end
   resources :category, only: :show
+
   root 'items#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :items, only: [:new, :create, :edit, :update, :show] do
@@ -16,4 +18,7 @@ Rails.application.routes.draw do
     end
   end
   get '*wrong_routes' => 'routing_errors#index'
+
+  resources :users, only: [:show]
+
 end

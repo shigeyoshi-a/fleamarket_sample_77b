@@ -1,7 +1,8 @@
 class ItemsController < ApplicationController
   def index
-    @items = Item.includes(:user).order("created_at DESC").limit(5)
     @parents = Category.where(ancestry: nil)
+    @newitems = Item.includes(:item_images).order("created_at DESC").limit(5)
+    @branditems = Item.includes(:item_images).order("brand DESC").limit(5)
   end
 
   def new
@@ -26,10 +27,8 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path, notice: '商品を出品しました'
     else
-      @category_parent_array = ["---"]
-      Category.where(ancestry: nil).each do |parent|
-        @category_parent_array << parent.name
-      end
+      @item.item_images.new
+      @item.valid?
       render :new
     end
   end
@@ -38,6 +37,8 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     grandchild = @item.category
     child = grandchild.parent
+
+    @category_parent_array = Category.where(ancestry: nil)
     @parent_array = []
     @parent_array << @item.category.parent.parent.name
     @parent_array << @item.category.parent.parent.id
@@ -74,6 +75,6 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :description, :category_id, :brand, :condition_id, :delivery_fee_id, :sending_area_id, :sending_days_id, :price, item_images_attributes: [:image, :_destroy, :id]).merge(saler_id: current_user.id, user_id: current_user.id)
+    params.require(:item).permit(:name, :description, :category_id, :brand, :condition_id, :delivery_fee_id, :sending_area_id, :sending_days_id, :price, item_images_attributes: [:image, :_destroy, :item_id]).merge(saler_id: current_user.id, user_id: current_user.id)
   end
 end
