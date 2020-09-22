@@ -17,8 +17,6 @@ Rails.application.routes.draw do
       get 'get_category_grandchildren', defaults: { format: 'json' }
     end
   end
-  get '*wrong_routes' => 'routing_errors#index'
-
   resources :users, only: [:show]
-
+  get '*wrong_routes', to: 'routing_errors#index'
 end
