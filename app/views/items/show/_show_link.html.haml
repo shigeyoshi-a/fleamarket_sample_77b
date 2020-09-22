@@ -1,0 +1,8 @@
+.link_items
+  %ul.link_item
+    %li.link__before
+      = link_to item_path(@item.id-1) do
+        < 前の商品
+    %li.link__after
+      = link_to item_path(@item.id+1) do
+        後ろの商品 >

@@ -85,3 +85,7 @@ gem 'factory_bot_rails'
 gem "font-awesome-sass"
 gem 'payjp'
 gem 'dotenv-rails'
+
+gem 'jquery-turbolinks'
+gem 'rails-i18n'
+
