@@ -1,10 +1,27 @@
 Rails.application.routes.draw do
+
+  get 'purchase/index'
+  get 'purchase/done'
   devise_for :users ,controllers: {
     registrations: 'users/registrations',
   }
   devise_scope :user do
     get 'addresses', to: 'users/registrations#new_address'
     post 'addresses', to: 'users/registrations#create_address'
+  end
+
+  resources :cards, only: [:new, :show, :destroy] do
+    collection do
+      post 'pay', to: 'cards#pay'
+    end
+  end
+
+  resources :purchase, only: [:index] do
+    collection do
+      get 'index', to: 'purchase#index'
+      get 'done', to: 'purchase#done'
+      post 'pay', to: 'purchase#pay'
+    end
   end
   
   root 'items#index'

@@ -83,3 +83,5 @@ gem 'devise'
 gem 'rspec-rails'
 gem 'factory_bot_rails'
 gem "font-awesome-sass"
+gem 'payjp'
+gem 'dotenv-rails'
