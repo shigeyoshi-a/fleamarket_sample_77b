@@ -33,6 +33,10 @@
   &__tax{
     font-size: 10px;
   }
+  &__name{
+    font-size: 22px;
+    font-weight: bold;
+  }
 }
 .category__items{
   width: 220px;
@@ -40,5 +44,4 @@
   background-color: white;
   margin: 15px 15px 0 0;
   height: 300px;
-
 }

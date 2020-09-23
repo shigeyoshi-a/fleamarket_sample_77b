@@ -1,6 +1,7 @@
 .Wrapper
   .category_item
-    = "#{@category.name}の商品一覧"
+    .category_item__name
+      = "#{@category.name}の商品一覧"
     = render "category_parent"
     = render "category_children"
     = render "category_grand_children"
