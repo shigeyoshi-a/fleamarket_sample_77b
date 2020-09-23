@@ -5,7 +5,7 @@
         = link_to item_path(item.id) do
           .category_item__box__link__image
             - if item.brand && item.buyer_id
-              = image_tag ("icon-04.png")
+              = image_tag "#{item.item_images[0].image}"   
               %spen.out SOLD
             - else item.brand
               = image_tag "#{item.item_images[0].image}"   

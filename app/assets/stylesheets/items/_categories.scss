@@ -3,6 +3,7 @@
   padding: 30px;
   margin-left: 340px;
   width: 950px;
+  
   &__box{
     padding: 5px;
     margin-top: 20px;
@@ -10,16 +11,35 @@
     &__link{
       display: flex;
       flex-wrap: wrap;
-      }
-      &__name{
-        font-size: 14px;
-        margin-top: 10px;
-      }
+      &__image{
+        position: relative;
         img{
           width: 180px;
           object-fit: cover;
           height: 150px;
         }
+        .out {
+          display: inline-block;
+          position: absolute;
+          top: 48px;
+          left: 38px;
+          border-radius: 13%;
+          font-size: 1.8rem;
+          text-align: center;
+          font-weight: bold;
+          letter-spacing: 5px;
+          padding: 5px 8px;
+          background-color: red;
+          color: #fff;
+          transform: rotate(-18deg);
+        }
+      }
+      }
+      &__name{
+        font-size: 14px;
+        margin-top: 10px;
+      }
+
       ul{
         display: flex;
         justify-content: space-between;
