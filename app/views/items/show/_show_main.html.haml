@@ -41,12 +41,11 @@
           %tr 
             %th カテゴリー    
             %td
-              -if @item.category.parent != nil
-                = link_to "#{@item.category.parent.parent.name}",category_path(@item.category_id), method: :get
-                %br/
-                = link_to "#{@item.category.parent.name}" ,category_path(@item.category_id), method: :get
-                %br/
-              = link_to "#{@item.category.name}",category_path(@item.category_id), method: :get
+              = link_to "#{@item.category.parent.parent.name}",category_path(@category.parent.parent_id)
+              %br/
+              = link_to "#{@item.category.parent.name}" ,category_path(@category.parent_id)
+              %br/
+              = link_to "#{@item.category.name}",category_path(@category.id)
           %tr
             %th ブランド
             %td 
