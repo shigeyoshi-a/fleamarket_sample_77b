@@ -1,24 +1,6 @@
 .Wrapper
-  .another_item
-    -@category.id
-    .another_item__box
-      .another_item__box__link
-        -@categories.each do |item|
-          .product
-            = link_to item_path(item.id) do
-              .another_item__box__link__image
-                - if item.brand && item.buyer_id
-                  = image_tag ("icon-04.png")
-                  %spen.out SOLD
-                - else item.brand
-                  = image_tag "#{item.item_images[0].image}"   
-              .another_item__box__link__name
-                = item.name
-              %ul
-                %li 
-                  = item.price.to_s(:delimited)
-                  %spen.unit円              
-                %li 
-                  = icon("fa","star")
-                  0
-              .another_item__tax (税込)
+  .category_item
+    = "#{@category.name}の商品一覧"
+    = render "category_parent"
+    = render "category_children"
+    = render "category_grand_children"
