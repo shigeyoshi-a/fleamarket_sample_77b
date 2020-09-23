@@ -1,11 +1,16 @@
-.categories_item{
+.category_item{
+  background-color: #f5f5f5;
+  padding: 30px;
+  margin-left: 340px;
+  width: 950px;
   &__box{
     padding: 5px;
     margin-top: 20px;
-    width: 680px;
+
     &__link{
       display: flex;
-      width: 200px;
+      flex-wrap: wrap;
+      }
       &__name{
         font-size: 14px;
         margin-top: 10px;
@@ -23,16 +28,17 @@
           font-weight: bold;
         }
       }
-    }
+    
   }
   &__tax{
     font-size: 10px;
   }
 }
-.product{
-  width: 200px;
+.category__items{
+  width: 220px;
   padding: 20px;
   background-color: white;
-  margin-right: 15px;
-  height: 250px;
+  margin: 15px 15px 0 0;
+  height: 300px;
+
 }
