@@ -26,7 +26,7 @@
           .item__btn__edit
             編集する
       .item__btn
-        = link_to @item, method: :delete, data: { confirm: '商品を削除しますか？' }  do
+        = link_to item_path(@item.id), method: :delete, data: { confirm: '商品を削除しますか？' }  do
           .item__btn__delete
             削除する
     .item__description

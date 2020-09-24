@@ -12,7 +12,7 @@ $(document).on('turbolinks:load', ()=> {
   const buildImg = (index, url)=> {
     const html = `<div class="preview-box">
                     <div class="upper-box">
-                      <img data-index="${index}" src="${url}" width="100px" height="100px">
+                      <img id="preview-image" data-index="${index}" src="${url}" width="100px" height="100px">
                     </div>
                     <div class="lower-box">
                       <div class="update-box">
@@ -48,23 +48,27 @@ $(document).on('turbolinks:load', ()=> {
     if (img = $(`img[data-index="${targetIndex}"]`)[0]){
       img.setAttribute('src', blobUrl);
     } else {
+      fileIndex.shift();
+      // 末尾の数に1足した数を追加する
       $('#previews').append(buildImg(targetIndex, blobUrl));
       // fileIndexの先頭の数字を使ってinputを作る
       $('#hidden-content').append(buildFileField(fileIndex[0]));
       //プレビューの数でラベルのオプションを更新する
       $('.label-box').attr({id: `label-box--${fileIndex[0]}`,for: `item_item_images_attributes_${fileIndex[0]}_image`});
       // indexの値が次の番号にシフトする
-      fileIndex.shift();
-      // 末尾の数に1足した数を追加する
+      
       // fileIndex.push(fileIndex[fileIndex.length - 1] + 1)
     }
   });
 
   // 画像削除時
   $('#image-box').on('click', '.js-remove', function(){
-    // カスタムデータ取得
-    const targetIndex = $('#preview-image').data('index');
+    // 画像の親要素のカスタムデータ取得
+    const targetIndex = $(this).closest("#preview-image").data('index');
+    console.log(targetIndex);
+    // チェックボックスの取得
     const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
+    // チェックボックスが存在していたら、チェックを入れる
     if (hiddenCheck) hiddenCheck.prop('checked', true);
 
     $(this).parent().parent().remove();
