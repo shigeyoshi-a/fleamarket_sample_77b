@@ -3,6 +3,7 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title FleamarketSample77b
+    %script{src: "https://js.pay.jp/", type: "text/javascript"}
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
@@ -41,7 +42,7 @@
                 
     = yield
     -# 出品ボタン
-    - if controller_name != "registrations" && controller_name != "sessions" && controller_name != "passwords"
+    - if controller_name != "registrations" && controller_name != "sessions" && controller_name != "passwords" && controller_name != "cards"
       = link_to new_item_path do
         %section.register
           .register__title
@@ -49,7 +50,7 @@
           .register__icon
             = image_tag ("icon_camera.png")
 
-    - if controller_name != "registrations" && controller_name != "sessions" && controller_name != "passwords"
+    - if controller_name != "registrations" && controller_name != "sessions" && controller_name != "passwords" && controller_name != "cards"
       %section.bottom-image
         .contents
           .contents__title
