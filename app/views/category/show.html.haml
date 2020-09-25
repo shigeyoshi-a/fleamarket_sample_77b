@@ -1,7 +1,11 @@
 .Wrapper
   .category_item
-    .category_item__name
+    .category_item__title
       = "#{@category.name}の商品一覧"
+    .category_item__list
+      - @category_links.each do |category|
+        .category_item__list__name
+          = link_to category.name, category_path(category)
     = render "category_parent"
     = render "category_children"
     = render "category_grand_children"

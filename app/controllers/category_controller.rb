@@ -4,7 +4,7 @@ class CategoryController < ApplicationController
   def index
     @parents = Category.where(ancestry: nil)
   end
-  
+
   def show
     #親要素の子要素代入
     children = @category.children
@@ -34,6 +34,11 @@ class CategoryController < ApplicationController
   private
 def set_category
   @category = Category.find(params[:id])
+  if @category.has_children?
+    @category_links = @category.children
+  else
+    @category_links = @category.siblings
+  end
 end
 
 end
