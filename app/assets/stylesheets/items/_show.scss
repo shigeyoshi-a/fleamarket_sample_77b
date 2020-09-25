@@ -88,23 +88,38 @@
       &__buy{
       display: block;
       background-color: rgb(31, 207, 199);
+      border: solid 1px rgb(87, 212, 208);
       border-radius: 20px;
       height: 50px;
       line-height: 50px;
+      &:hover{
+        border: solid 1px rgb(87, 212, 208);
+        background-color: rgb(87, 212, 208);
+      }
     }
     &__edit{
       display: block;
       background-color: rgb(79, 141, 235);
+      border: solid 1px rgb(98, 153, 235);
       border-radius: 20px;
       height: 50px;
       line-height: 50px;
+      &:hover{
+        border: solid 1px rgb(98, 153, 235);
+        background-color:rgb(111, 160, 233);
+      }
     }
     &__delete{
       display: block;
       background-color: rgb(236, 67, 152);
+      border: solid 1px rgb(236, 86, 161);
       border-radius: 20px;
       height: 50px;
       line-height: 50px;
+      &:hover{
+        border: solid 1px rgb(236, 86, 161);
+        background-color:rgb(236, 110, 173);
+      }
     }
     &__soldout{
       display: block;
@@ -195,6 +210,7 @@ justify-content: space-between;
   &__submit{
     display: block;
     background-color: #3CCABE;
+    border: solid 1px #68e7dd;
     width: 400px;
     text-align: center;
     border-radius: 30px;
@@ -203,10 +219,15 @@ justify-content: space-between;
     line-height: 50px;
     text-decoration: none;
     margin-bottom: 20px;
+    &:hover{
+      border: solid 1px #68e7dd;
+      background-color: #68e7dd;
+    }
     a{
       text-decoration: none;
       color: white;
     }
+
   }
 }
 
@@ -304,4 +325,8 @@ justify-content: space-between;
   background-color: white;
   margin-right: 15px;
   height: 250px;
+  border: 1px solid #F5F5F5;
+  &:hover{
+  transform: translateY(-10px);
+  }
 }
