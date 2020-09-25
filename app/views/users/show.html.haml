@@ -1,41 +1,30 @@
 .mypage_Wrapper
   %section.mypage_title
-    マイページ
+    = @nickname
+    %spenさんの
+    %pマイページ
   %section.mypage_boxes
     .mypage_boxes__box
-      = link_to root_path do
-        .icon
-          = icon("fas", "sticky-note")
-        .menu
-          プロフィール編集
-    .mypage_boxes__box
-      = link_to root_path do
+      = link_to new_card_path do
         .icon
           = icon("fas", "credit-card")
         .menu
           カード登録
     .mypage_boxes__box
-      = link_to root_path do
+      = link_to card_path(current_user) do
         .icon
-          = icon("fas", "sim-card")
+          = icon("fas", "money-check")
         .menu
           カード編集
-  %section.mypage_boxes
     .mypage_boxes__box
-      = link_to root_path do
+      = link_to card_path(current_user), method: :delete do
         .icon
-          = icon("fas", "sticky-note")
+          = icon("fas", "money-check-alt")
         .menu
-          プロフィール編集
+          カード削除
     .mypage_boxes__box
-      = link_to root_path do
+      = link_to destroy_user_session_path, method: :delete do
         .icon
-          = icon("fas", "credit-card")
+          = icon("fas", "sign-out-alt")
         .menu
-          カード登録
-    .mypage_boxes__box
-      = link_to root_path do
-        .icon
-          = icon("fas", "sim-card")
-        .menu
-          カード編集
+          ログアウト
