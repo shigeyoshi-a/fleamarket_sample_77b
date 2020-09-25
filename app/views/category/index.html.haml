@@ -1,0 +1,19 @@
+.Wrapper
+  .category__contents
+    - @parents.each do |parent|
+      .category__contents__btn
+        = link_to "#{parent.name}", category_path(parent)
+
+       
+  %ul
+    - @parents.each do |parent|
+      .category__index
+        %li.parents= link_to "#{parent.name}", category_path(parent)
+
+      %ul.category__index__children
+        - parent.children.each do |child|
+          %li.childern= link_to "#{child.name}", category_path(child)
+
+          %ul.category__index__grandchildren
+            - child.children.each do |grandchild|
+              %li= link_to "#{grandchild.name}", category_path(grandchild)
