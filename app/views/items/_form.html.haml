@@ -13,7 +13,7 @@
           - @item.item_images.each_with_index do |image, i|
             .preview-box
               .upper-box
-                = image_tag(image.image.url, data: {index: i}, id: "preview-image", width: "100", height: "100")
+                = image_tag(image.image.url, data: {index: i}, class: "preview-image", width: "100", height: "100")
               .lower-box
                 .update-box
                   %label.edit-btn 編集
@@ -31,19 +31,11 @@
         = f.fields_for :item_images do |i|
           .js-file_group{data: {index: i.index}}
             = i.file_field :image, class: 'js-file'
-            .js-remove 削除
           - if @item.persisted?
             = i.check_box :_destroy, data: {index: i.index}, class: 'hidden-destroy'
         - if @item.persisted?
-          .js-file_group{data: {index: {id: @item.item_images.count}}}
-            .preview-box
-              .upper-box
-                = f.file_field :image, name: "item[item_images_attributes][#{@item.item_images.count}][image]", class: 'js-file', id:"item_item_images_attributes_#{@item.item_images.count}_image"
-              .lower-box
-                .update-box
-                  %label.edit-btn 編集
-                  #delete-btn.delete-box
-                    %span 削除
+          .js-file_group{data: {index: @item.item_images.count}}
+            = f.file_field :image, name: "item[item_images_attributes][#{@item.item_images.count}][image]", class: 'js-file', id:"item_item_images_attributes_#{@item.item_images.count}_image"
 
   .container__main-content__item
     %ul
