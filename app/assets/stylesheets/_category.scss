@@ -8,8 +8,9 @@
 
 .category__list{
   position: absolute;
-  height: 560px;
+  height: 900px;
   background-color: white;
+  z-index: 999;
   // border-right: 1px solid $whitesmoke;
 }
 
