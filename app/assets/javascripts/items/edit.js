@@ -4,7 +4,6 @@ $(document).on('turbolinks:load', ()=> {
     const html = `<div data-index="${index}" class="js-file_group">
                     <input class="js-file" type="file" name="item[item_images_attributes][${index}][image]" id="item_item_images_attributes_${index}_image">
                     <br>
-                    <div class="js-remove">削除</div>
                   </div>`;
     return html;
   }
@@ -12,7 +11,7 @@ $(document).on('turbolinks:load', ()=> {
   const buildImg = (index, url)=> {
     const html = `<div class="preview-box">
                     <div class="upper-box">
-                      <img id="preview-image" data-index="${index}" src="${url}" width="100px" height="100px">
+                      <img class="preview-image" data-index="${index}" src="${url}" width="100px" height="100px">
                     </div>
                     <div class="lower-box">
                       <div class="update-box">
@@ -64,15 +63,17 @@ $(document).on('turbolinks:load', ()=> {
   // 画像削除時
   $('#image-box').on('click', '.js-remove', function(){
     // 画像の親要素のカスタムデータ取得
-    const targetIndex = $(this).closest("#preview-image").data('index');
+    const targetIndex = $(this).parent().parent().parent().find(".preview-image").data('index');
     console.log(targetIndex);
     // チェックボックスの取得
     const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
     // チェックボックスが存在していたら、チェックを入れる
     if (hiddenCheck) hiddenCheck.prop('checked', true);
 
-    $(this).parent().parent().remove();
+    console.log($(`img[data-index="${targetIndex}"]`).get());
     $(`img[data-index="${targetIndex}"]`).remove();
+    $(this).parent().parent().parent().remove();
+    $(`input[id="item_item_images_attributes_${targetIndex}_image"]`).remove();
 
     // 画像入力欄が0個にならないようにしておく
     if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
