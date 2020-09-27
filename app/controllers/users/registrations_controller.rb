@@ -12,6 +12,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
+    params[:user][:birthday] = birthday_join
     @user = User.new(sign_up_params)
     unless @user.valid?
       flash.now[:alert] = @user.errors.full_messages
@@ -67,6 +68,20 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def address_params
     params.require(:address).permit(:receiving_family_name, :receiving_first_name, :receiving_family_name_reading, :receiving_first_name_reading, 
       :post_code, :prefecture_id, :municipality, :street_number, :apartment_name, :telephone_number)
+  end
+
+
+  def birthday_join
+    # パラメータ取得
+    date = params[:birthday]
+
+    # ブランク時のエラー回避のため、どの値一つでもブランクだったら何もしない
+    if date["birthday(1i)"].empty? || date["birthday(2i)"].empty? || date["birthday(3i)"].empty?
+      return
+    end
+
+    # 年月日別々のものを結合して新しいDate型変数を作って返す
+    Date.new date["birthday(1i)"].to_i,date["birthday(2i)"].to_i,date["birthday(3i)"].to_i
   end
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
