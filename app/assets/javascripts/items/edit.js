@@ -64,13 +64,11 @@ $(document).on('turbolinks:load', ()=> {
   $('#image-box').on('click', '.js-remove', function(){
     // 画像の親要素のカスタムデータ取得
     const targetIndex = $(this).parent().parent().parent().find(".preview-image").data('index');
-    console.log(targetIndex);
     // チェックボックスの取得
     const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
     // チェックボックスが存在していたら、チェックを入れる
     if (hiddenCheck) hiddenCheck.prop('checked', true);
 
-    console.log($(`img[data-index="${targetIndex}"]`).get());
     $(`img[data-index="${targetIndex}"]`).remove();
     $(this).parent().parent().parent().remove();
     $(`input[id="item_item_images_attributes_${targetIndex}_image"]`).remove();
@@ -79,6 +77,10 @@ $(document).on('turbolinks:load', ()=> {
     if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
   });
 
+  $('#image-box').on('click', '.edit-btn', function(){
+    const targetIndex = $(this).parent().parent().parent().find(".preview-image").data('index');
+    $(`input[id="item_item_images_attributes_${targetIndex}_image"]`).click();
+  });
   
   $(function(){
     $('#price_calc').on('keyup', function(){
