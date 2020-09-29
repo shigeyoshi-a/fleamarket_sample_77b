@@ -76,7 +76,7 @@
         = @user.errors.full_messages_for(:password_confirmation).first
       %br/
     .field
-      = f.submit "次へ進む", class: "submit__btn"
+      = f.submit "次へ進む", class: "submit__btn__user"
       = link_to "トップへ戻る", root_path, class:"link__btn__center"
-    %br/
+    %br
   -# = render "devise/shared/links"
