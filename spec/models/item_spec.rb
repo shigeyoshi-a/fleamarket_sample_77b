@@ -78,31 +78,58 @@ describe Item do
       end
   
       context '商品編集がうまくいかないとき' do
-        it "商品名がないと出品できないこと" do
+        it "商品名がないと更新できないこと" do
+          item_params = FactoryBot.attributes_for(:item)
+          item_params[:name] = ""
+          expect(@item.update(item_params)).to be_falsey
         end
   
-        it "商品の説明がないと出品できないこと" do
+        it "商品の説明がないと更新できないこと" do
+          item_params = FactoryBot.attributes_for(:item)
+          item_params[:description] = ""
+          expect(@item.update(item_params)).to be_falsey
         end
   
-        it "カテゴリー情報がないと出品できないこと" do
+        it "カテゴリー情報がないと更新できないこと" do
+          item_params = FactoryBot.attributes_for(:item)
+          item_params[:category_id] = ""
+          expect(@item.update(item_params)).to be_falsey
         end
   
-        it "ブランド名がなくても出品できること" do
+        it "ブランド名がなくても更新できること" do
+          item_params = FactoryBot.attributes_for(:item)
+          item_params[:brand] = ""
+          expect(@item.update(item_params)).to be_truthy
         end
   
-        it "商品の状態についての情報がないと出品できないこと" do
+        it "商品の状態についての情報がないと更新できないこと" do
+          item_params = FactoryBot.attributes_for(:item)
+          item_params[:condition_id] = ""
+          expect(@item.update(item_params)).to be_falsey
         end
   
-        it "配送料の負担についての情報がないと出品できないこと" do
+        it "配送料の負担についての情報がないと更新できないこと" do
+          item_params = FactoryBot.attributes_for(:item)
+          item_params[:delivery_fee_id] = ""
+          expect(@item.update(item_params)).to be_falsey
         end
   
-        it "発送元の地域についての情報がないと出品できないこと" do
+        it "発送元の地域についての情報がないと更新できないこと" do
+          item_params = FactoryBot.attributes_for(:item)
+          item_params[:sending_area_id] = ""
+          expect(@item.update(item_params)).to be_falsey
         end
   
-        it "発送までの日数についての情報がないと出品できないこと" do
+        it "発送までの日数についての情報がないと更新できないこと" do
+          item_params = FactoryBot.attributes_for(:item)
+          item_params[:sending_days_id] = ""
+          expect(@item.update(item_params)).to be_falsey
         end
   
-        it "価格がないと出品できないこと" do
+        it "価格がないと更新できないこと" do
+          item_params = FactoryBot.attributes_for(:item)
+          item_params[:price] = ""
+          expect(@item.update(item_params)).to be_falsey
         end
       end
     end
