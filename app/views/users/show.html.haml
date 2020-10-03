@@ -1,24 +1,24 @@
-.mypage_Wrapper
-  %section.mypage_title
-    = @nickname
-    %spenさんの
-    %pマイページ
-  %section.mypage_boxes
-    .mypage_boxes__box
-      = link_to card_path(current_user) do
-        .icon
-          = icon("fas", "credit-card")
-        .menu
-          カード登録/詳細
-    .mypage_boxes__box
-      = link_to card_path(current_user), method: :delete do
-        .icon
-          = icon("fas", "money-check")
-        .menu
-          登録カード削除
-    .mypage_boxes__box
-      = link_to destroy_user_session_path, method: :delete do
-        .icon
-          = icon("fas", "sign-out-alt")
-        .menu
-          ログアウト
+-# .mypage_Wrapper
+-#   %section.mypage_title
+-#     = @nickname
+-#     %spenさんの
+-#     %pマイページ
+-#   %section.mypage_boxes
+-#     .mypage_boxes__box
+-#       = link_to card_path(current_user) do
+-#         .icon
+-#           = icon("fas", "credit-card")
+-#         .menu
+-#           カード登録/詳細
+-#     .mypage_boxes__box
+-#       = link_to card_path(current_user), method: :delete do
+-#         .icon
+-#           = icon("fas", "money-check")
+-#         .menu
+-#           登録カード削除
+-#     .mypage_boxes__box
+-#       = link_to destroy_user_session_path, method: :delete do
+-#         .icon
+-#           = icon("fas", "sign-out-alt")
+-#         .menu
+-#           ログアウト

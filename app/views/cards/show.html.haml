@@ -1,25 +1,25 @@
-%section.main-contents
-  .single-main
-    %section.chapter__container
-      %h2.chapter__head クレジットカード情報
-      .payment__main
-        .payment__list
-          .payment__list__content
-            %h3.sub__head 
-            .card__payment__list
-              %form.card__payment__content
-              .card__number
-                カード番号
-                %br
-                = "**** **** **** " + @default_card_information.last4
-              .expire__date
-                有効期限
-                %br
-                - exp_month = @default_card_information.exp_month.to_s
-                - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
-                = exp_month + " / " + exp_year
-                = form_tag(card_path(current_user.id), method: :delete, id:'charge-form') do
-                  %input{ type: "hidden", name: "card_id", value: "" }
-                  %button.delete__button 削除する
-              .toppage_btn
-                = link_to 'トップページに戻る',root_path,class:"toppage_btn"
+-# %section.main-contents
+-#   .single-main
+-#     %section.chapter__container
+-#       %h2.chapter__head クレジットカード情報
+-#       .payment__main
+-#         .payment__list
+-#           .payment__list__content
+-#             %h3.sub__head 
+-#             .card__payment__list
+-#               %form.card__payment__content
+-#               .card__number
+-#                 カード番号
+-#                 %br
+-#                 = "**** **** **** " + @default_card_information.last4
+-#               .expire__date
+-#                 有効期限
+-#                 %br
+-#                 - exp_month = @default_card_information.exp_month.to_s
+-#                 - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+-#                 = exp_month + " / " + exp_year
+-#                 = form_tag(card_path(current_user.id), method: :delete, id:'charge-form') do
+-#                   %input{ type: "hidden", name: "card_id", value: "" }
+-#                   %button.delete__button 削除する
+-#               .toppage_btn
+-#                 = link_to 'トップページに戻る',root_path,class:"toppage_btn"
