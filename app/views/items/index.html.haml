@@ -90,11 +90,12 @@
     = link_to "新規投稿商品", root_path
   .products
     - @newitems.each do |item|
-      = link_to item_path(item.id) do
-        - if item.buyer_id.present?
+      - if item.buyer_id.present?
+        .products__box
           .products__box__image
-            = image_tag item.item_images[0].image.url
-            %spen.out SOLD
+            = link_to item_path(item.id) do
+              = image_tag item.item_images[0].image.url
+              %spen.out SOLD
           .products__box__body
             %h3.name
               = item.name
@@ -108,9 +109,11 @@
                 0
             .tax
               = "（税込）"
-        - else
+      - else
+        .products__box
           .products__box__image
-            = image_tag item.item_images[0].image.url
+            = link_to item_path(item.id) do
+              = image_tag item.item_images[0].image.url
           .products__box__body
             %h3.name
               = item.name
@@ -132,11 +135,12 @@
     = link_to "アーカイバ", root_path
   .products
     - @branditems.each do |item|
-      = link_to item_path(item.id) do
-        - if item.buyer_id.present? && item.brand.present?
+      - if item.buyer_id.present? && item.brand.present?
+        .products__box
           .products__box__image
-            = image_tag item.item_images[0].image.url
-            %spen.out SOLD
+            = link_to item_path(item.id) do
+              = image_tag item.item_images[0].image.url
+              %spen.out SOLD
           .products__box__body
             %h3.name
               = item.name
@@ -150,9 +154,11 @@
                 0
             .tax
               = "（税込）"
-        - elsif item.brand.present?
+      - elsif item.brand.present?
+        .products__box
           .products__box__image
-            = image_tag item.item_images[0].image.url
+            = link_to item_path(item.id) do
+              = image_tag item.item_images[0].image.url
           .products__box__body
             %h3.name
               = item.name
