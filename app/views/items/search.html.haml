@@ -1,0 +1,24 @@
+.Wrapper
+  .search_item
+    .search_item__title
+      = "#{params[:keyword]}の商品一覧"
+    .search_item__list
+      - @items.each do |item|
+        = link_to item_path(item.id) do
+          .search__items
+            .search_item__box__link__image
+              - if item.brand && item.buyer_id
+                = image_tag "#{item.item_images[0].image}"  
+                %spen.out SOLD
+              - else item.brand
+                = image_tag "#{item.item_images[0].image}"   
+            .search_item__box__link__name
+              = item.name
+            %ul
+              %li 
+                = item.price.to_s(:delimited)
+                %spen.unit円              
+              %li 
+                = icon("fa","star")
+                0
+            .search_item__tax (税込)

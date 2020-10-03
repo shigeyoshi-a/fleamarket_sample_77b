@@ -98,6 +98,14 @@ class ItemsController < ApplicationController
     redirect_to root_path
   end
 
+  def search
+    @items = Item.search(params[:keyword])
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
+
   private
   def item_params
     params.require(:item).permit(:name, :description, :category_id, :brand, :condition_id, :delivery_fee_id, :sending_area_id, :sending_days_id, :price, item_images_attributes: [:image, :_destroy, :id]).merge(saler_id: current_user.id, user_id: current_user.id)
