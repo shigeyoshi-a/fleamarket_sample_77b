@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     post 'addresses', to: 'users/registrations#create_address'
   end
 
-  resources :category, only: [:show,:index]
+  # resources :category, only: [:show,:index]
 
 
 
