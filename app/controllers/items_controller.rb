@@ -33,52 +33,52 @@ class ItemsController < ApplicationController
     end
   end
 
-  # def edit
-  #   @item = Item.find(params[:id])
-  #   grandchild = @item.category
-  #   child = grandchild.parent
+  def edit
+    @item = Item.find(params[:id])
+    grandchild = @item.category
+    child = grandchild.parent
 
-  #   @category_parent_array = Category.where(ancestry: nil)
-  #   @parent_array = []
-  #   @parent_array << @item.category.parent.parent.name
-  #   @parent_array << @item.category.parent.parent.id
+    @category_parent_array = Category.where(ancestry: nil)
+    @parent_array = []
+    @parent_array << @item.category.parent.parent.name
+    @parent_array << @item.category.parent.parent.id
 
-  #   @category_children_array = Category.where(ancestry: child.ancestry)
-  #   @child_array = []
-  #   @child_array << child.name
-  #   @child_array << child.id
+    @category_children_array = Category.where(ancestry: child.ancestry)
+    @child_array = []
+    @child_array << child.name
+    @child_array << child.id
 
-  #   @category_grandchildren_array = Category.where(ancestry: grandchild.ancestry)
-  #   @grandchild_array = []
-  #   @grandchild_array << child.name
-  #   @grandchild_array << child.id
-  # end
+    @category_grandchildren_array = Category.where(ancestry: grandchild.ancestry)
+    @grandchild_array = []
+    @grandchild_array << child.name
+    @grandchild_array << child.id
+  end
 
-  # def update
-  #   @item = Item.find(params[:id])
-  #   if @item.update(item_params)
-  #     redirect_to root_path, notice: '商品を編集しました'
-  #   else
-  #     grandchild = @item.category
-  #     child = grandchild.parent
+  def update
+    @item = Item.find(params[:id])
+    if @item.update(item_params)
+      redirect_to root_path, notice: '商品を編集しました'
+    else
+      grandchild = @item.category
+      child = grandchild.parent
 
-  #     @category_parent_array = Category.where(ancestry: nil)
-  #     @parent_array = []
-  #     @parent_array << @item.category.parent.parent.name
-  #     @parent_array << @item.category.parent.parent.id
+      @category_parent_array = Category.where(ancestry: nil)
+      @parent_array = []
+      @parent_array << @item.category.parent.parent.name
+      @parent_array << @item.category.parent.parent.id
 
-  #     @category_children_array = Category.where(ancestry: child.ancestry)
-  #     @child_array = []
-  #     @child_array << child.name
-  #     @child_array << child.id
+      @category_children_array = Category.where(ancestry: child.ancestry)
+      @child_array = []
+      @child_array << child.name
+      @child_array << child.id
 
-  #     @category_grandchildren_array = Category.where(ancestry: grandchild.ancestry)
-  #     @grandchild_array = []
-  #     @grandchild_array << child.name
-  #     @grandchild_array << child.id
-  #     render :edit
-  #   end
-  # end
+      @category_grandchildren_array = Category.where(ancestry: grandchild.ancestry)
+      @grandchild_array = []
+      @grandchild_array << child.name
+      @grandchild_array << child.id
+      render :edit
+    end
+  end
 
   def show
     @item = Item.find(params[:id])
