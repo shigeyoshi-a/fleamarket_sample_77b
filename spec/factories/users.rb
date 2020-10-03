@@ -2,7 +2,7 @@ FactoryBot.define do
 
   factory :user, aliases: [:saler] do
     nickname              {"tanaka"}
-    email                 {"kkk@gmail.com"}
+    email                 {Faker::Internet.email}
     password              {"00000000"}
     password_confirmation {"00000000"}
     family_name           {"田中"}
