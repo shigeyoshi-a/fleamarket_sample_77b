@@ -6,6 +6,9 @@
     .item__image
       .item__image__first
         = image_tag "#{@item.item_images[0].image}"
+          - if @item.buyer_id.present? 
+          .sold 
+            SOLD
       %ul
         - @item.item_images.each do |image|
           = image_tag "#{image.image}"
@@ -15,9 +18,9 @@
         .item__price__sub
           (税込) 送料込み
       %br/
-    -if !current_user || current_user.id != @item.saler_id
+    -unless @item.buyer_id.present? || current_user.id == @item.saler_id
       .item__btn
-        = link_to "#"  do
+        = link_to item_path(@item)  do
           .item__btn__buy
             購入画面に進む
     -if user_signed_in? && current_user.id == @item.saler_id

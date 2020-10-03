@@ -1,0 +1,145 @@
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  color: black;
+  background-color:#F5F5F5;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  width: 700px;
+  margin: 0 auto;
+  padding-bottom: 10px;
+}
+
+.buy-button{
+  display: block;
+  background-color: #3CCABE;
+  color: white;
+  width: 300px;
+  text-align: center;
+  border-radius: 10px;
+  height: 40px;
+  margin: auto;
+  margin-top: 20px;
+  border: none;
+  outline: none;
+  align-items: center;
+  font-weight: bold;
+  font-size: large;
+}
+.top-button{
+  display: block;
+  background-color: #3CCABE;
+  color: white;
+  width: 300px;
+  text-align: center;
+  border-radius: 10px;
+  height: 40px;
+  margin: auto;
+  margin-top: 20px;
+  padding-top: 10px;
+  border: none;
+  outline: none;
+  align-items: center;
+  font-weight: bold;
+  font-size: large;
+}
+
+
+.buy-content{
+  &__attention{
+    .attention{
+      height: 60px;
+      background-color: #FFFFCC;
+      margin: auto;
+      .fa-clock{
+        margin-top: 20px;
+      }
+    }
+  }
+  &__title{
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold;
+    margin: 10px;
+  }
+  &__item{
+    &__image{
+      .image{
+        margin: auto;
+        width: 400px;
+        height: 250px;
+      }
+    }
+    &__name{
+      font-size: 30px;
+      text-align: center;
+      font-weight: bold;
+      margin: 5px;
+    }
+    &__price{
+      text-align: center;
+    }
+    &__pay-price{
+      .pay-price{
+        margin-top: 50px;
+        display: flex;
+        border-bottom: 1px solid #3CCABE;
+        &__left{
+          font-weight: bold;
+          font-size: 15px;
+        }
+        &__right{
+          margin-left: 50px;
+          font-weight: bold;
+          font-size: 40px;
+        }
+      }
+    }
+  }
+  &__user-info{
+    margin-top: 30px;
+    &__pay{
+      &__ammount{
+        border-bottom: 1px solid #3CCABE;
+        display: flex;
+        .user-info-text{
+        }
+        .user-info-update{
+          margin-left: 190px;
+          a{
+            padding: 3px;
+            color: #3CCABE;
+            border: solid 1px;
+            border-radius: 5px;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+    &__addres{
+      &__text{
+        border-bottom: 1px solid #3CCABE;
+        display: flex;
+        .user-info-addres{
+        }
+        .user-info-update{
+          margin-left: 120px;
+          a{
+            padding: 3px;
+            color: #3CCABE;
+            border: solid 1px;
+            border-radius: 5px;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+}
