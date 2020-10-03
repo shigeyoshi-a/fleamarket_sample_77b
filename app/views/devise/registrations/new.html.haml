@@ -19,7 +19,7 @@
         = f.label :メールアドレス
         %span.necessarily 必須
         %br/
-        = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: " メールアドレスを入力してください"
+        = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: " PC・携帯どちらでも可"
       - if @user.errors.include?(:email)
         %p.error_message メールアドレスを入力してください
       %br/
@@ -32,7 +32,6 @@
   
     .field
       .field__label
-        %br/
         = f.text_field :first_name, placeholder: " 例）太郎"
       - if @user.errors.include?(:family_name) || @user.errors.include?(:first_name)
         %p.error_message お名前を全角で入力してください
@@ -45,7 +44,6 @@
         = f.text_field :family_name_reading, placeholder: " 例）タナカ"
     .field
       .field__label
-        %br/
         = f.text_field :first_name_reading, placeholder: " 例）タロウ"
       - if @user.errors.include?(:family_name_reading) || @user.errors.include?(:first_name_reading)
         %p.error_message お名前を全角カタカナで入力してください
