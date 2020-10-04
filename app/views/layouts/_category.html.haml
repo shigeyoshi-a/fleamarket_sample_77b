@@ -1,20 +1,20 @@
--# .categories
--#   %ul
--#     %li
--#       = link_to category_index_path, class: "category__search search__btn" do
--#         カテゴリーから探す  
--#       %ul.category__parent.category__list
--#         - @parents.each do |parent|
--#           %li
--#             = link_to category_path(parent.id), class: "category__parent--name" do
--#               = parent.name
--#             %ul.category__child.category__list
--#               - parent.children.each do |child|
--#                 %li
--#                   = link_to category_path(child.id), class: "category__child--name" do
--#                     = child.name
--#                   %ul.category__grandchild.category__list
--#                     - child.children.each do |grandchild|
--#                       %li
--#                         = link_to category_path(grandchild.id), class: " category__child--name" do
--#                           = grandchild.name 
+.categories
+  %ul
+    %li
+      = link_to category_index_path, class: "category__search search__btn" do
+        カテゴリーから探す  
+      %ul.category__parent.category__list
+        - @parents.each do |parent|
+          %li
+            = link_to category_path(parent.id), class: "category__parent--name" do
+              = parent.name
+            %ul.category__child.category__list
+              - parent.children.each do |child|
+                %li
+                  = link_to category_path(child.id), class: "category__child--name" do
+                    = child.name
+                  %ul.category__grandchild.category__list
+                    - child.children.each do |grandchild|
+                      %li
+                        = link_to category_path(grandchild.id), class: " category__child--name" do
+                          = grandchild.name 

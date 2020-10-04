@@ -4,9 +4,9 @@
   = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
     = render "devise/shared/error_messages", resource: resource
     .field
-      %h2.user__title Forgot your password?
+      %h2.user__title パスワードの再設定
       = f.label :メールアドレス
-      = f.email_field :email, autofocus: true, autocomplete: "email"
+      = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレスを入力してください"
       %br/
     .field
       = f.submit "パスワードの再発行",class: "submit__btn"

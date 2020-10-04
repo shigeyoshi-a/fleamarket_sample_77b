@@ -6,7 +6,7 @@
     .field
       %h2.user__title 発送元・お届け先住所情報登録
       .field__label
-        = f.label :郵便番号
+        = f.label :郵便番号（ハイフンなし７桁）
         %span.necessarily 必須
         %br/
         = f.text_field :post_code, autofocus: true, placeholder: " 例）1234567"
@@ -84,7 +84,7 @@
         = f.text_field :telephone_number,autofocus: true, placeholder: " 例）080-123-4567"
       %br/
     .field
-      = f.submit "登録する" , class: "submit__btn"
+      = f.submit "登録する" , class: "submit__btn__user"
       = link_to "トップへ戻る", root_path, class:"link__btn__center"
     %br/
   - render "devise/shared/links"

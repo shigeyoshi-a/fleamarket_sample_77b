@@ -12,15 +12,15 @@ Rails.application.routes.draw do
     post 'addresses', to: 'users/registrations#create_address'
   end
 
-  # resources :category, only: [:show,:index]
+  resources :category, only: [:show,:index]
 
 
 
-  resources :cards, only: [:new, :show, :destroy] do
-    collection do
-      post 'pay', to: 'cards#pay'
-    end
-  end
+  # resources :cards, only: [:new, :show, :destroy] do
+  #   collection do
+  #     post 'pay', to: 'cards#pay'
+  #   end
+  # end
 
   resources :purchase, only: [:index] do
     collection do
