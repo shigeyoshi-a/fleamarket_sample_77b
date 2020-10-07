@@ -84,9 +84,11 @@ gem 'devise'
 gem 'rspec-rails'
 gem 'factory_bot_rails'
 gem "font-awesome-sass"
-# gem 'payjp'
+gem 'payjp'
 gem 'dotenv-rails'
 
 gem 'jquery-turbolinks'
 gem 'rails-i18n'
-
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+gem "omniauth-rails_csrf_protection"
