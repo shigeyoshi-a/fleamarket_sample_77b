@@ -15,7 +15,7 @@
         .item__price__sub
           (税込) 送料込み
       %br/
-    -if !current_user && @item.buyer_id == nil || current_user.id != @item.saler_id && @item.buyer_id == nil
+    -if !user_signed_in? && @item.buyer_id == nil || user_signed_in? && current_user.id != @item.saler_id && @item.buyer_id == nil
       .item__btn
         = link_to "#"  do
           .item__btn__buy
