@@ -1,10 +1,21 @@
 .Wrapper
-  = render "header"
+  = render "devise/registrations/header"
 
   = form_for(@user, url: user_registration_path) do |f|
     -# = render "devise/shared/error_messages", resource: @user
     .field
       %h2.user__title ユーザー情報登録
+
+      = link_to user_facebook_omniauth_authorize_path, method: :post, class: "facebook_btn" do
+        .facebook_btn__icon
+          = icon("fab","facebook-square")
+        .facebook_btn__body
+          Facebookで登録する
+      = link_to user_google_oauth2_omniauth_authorize_path, method: :post, class: "google_btn" do
+        .google_btn__icon
+          = icon("fab","google")
+        .google_btn__body
+          Googleで登録する
     .field
       .field__label
         = f.label :ニックネーム 
@@ -57,22 +68,25 @@
       - if @user.errors.include?(:birthday)
         %p.error_message 誕生日を入力してください
       %br/
-    .field
-      .field__label
-        = f.label :パスワード
-        %span.necessarily 必須
+      -if @sns_id.present?
+        = hidden_field_tag :sns_auth, :true
+      - else
+        .field
+          .field__label
+            = f.label :パスワード
+            %span.necessarily 必須
+            %br/
+            = f.password_field :password, autocomplete: "new-password", placeholder: " 7文字以上で入力してください"
+          - if @user.errors.include?(:password)
+            %p.error_message パスワードを７文字以上の半角で入力してください
+        .field
+          .field__label
+            = f.label :パスワード（確認）
+            %br/
+            = f.password_field :password_confirmation, autocomplete: "new-password",placeholder: " 確認用のパスワードを入力してください"
+          - if @user.errors.include?(:password_confirmation)
+            = @user.errors.full_messages_for(:password_confirmation).first
         %br/
-        = f.password_field :password, autocomplete: "new-password", placeholder: " 7文字以上で入力してください"
-      - if @user.errors.include?(:password)
-        %p.error_message パスワードを７文字以上の半角で入力してください
-    .field
-      .field__label
-        = f.label :パスワード（確認）
-        %br/
-        = f.password_field :password_confirmation, autocomplete: "new-password",placeholder: " 確認用のパスワードを入力してください"
-      - if @user.errors.include?(:password_confirmation)
-        = @user.errors.full_messages_for(:password_confirmation).first
-      %br/
     .field
       = f.submit "次へ進む", class: "submit__btn__user"
       = link_to "トップへ戻る", root_path, class:"link__btn__center"
