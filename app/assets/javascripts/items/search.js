@@ -16,7 +16,6 @@ $(document).on('turbolinks:load', ()=> {
 
   $(".searchBox__input").on("keyup", function(){
     var input = $(".searchBox__input").val();
-    console.log(input);
     $.ajax({
       type: 'GET',
       url: '/items/search',
