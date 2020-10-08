@@ -19,9 +19,6 @@ class PurchaseController < ApplicationController
     :amount => 5000000,
     :customer => card.customer_id,
     :currency => 'jpy',
-      # :amount => @item.price, #支払金額
-      # :customer => @card.customer_id,  #顧客ID
-      # :currency => 'jpy',
     )
     redirect_to action: 'done' 
   end
