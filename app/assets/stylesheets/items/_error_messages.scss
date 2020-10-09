@@ -5,3 +5,15 @@
   border:2px solid #990000;
   padding:12px; font-weight:850;
 }
+.notifications {
+  color: white;
+  text-align: center;  
+
+  .notice {
+    background-color: lightBlue;
+  }
+
+  .alert {
+    background-color: alert_orange;
+  }
+}

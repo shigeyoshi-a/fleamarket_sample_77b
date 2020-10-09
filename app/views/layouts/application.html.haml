@@ -9,6 +9,9 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
+    .notifications
+      - flash.each do |key, value|
+        = content_tag(:div, value, class: key)
     %section.header
       .header__contents
         .header__contents__top
@@ -16,11 +19,11 @@
             = link_to root_path do
               = image_tag ("logo.png")
 
-          .searchBox
-            .searchBox__input
-              キーワードから探す
-            .searchBox__submit
+          = form_with(url: search_items_path, local: true, method: :get, class: "searchBox") do |form|
+            = form.text_field :keyword, placeholder: "キーワードから探す", class: "searchBox__input"
+            = form.button :type => "submit", class: "searchBox__submit" do
               = image_tag ("icon-search 1.png")
+        .search-results
         .header__contents__btm
           .leftbox
             .leftbox__category
@@ -42,7 +45,7 @@
                 
     = yield
     -# 出品ボタン
-    - if controller_name != "registrations" && controller_name != "sessions" && controller_name != "passwords"
+    - if controller_name != "registrations" && controller_name != "sessions" && controller_name != "passwords" && controller_name != "cards"
       = link_to new_item_path do
         %section.register
           .register__title
@@ -50,7 +53,7 @@
           .register__icon
             = image_tag ("icon_camera.png")
 
-    - if controller_name != "registrations" && controller_name != "sessions" && controller_name != "passwords"
+    - if controller_name != "registrations" && controller_name != "sessions" && controller_name != "passwords" && controller_name != "cards"
       %section.bottom-image
         .contents
           .contents__title
