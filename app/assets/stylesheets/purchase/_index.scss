@@ -58,6 +58,7 @@
       height: 60px;
       background-color: #FFFFCC;
       margin: auto;
+      text-align: center;
       .fa-clock{
         margin-top: 20px;
       }
@@ -107,6 +108,7 @@
     margin-top: 30px;
     &__pay{
       &__ammount{
+        margin-top: 10px;
         border-bottom: 1px solid #3CCABE;
         display: flex;
         .user-info-text{
@@ -127,6 +129,7 @@
       &__text{
         border-bottom: 1px solid #3CCABE;
         display: flex;
+        margin-top: 10px;
         .user-info-addres{
         }
         .user-info-update{

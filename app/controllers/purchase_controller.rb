@@ -1,6 +1,6 @@
 class PurchaseController < ApplicationController
   require 'payjp'
-  before_action :set_card , :set_item
+  before_action :set_card , :set_item , :address
 
   def index
     card = Card.find_by(user_id: current_user.id)
@@ -26,6 +26,16 @@ class PurchaseController < ApplicationController
 
   def done
     @item.update( buyer_id: current_user.id)
+  end
+
+  # def name
+  #   @name = "#{@addres.receiving_famiry_name}"  "#{@addres.receiving_first_name}"
+  # end
+
+  private
+
+  def address
+    @address = Address.find_by(user_id: current_user.id)
   end
 
   def set_card
