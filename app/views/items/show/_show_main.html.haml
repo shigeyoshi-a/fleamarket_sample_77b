@@ -17,7 +17,7 @@
       %br/
     -if !user_signed_in? && @item.buyer_id == nil || user_signed_in? && current_user.id != @item.saler_id && @item.buyer_id == nil
       .item__btn
-        = link_to "#"  do
+        = link_to purchase_index_path  do
           .item__btn__buy
             購入画面に進む
     -if @item.buyer_id
@@ -68,9 +68,7 @@
             %td= @delivery_fee.name
           %tr
             %th 発送元の地域
-            %td
-              = link_to "#" do
-                = @sending_area.name
+            %td= @sending_area.name
           %tr
             %th 発送日の目安
             %td= @sending_days.name
