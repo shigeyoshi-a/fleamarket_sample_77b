@@ -26,9 +26,9 @@
       = f.submit
   .search_item
     .search_item__title
-      = "#{params[:keyword]}の商品一覧"
+      = "検索結果"
     .search_item__list
-      - @items.each do |item|
+      - @detail_items.each do |item|
         = link_to item_path(item.id) do
           .search__items
             .search_item__box__link__image

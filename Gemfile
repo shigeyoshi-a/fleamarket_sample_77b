@@ -89,4 +89,5 @@ gem 'dotenv-rails'
 
 gem 'jquery-turbolinks'
 gem 'rails-i18n'
+gem 'ransack'
 

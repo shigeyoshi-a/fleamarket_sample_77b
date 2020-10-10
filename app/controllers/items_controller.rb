@@ -70,11 +70,27 @@ class ItemsController < ApplicationController
       format.html
       format.json
     end
+    # ransackの使用
+    @q = Item.ransack(params[:q])
+    @conditions = Condition.all
+    @delivery_fees = DeliveryFee.all
+    @detail_items = @q.result(distinct: true)
+  end
+
+  def detail_search
+    @q = Item.ransack(params[:q])
+    @detail_items = @q.result(distinct: true)
+    @conditions = Condition.all
+    @delivery_fees = DeliveryFee.all
   end
 
   private
   def item_params
     params.require(:item).permit(:name, :description, :category_id, :brand, :condition_id, :delivery_fee_id, :sending_area_id, :sending_days_id, :price, item_images_attributes: [:image, :_destroy, :id]).merge(saler_id: current_user.id, user_id: current_user.id)
+  end
+
+  def search_params
+    params.require(:q).permit(:name_cont, :brand_cont, :condition_id_eq, :delivery_fee_id_eq, :category_id_eq, :price_gteq, :price_lteq)
   end
 
   def set_item
