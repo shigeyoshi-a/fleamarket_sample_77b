@@ -44,8 +44,7 @@ Things you may want to cover:
 - has_many :items
 - has_one :card
 - has_one :address
-
-
+- has_many  :liked_items,  through:  :likes, source: :item
 
 
 ## cardsテーブル
@@ -102,7 +101,7 @@ Things you may want to cover:
 - belongs_to :category
 - has_many :item_images
 - has_many :comments
-
+- has_many  :liked_users,  through:  : likes, source: :user
 
 
 
@@ -141,4 +140,15 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 - belongs_to :item
+
+## likesテーブル                                           #中間テーブル
+|Column|Type|Options|
+|------|----|-------|
+|item_id|integer|null: false, foreign_key: true|
+|user_id|integer|null: false, foreign_key: true|
+
+### Association
+- belongs_to :item
+- belongs_to :user
+
 

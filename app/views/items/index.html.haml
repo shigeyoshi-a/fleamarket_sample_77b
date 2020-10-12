@@ -103,11 +103,14 @@
               %li.details__price
                 = item.price.to_s
                 %spen.unit円
-              %li.details__icon
-                = link_to root_path do
+              - if Like.like_method(item, current_user)
+                %li.details__icon--like
+                  = icon("fas", "star")
+              - else
+                %li.details__icon
                   = icon("fas", "star")
               %li.details__count
-                0
+                = item.likes.length
             .tax
               = "（税込）"
       - else
@@ -122,11 +125,16 @@
               %li.details__price
                 = item.price.to_s
                 %spen.unit円
-              %li.details__icon
-                = link_to root_path do
-                  = icon("fas", "star")
+              - if Like.like_method(item, current_user)
+                %li.details__icon--like
+                  = link_to "/items/#{item.id}/likes/:id" , method: :DELETE do
+                    = icon("fas", "star")
+              - else
+                %li.details__icon
+                  = link_to "/items/#{item.id}/likes", method: :POST do
+                    = icon("fas", "star")
               %li.details__count
-                0
+                = item.likes.length
             .tax
               = "（税込）"
 
@@ -150,11 +158,14 @@
               %li.details__price
                 = item.price.to_s
                 %spen.unit円
-              %li.details__icon
-                = link_to root_path do
+              - if Like.like_method(item, current_user)
+                %li.details__icon--like
+                  = icon("fas", "star")
+              - else
+                %li.details__icon
                   = icon("fas", "star")
               %li.details__count
-                0
+                = item.likes.length
             .tax
               = "（税込）"
       - elsif item.brand.present?
@@ -169,10 +180,15 @@
               %li.details__price
                 = item.price.to_s
                 %spen.unit円
-              %li.details__icon
-                = link_to root_path do
-                  = icon("fas", "star")
+              - if Like.like_method(item, current_user)
+                %li.details__icon--like
+                  = link_to "/items/#{item.id}/likes/:id" , method: :DELETE ,remote: true do
+                    = icon("fas", "star")
+              - else
+                %li.details__icon
+                  = link_to "/items/#{item.id}/likes", method: :POST ,remote: true do
+                    = icon("fas", "star")
               %li.details__count
-                0
+                = item.likes.length
             .tax
               = "（税込）"

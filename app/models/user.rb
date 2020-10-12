@@ -8,7 +8,8 @@ class User < ApplicationRecord
   has_many :items
   has_one :address
   has_one :card
-  
+  has_many  :liked_items,  through:  :likes, source: :item
+  has_many :likes
   full_width = {with: /\A[ぁ-んァ-ン一-龥]/, message: 'を全角で入力してください' }
   full_width_kana = { with: /\A([ァ-ン]|ー)+\z/, message: 'を全角カタカナで入力してください' }
 
@@ -22,3 +23,4 @@ class User < ApplicationRecord
   validates :first_name_reading,
   format: full_width_kana
 end
+

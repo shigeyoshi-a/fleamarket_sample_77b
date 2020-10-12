@@ -282,6 +282,14 @@
             margin-left: auto;
             i {
               font-size:1.1em;
+              color: black;
+            }
+          }
+          &__icon--like {
+            margin-left: auto;
+            i {
+              font-size:1.1em;
+              color: orange;
             }
           }
           &__count {
