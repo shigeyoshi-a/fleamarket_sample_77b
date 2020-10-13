@@ -90,53 +90,7 @@
     = link_to "新規投稿商品", root_path
   .products
     - @newitems.each do |item|
-      - if item.buyer_id.present?
-        .products__box
-          .products__box__image
-            = link_to item_path(item.id) do
-              = image_tag item.item_images[0].image.url
-              %spen.out SOLD
-          .products__box__body
-            %h3.name
-              = item.name
-            %ul.details
-              %li.details__price
-                = item.price.to_s
-                %spen.unit円
-              - if Like.like_method(item, current_user)
-                %li.details__icon--like
-                  = icon("fas", "star")
-              - else
-                %li.details__icon
-                  = icon("fas", "star")
-              %li.details__count
-                = item.likes.length
-            .tax
-              = "（税込）"
-      - else
-        .products__box
-          .products__box__image
-            = link_to item_path(item.id) do
-              = image_tag item.item_images[0].image.url
-          .products__box__body
-            %h3.name
-              = item.name
-            %ul.details
-              %li.details__price
-                = item.price.to_s
-                %spen.unit円
-              - if Like.like_method(item, current_user)
-                %li.details__icon--like
-                  = link_to "/items/#{item.id}/likes/:id" , method: :DELETE do
-                    = icon("fas", "star")
-              - else
-                %li.details__icon
-                  = link_to "/items/#{item.id}/likes", method: :POST do
-                    = icon("fas", "star")
-              %li.details__count
-                = item.likes.length
-            .tax
-              = "（税込）"
+      = render partial: "likes/like", locals: { item: item}
 
 %section.pickup
   %h2.title
@@ -145,50 +99,4 @@
     = link_to "アーカイバ", root_path
   .products
     - @branditems.each do |item|
-      - if item.buyer_id.present? && item.brand.present?
-        .products__box
-          .products__box__image
-            = link_to item_path(item.id) do
-              = image_tag item.item_images[0].image.url
-              %spen.out SOLD
-          .products__box__body
-            %h3.name
-              = item.name
-            %ul.details
-              %li.details__price
-                = item.price.to_s
-                %spen.unit円
-              - if Like.like_method(item, current_user)
-                %li.details__icon--like
-                  = icon("fas", "star")
-              - else
-                %li.details__icon
-                  = icon("fas", "star")
-              %li.details__count
-                = item.likes.length
-            .tax
-              = "（税込）"
-      - elsif item.brand.present?
-        .products__box
-          .products__box__image
-            = link_to item_path(item.id) do
-              = image_tag item.item_images[0].image.url
-          .products__box__body
-            %h3.name
-              = item.name
-            %ul.details
-              %li.details__price
-                = item.price.to_s
-                %spen.unit円
-              - if Like.like_method(item, current_user)
-                %li.details__icon--like
-                  = link_to "/items/#{item.id}/likes/:id" , method: :DELETE ,remote: true do
-                    = icon("fas", "star")
-              - else
-                %li.details__icon
-                  = link_to "/items/#{item.id}/likes", method: :POST ,remote: true do
-                    = icon("fas", "star")
-              %li.details__count
-                = item.likes.length
-            .tax
-              = "（税込）"
+      = render partial: "likes/like", locals: { item: item}

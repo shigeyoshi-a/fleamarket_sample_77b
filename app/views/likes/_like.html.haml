@@ -1,4 +1,27 @@
-- @newitems.each do |item|
+- if item.buyer_id.present?
+  .products__box
+    .products__box__image
+      = link_to item_path(item.id) do
+        = image_tag item.item_images[0].image.url
+        %spen.out SOLD
+    .products__box__body
+      %h3.name
+        = item.name
+      %ul.details
+        %li.details__price
+          = item.price.to_s
+          %spen.unit円
+        - if Like.like_method(item, current_user)
+          %li.details__icon--like
+            = icon("fas", "star")
+        - else
+          %li.details__icon
+            = icon("fas", "star")
+        %li.details__count
+          = item.likes.length
+      .tax
+        = "（税込）"
+- else
   .products__box
     .products__box__image
       = link_to item_path(item.id) do
