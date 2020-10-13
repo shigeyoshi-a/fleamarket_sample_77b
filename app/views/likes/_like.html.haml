@@ -11,12 +11,15 @@
         %li.details__price
           = item.price.to_s
           %spen.unit円
-        - if Like.like_method(item, current_user)
-          %li.details__icon--like
-            = icon("fas", "star")
-        - else
-          %li.details__icon
-            = icon("fas", "star")
+          - if user_signed_in? && Like.like_method(item, current_user)
+            %li.details__icon--like
+              = icon("fas", "star")
+          - elsif user_signed_in?
+            %li.details__icon
+              = icon("fas", "star")
+          - else
+            %li.details__icon
+              = icon("fas", "star")
         %li.details__count
           = item.likes.length
       .tax
@@ -33,14 +36,18 @@
         %li.details__price
           = item.price.to_s
           %spen.unit円
-        - if Like.like_method(item, current_user)
-          %li.details__icon--like
-            = link_to "/items/#{item.id}/likes/:id" , method: :DELETE ,remote: true do
-              = icon("fas", "star")
-        - else
-          %li.details__icon
-            = link_to "/items/#{item.id}/likes", method: :POST ,remote: true do
-              = icon("fas", "star")
+          - if user_signed_in? && Like.like_method(item, current_user)
+            %li.details__icon--like
+              = link_to "/items/#{item.id}/likes/:id" , method: :DELETE ,remote: true do
+                = icon("fas", "star")
+          - elsif user_signed_in?
+            %li.details__icon
+              = link_to "/items/#{item.id}/likes", method: :POST ,remote: true do
+                = icon("fas", "star")
+          - else
+            %li.details__icon
+              = link_to new_user_session_path do
+                = icon("fas", "star")
         %li.details__count
           = item.likes.length
       .tax
