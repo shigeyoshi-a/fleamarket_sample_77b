@@ -23,6 +23,7 @@ $(function(){
       $('.comment__list__main').append(html);
       $('.textbox').val('');
       $('.comment__submit__btn').prop("disabled", false);
+      $('.comment__list__main').animate({scrollTop: $(".comment__list__main")[0].scrollHeight});
     })
     .fail(function() {
       alert("メッセージ送信に失敗しました");
