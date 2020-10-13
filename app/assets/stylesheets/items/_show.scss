@@ -172,17 +172,26 @@
 display: flex;
 justify-content: space-between;
   &__like{
-    margin-left: 20px;
+    margin-left: 40px;
     border:1px solid orange;
     border-radius: 30px;
-    padding: 10px;
+    padding: 9px;
     a{
       color: rgb(20, 214, 221);
     }
-
+  }
+  &__like--add{
+    margin-left: 40px;
+    border:1px solid orange;
+    background-color: orange;
+    border-radius: 30px;
+    padding: 9px;
+    a{
+      color: #fff;
+    }
   }
   &__bad{
-    margin-right: 20px;
+    margin-right: 40px;
     border: 1px solid black;
     border-radius: 5px;
     padding: 10px;

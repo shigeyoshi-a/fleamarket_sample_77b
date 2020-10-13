@@ -90,7 +90,7 @@
     = link_to "新規投稿商品", root_path
   .products
     - @newitems.each do |item|
-      = render partial: "likes/like", locals: { item: item}
+      = render partial: "likes/like", locals: { item: item }
 
 %section.pickup
   %h2.title
@@ -99,6 +99,6 @@
     = link_to "アーカイバ", root_path
   .products
     - @branditems.each do |item|
-      = render partial: "likes/like", locals: { item: item}
+      = render partial: "likes/like", locals: { item: item }
 
 
