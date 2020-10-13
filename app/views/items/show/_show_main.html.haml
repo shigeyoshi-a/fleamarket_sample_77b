@@ -85,15 +85,35 @@
 %br/
 .field
   .comment
-    .comment__box
-      %textarea
-    .comment__message 
-      相手のことを考え丁寧なコメントを心がけましょう。
-      %br/
-      不快な言葉遣いなどは利用制限や退会処分となることがあります。
-      %br/
-    .comment__submit{ type: "submit"}
-      = link_to "#" do
-        .comment__submit__btn
-          = icon("fa","comment")
-          コメントする
+    .comment__area
+      -if current_user
+        = form_with model: [@item, @comment], local: true , id: "new_comment" do |form|
+          .comment__box
+            = form.text_area :comment, rows: "2", class: "textbox"
+            .comment__submit
+            %button{type: "submit", class:'comment__submit__btn'} 
+              %i.fas.fa-comment
+                コメントする
+      -else
+        ※※※ コメントの投稿には
+        =link_to "新規登録" ,new_user_registration_path 
+        または
+        =link_to "ログイン", new_user_session_path 
+        が必要です ※※※
+
+      .comment__list
+        %p コメント一覧
+        .comment__list__main
+          -@item.comments.each do |comment|
+            .comment__list__user
+              = comment.user.nickname
+            .comment__list__content
+              = comment.comment
+              = comment.created_at.strftime("%Y-%m-%d %H:%M") 
+      .comment__caution 
+        相手のことを考え丁寧なコメントを心がけましょう。
+        %br/
+        不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        %br/
+
+ 
