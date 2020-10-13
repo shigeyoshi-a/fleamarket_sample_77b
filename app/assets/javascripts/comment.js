@@ -2,7 +2,8 @@ $(function(){
   function buildHTML(comment){
     let html = `
                   ${comment.user_nickname}
-                  ${comment.comment}`
+                  ${comment.comment}
+                  ${comment.created_at}`
     return html;
   }
   $('#new_comment').on('submit',function(e){
@@ -23,5 +24,8 @@ $(function(){
       $('.textbox').val('');
       $('.comment__submit__btn').prop("disabled", false);
     })
+    .fail(function() {
+      alert("メッセージ送信に失敗しました");
+    });
   })
 })
