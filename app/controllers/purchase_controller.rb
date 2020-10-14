@@ -28,10 +28,6 @@ class PurchaseController < ApplicationController
     @item.update( buyer_id: current_user.id)
   end
 
-  # def name
-  #   @name = "#{@addres.receiving_famiry_name}"  "#{@addres.receiving_first_name}"
-  # end
-
   private
 
   def address
@@ -43,7 +39,7 @@ class PurchaseController < ApplicationController
   end
 
   def set_item
-    @item = Item.find(params[:id])
+    @item = Item.find(params[:item_id])
   end
 
 

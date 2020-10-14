@@ -20,7 +20,7 @@
       %br/
     -unless @item.buyer_id.present? || current_user.id == @item.saler_id
       .item__btn
-        = link_to item_path(@item)  do
+        = link_to item_purchase_index_path(@item)  do
           .item__btn__buy
             購入画面に進む
     -if user_signed_in? && current_user.id == @item.saler_id
