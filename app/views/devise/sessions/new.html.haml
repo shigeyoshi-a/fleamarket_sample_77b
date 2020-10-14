@@ -4,6 +4,17 @@
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
     .field
       %h2.user__title ログイン
+
+      = link_to user_facebook_omniauth_authorize_path, method: :post, class: "facebook_btn" do
+        .facebook_btn__icon
+          = icon("fab","facebook-square")
+        .facebook_btn__body
+          Facebookでログイン
+      = link_to user_google_oauth2_omniauth_authorize_path, method: :post, class: "google_btn" do
+        .google_btn__icon
+          = icon("fab","google")
+        .google_btn__body
+          Googleでログイン
       = f.label :メールアドレス
       %br/
       = f.email_field :email, autofocus: true, autocomplete: "email"
@@ -17,8 +28,8 @@
         = f.check_box :remember_me
         = f.label :ログインを記憶する
         %br/
-      .field   
-        = f.submit "ログイン", class: "submit__btn"
+      .field  
+        = f.submit "ログイン", class: "submit__btn__user"
         = link_to "トップへ戻る", root_path, class: "link__btn__center"
         = link_to "パスワードを忘れた場合はこちら", new_password_path(resource_name),class: "link__btn__center"
         %br/
