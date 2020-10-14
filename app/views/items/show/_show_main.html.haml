@@ -23,13 +23,17 @@
         = link_to item_purchase_index_path(@item)  do
           .item__btn__buy
             購入画面に進む
+    -if @item.buyer_id
+      .item__btn
+        .item__btn__soldout
+          売り切れました
     -if user_signed_in? && current_user.id == @item.saler_id
       .item__btn
         = link_to edit_item_path  do
           .item__btn__edit
             編集する
       .item__btn
-        = link_to @item, method: :delete, data: { confirm: '商品を削除しますか？' }  do
+        = link_to item_path(@item.id), method: :delete, data: { confirm: '商品を削除しますか？' }  do
           .item__btn__delete
             削除する
     .item__description
@@ -44,12 +48,11 @@
           %tr 
             %th カテゴリー    
             %td
-              -if @item.category.parent != nil
-                = link_to "#{@item.category.parent.parent.name}",category_path(@item.category_id), method: :get
-                %br/
-                = link_to "#{@item.category.parent.name}" ,category_path(@item.category_id), method: :get
-                %br/
-              = link_to "#{@item.category.name}",category_path(@item.category_id), method: :get
+              = link_to "#{@item.category.parent.parent.name}",category_path(@category.parent.parent_id)
+              %br/
+              = link_to "#{@item.category.parent.name}" ,category_path(@category.parent_id)
+              %br/
+              = link_to "#{@item.category.name}",category_path(@category.id)
           %tr
             %th ブランド
             %td 

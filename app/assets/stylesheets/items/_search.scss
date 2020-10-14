@@ -1,4 +1,4 @@
-.category_item{
+.search_item{
   background-color: #f5f5f5;
   padding: 30px;
   margin-left: 300px;
@@ -85,7 +85,7 @@
   }
   
 }
-.category__items{
+.search__items{
   width: 220px;
   padding: 20px;
   background-color: white;
@@ -96,8 +96,8 @@
     }
 }
 
-// category_index
-.category__contents{
+// search_index
+.search__contents{
   display: flex;
   width: 700px;
   flex-wrap: wrap;
@@ -120,7 +120,7 @@
   }
 }
 
-.category__index{
+.search__index{
   background-color: #3CCACE;
   width: 800px;
   text-align: center;

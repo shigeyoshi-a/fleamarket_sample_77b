@@ -1,10 +1,7 @@
 .another_item
   .another_item__category
-    -if @item.category.parent != nil
-      = link_to "#{@item.category.parent.parent.name}", category_path(@item.category_id),method: :get
-    -else
-      = link_to "#{@item.category.name}" ,category_path(@item.category_id), method: :get
-    = link_to " をもっと見る", category_path(@item.category_id), method: :get
+    = link_to "#{@item.category.parent.parent.name}", category_path(@item.category.parent.parent.id),method: :get
+    = link_to " をもっと見る", category_path(@item.category.parent.parent.id), method: :get
   .another_item__box
     .another_item__box__link
       -@categories.each do |item|
@@ -12,7 +9,7 @@
           = link_to item_path(item.id) do
             .another_item__box__link__image
               - if item.brand && item.buyer_id
-                = image_tag ("icon-04.png")
+                = image_tag "#{item.item_images[0].image}"   
                 %spen.out SOLD
               - else item.brand
                 = image_tag "#{item.item_images[0].image}"   
