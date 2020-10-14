@@ -304,7 +304,7 @@ justify-content: space-between;
           color: #fff;
           transform: rotate(-18deg);
         }
-      }      
+      }
       &__name{
         font-size: 14px;
         margin-top: 10px;
@@ -335,7 +335,22 @@ justify-content: space-between;
   margin-right: 15px;
   height: 250px;
   border: 1px solid #F5F5F5;
-  &:hover{
-    opacity: 0.5 ;
+  // &:hover{
+  //   opacity: 0.5 ;
+  // }
+}
+
+.show__icon {
+  margin-left: auto;
+  i {
+    font-size:1.1em;
+    color: black;
+  }
+}
+.show__icon--like {
+  margin-left: auto;
+  i {
+    font-size:1.1em;
+    color: orange;
   }
 }
