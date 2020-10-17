@@ -3,6 +3,7 @@ class LikesController < ApplicationController
   before_action :set_item, only: [:create, :destroy]
 
   def index
+    @items = Item.includes(:item_images).order("created_at DESC")
   end
 
   def create
