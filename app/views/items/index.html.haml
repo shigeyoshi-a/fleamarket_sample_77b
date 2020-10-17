@@ -90,8 +90,8 @@
     = link_to "新規投稿商品", root_path
   .products
     - @newitems.each do |item|
-      - if item.buyer_id.present?
-        .products__box
+      = link_to item_path(item.id) do
+        - if item.buyer_id.present?
           .products__box__image
             = link_to item_path(item.id) do
               = image_tag item.item_images[0].image.url
@@ -137,8 +137,8 @@
     = link_to "アーカイバ", root_path
   .products
     - @branditems.each do |item|
-      - if item.buyer_id.present? && item.brand.present?
-        .products__box
+      = link_to item_path(item.id) do
+        - if item.buyer_id.present? && item.brand.present?
           .products__box__image
             = link_to item_path(item.id) do
               = image_tag item.item_images[0].image.url

@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
-  get 'purchase/index'
-  get 'purchase/done'
 
   get 'users/show'
 
   devise_for :users ,controllers: {
     registrations: 'users/registrations',
+    omniauth_callbacks: "users/omniauth_callbacks"
   }
   devise_scope :user do
     get 'addresses', to: 'users/registrations#new_address'
@@ -30,7 +29,6 @@ Rails.application.routes.draw do
     end
   end
   
-
   root 'items#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :items, only: [:new, :create, :edit, :update, :show, :destroy] do
@@ -40,6 +38,13 @@ Rails.application.routes.draw do
       get 'search'
       get 'detail_search'
     end
+    resources :purchase, only: [:index] do
+      collection do
+        post 'pay', to: 'purchase#pay'
+        get 'done', to: 'purchase#done'
+      end
+    end
+    
   end
   
   resources :users, only: [:show]
