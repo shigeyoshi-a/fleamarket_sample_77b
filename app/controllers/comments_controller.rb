@@ -9,9 +9,13 @@ class CommentsController < ApplicationController
 
   end
   def destroy
-    @comment.destroy
-    @msg = "コメントを削除しました"
-    # redirect_to item_path(params[:item_id])
+    if @comment.destroy
+      @msg = "コメントを削除しました"
+    else
+      flash[:alert] = "削除に失敗しました"
+      redirect_to item_path(params[:item_id])
+    end
+   
   end
   private
   def set_comment
