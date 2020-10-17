@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:edit, :update, :show, :destroy]
+  before_action :set_ransack, only: [:search, :detail_search]
 
   def index
     @parents = Category.where(ancestry: nil)
@@ -70,19 +71,9 @@ class ItemsController < ApplicationController
       format.html
       format.json
     end
-    # ransackの使用
-    @q = Item.ransack(params[:q])
-    @conditions = Condition.all
-    @delivery_fees = DeliveryFee.all
-    @detail_items = @q.result(distinct: true)
   end
 
   def detail_search
-    @q = Item.ransack(params[:q])
-    @conditions = Condition.all
-    @delivery_fees = DeliveryFee.all
-    @detail_items = @q.result(distinct: true)
-    
     # カテゴリーボックスの生成
     if @detail_items.present?
       grandchild = @detail_items[0].category
@@ -116,6 +107,13 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def set_ransack
+    @q = Item.ransack(params[:q])
+    @conditions = Condition.all
+    @delivery_fees = DeliveryFee.all
+    @detail_items = @q.result(distinct: true)
   end
 
   def set_category
