@@ -1,109 +1,296 @@
-.payment-text {
-  margin-top: 25px;
-  border-top: 1px solid #f5f5f5;
-  &__box {
-    max-width: 400px;
-    margin: 0 auto;
-    #token_submit.red_btn{
-      margin-top: 30px;
-      background-color: #3CCACE;
-      color: white;
-    }
-    .toppage_btn{
-      height: 50px;
-      color:white;
-      text-align: center;
-      background-color: lightblue;
-      margin-top: 30px;
-      padding-top: 12px;
-      width: 100%;
-      text-decoration: none;
-      font-size: 18px;
-      border-radius: 2%;
+.payment{
+  text-align: center;
+  width: 700px;
+  height: 100vh;
+  margin: auto;
+
+  &__title{
+    font-size: 24px;
+    padding: 8px 24px;
+    border-bottom: 1px solid #f5f5f5;
+    text-align: center;
+    font-weight: bold;
+  }
+  &__contents{
+
+    &__card-number{
+      margin: 30px;
+      span {
+        background: red;
+        margin-left: 10px;
+        padding: 2px 4px;
+        border-radius: 2px;
+        color: #fff;
+        font-size: 12px;
+        vertical-align: top;
+      }
+      .card-img{
+        display: flex;
+        justify-content: center;
+        margin: 5px;
+        li {
+          margin: 0 0 0 8px;
+        }
+      }
     }
 
+    &__expiration{
+      display: flex;
+      justify-content: center;
+      margin: 30px;
+
+      .year-month{
+        display: flex;
+        justify-content: center;
+      }
+      span {
+        background: red;
+        margin-left: 10px;
+        padding: 2px 4px;
+        border-radius: 2px;
+        color: #fff;
+        font-size: 12px;
+        vertical-align: top;
+        size: 32px 16px;
+      }
+    }
+
+    &__cvc{
+      span {
+        background: red;
+        margin-left: 10px;
+        padding: 2px 4px;
+        border-radius: 2px;
+        color: #fff;
+        font-size: 12px;
+        vertical-align: top;
+      }
+    }
   }
-  &__number {
-    position: relative;
-    margin: 8px 0 0;
-  }
-  .text {
-    text-align: right;
-    color: #0099e8;
-  i {
-    display: inline-block;
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background: #0099e8;
-    color: #fff;
-    line-height: 14px;
-    font-size: 12px;
+  .submit_btn{
+    display: block;
+    background-color: #3CCABE;
+    color: white;
+    width: 300px;
     text-align: center;
-  span {
-    text-align: right;
-    color: #0099e8;
+    border-radius: 10px;
+    height: 40px;
+    margin: auto;
+    margin-top: 20px;
+    padding-top: 5px;
+    border: none;
+    outline: none;
+    align-items: center;
+    font-weight: bold;
+    font-size: large;
+
+  }
+  .toppage_btn{
+    background-color: #3CCABE;
+    color: white;
+    width: 300px;
+    text-align: center;
+    border-radius: 10px;
+    height: 40px;
+    margin: auto;
+    margin-top: 20px;
+    padding-top: 10px;
+    border: none;
+    outline: none;
+    align-items: center;
+    font-weight: bold;
+    font-size: large;
+  }
+}.payment{
+  text-align: center;
+  width: 700px;
+  height: 100vh;
+  margin: auto;
+
+  &__title{
+    font-size: 24px;
+    padding: 8px 24px;
+    border-bottom: 1px solid #f5f5f5;
+    text-align: center;
+    font-weight: bold;
+  }
+  &__contents{
+
+    &__card-number{
+      margin: 30px;
+
+      label {
+      }
+      span {
+        background: red;
+        margin-left: 10px;
+        padding: 2px 4px;
+        border-radius: 2px;
+        color: #fff;
+        font-size: 12px;
+        vertical-align: top;
+      }
+      .card-img{
+        display: flex;
+        justify-content: center;
+        margin: 5px;
+        li {
+          margin: 0 0 0 8px;
+        }
+      }
+    }
+
+    &__expiration{
+      display: flex;
+      justify-content: center;
+      margin: 30px;
+
+      .year-month{
+        display: flex;
+        justify-content: center;
+      }
+      span {
+        background: red;
+        margin-left: 10px;
+        padding: 2px 4px;
+        border-radius: 2px;
+        color: #fff;
+        font-size: 12px;
+        vertical-align: top;
+        size: 32px 16px;
+      }
+    }
+
+    &__cvc{
+      span {
+        background: red;
+        margin-left: 10px;
+        padding: 2px 4px;
+        border-radius: 2px;
+        color: #fff;
+        font-size: 12px;
+        vertical-align: top;
+      }
     }
   }
-}
-  &__contents {
-    margin: 0;
-    margin: 24px 0 0;
-  p {
-    margin: 8px 0 0;
-    line-height: 1.5;
-    color: #888;
+  .submit_btn{
+    display: block;
+    background-color: #3CCABE;
+    color: white;
+    width: 300px;
+    text-align: center;
+    border-radius: 10px;
+    height: 40px;
+    margin: auto;
+    margin-top: 20px;
+    padding-top: 5px;
+    border: none;
+    outline: none;
+    align-items: center;
+    font-weight: bold;
+    font-size: large;
+
   }
-  label {
-    font-weight: 600;
-    display: inline-block;
+  .toppage_btn{
+    background-color: #3CCABE;
+    color: white;
+    width: 300px;
+    text-align: center;
+    border-radius: 10px;
+    height: 40px;
+    margin: auto;
+    margin-top: 20px;
+    padding-top: 10px;
+    border: none;
+    outline: none;
+    align-items: center;
+    font-weight: bold;
+    font-size: large;
   }
-  span {
-    background: #ea352d;
-    margin: 10px 0 0 10px;
-    padding: 2px 4px;
-    border-radius: 2px;
-    color: #fff;
-    font-size: 12px;
-    vertical-align: top;
+}.payment{
+  text-align: center;
+  width: 700px;
+  height: 100vh;
+  margin: auto;
+
+  &__title{
+    font-size: 24px;
+    padding: 8px 24px;
+    border-bottom: 1px solid #f5f5f5;
+    text-align: center;
+    font-weight: bold;
   }
-  textarea {
-    width: 100%;
-    margin: 8px 0 0;
-    height: 48px;
-    padding: 10px 16px 8px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    background: #fff;
-    line-height: 1.5;
-    font-size: 16px;
-  img {
-    width: 49px;
-    height: 20px;
+  &__contents{
+
+    &__card-number{
+      margin: 30px;
+
+      .card-img{
+        display: flex;
+        justify-content: center;
+        margin: 5px;
+        li {
+          margin: 0 0 0 8px;
+        }
+      }
+    }
+
+    &__expiration{
+      display: flex;
+      justify-content: center;
+      margin: 30px;
+
+      .year-month{
+        display: flex;
+        justify-content: center;
+      }
+      
+    }
+
+    &__cvc{
+
     }
   }
-  .password {
-    margin: 16px 0 0;
+  .submit_btn{
+    display: block;
+    background-color: #3CCABE;
+    color: white;
+    width: 300px;
+    text-align: center;
+    border-radius: 10px;
+    height: 40px;
+    margin: auto;
+    margin-top: 40px;
+    padding-top: 4px;
+    border: none;
+    outline: none;
+    align-items: center;
+    font-weight: bold;
+    font-size: large;
+
   }
-  .card {
-    margin: 8px 0 0;
-    font-size: 0;
-   }
-  li {
-    display: inline-block;
-    margin: 0 0 0 8px;
-    vertical-align: middle;
-   }
+  .toppage_btn{
+    background-color: #3CCABE;
+    color: white;
+    width: 300px;
+    text-align: center;
+    border-radius: 10px;
+    height: 40px;
+    margin: auto;
+    margin-top: 20px;
+    padding-top: 10px;
+    border: none;
+    outline: none;
+    align-items: center;
+    font-weight: bold;
+    font-size: large;
   }
-}
-.payment-expiration_date {
-  margin-top: 30px;
+
   label {
     font-weight: 600;
-    display: inline-block;
-    vertical-align: top;
   }
-  span.required {
+
+  span {
     background: red;
     margin-left: 10px;
     padding: 2px 4px;
@@ -111,42 +298,5 @@
     color: #fff;
     font-size: 12px;
     vertical-align: top;
-    p {
-      margin: 8px 0 0;
-      line-height: 1.5;
-      color: #888;
-      font-weight: 600;
-    }
   }
-  .expiration_date {
-    display: flex;
-    margin-top: 10px;
-    #exp_month{
-      width: 45%;
-    }
-    #exp_year{
-      width: 45%;
-    }
-    .exp-text{
-      margin-left: 5px;
-      margin-right: 5px;
-      padding-top: 10px;
-      font-size: 20px;
-    }
-  }
-  select {
-    width: calc(100% - 38px);
-    z-index: 2;
-    height: 48px;
-    padding: 0 16px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    background: 0;
-    font-size: 16px;
-    line-height: 1.5;
-    cursor: pointer;
-    }
-    span {
-      margin: 20px 0 0;
-    }
 }

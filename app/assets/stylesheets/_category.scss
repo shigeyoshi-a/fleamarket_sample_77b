@@ -6,10 +6,10 @@
 }
 
 .category__list{
-  position: absolute;
+  position: absolute; 
+  z-index: 2;
   height: 900px;
   background-color: white;
-  z-index: 999;
 }
 
 .category__child--name{
