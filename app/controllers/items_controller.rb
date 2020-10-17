@@ -79,9 +79,30 @@ class ItemsController < ApplicationController
 
   def detail_search
     @q = Item.ransack(params[:q])
-    @detail_items = @q.result(distinct: true)
     @conditions = Condition.all
     @delivery_fees = DeliveryFee.all
+    @detail_items = @q.result(distinct: true)
+    
+    # カテゴリーボックスの生成
+    if @detail_items.present?
+      grandchild = @detail_items[0].category
+      child = grandchild.parent
+
+      @category_parent_array = Category.where(ancestry: nil)
+      @parent_array = []
+      @parent_array << @detail_items[0].category.parent.parent
+      @parent_array << @detail_items[0].category.parent.parent.id
+
+      @category_children_array = Category.where(ancestry: child.ancestry)
+      @child_array = []
+      @child_array << child
+      @child_array << child.id
+
+      @category_grandchildren_array = Category.where(ancestry: grandchild.ancestry)
+      @grandchild_array = []
+      @grandchild_array << grandchild
+      @grandchild_array << grandchild.id
+    end
   end
 
   private
@@ -90,7 +111,7 @@ class ItemsController < ApplicationController
   end
 
   def search_params
-    params.require(:q).permit(:name_cont, :brand_cont, :condition_id_eq, :delivery_fee_id_eq, :category_id_eq, :price_gteq, :price_lteq)
+    params.require(:q).permit(:name_cont, :brand_cont, :condition_id_in, :delivery_fee_id_in, :category_id_eq, :price_gteq, :price_lteq)
   end
 
   def set_item

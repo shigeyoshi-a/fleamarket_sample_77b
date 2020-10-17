@@ -1,29 +1,5 @@
-.Wrapper
-  .detail_search
-    = search_form_for(@q, url: detail_search_items_path) do |f|
-      %p
-        = f.label :name_cont, 'キーワードを追加する'
-        = f.search_field :name_cont
-      %p.item-detail__category
-        = f.label :category_id_eq, 'カテゴリーを選択する'
-        = f.collection_select(:category_id_eq, Category.roots, :id, :name, {include_blank: "---"}, {class: "category-form", id: 'parent_category'})
-      %p
-        = f.label :brand_cont, 'ブランドを追加する'
-        = f.search_field :brand_cont
-      %p
-        = f.label :price_gteq, "価格"
-        = f.number_field :price_gteq
-      %p
-        = f.label :price_lteq, " ~ "
-        = f.number_field :price_lteq
-      %p
-        = f.label :condition_id_eq, '商品の状態'
-        = f.collection_select :condition_id_eq, @conditions, :id, :name, :include_blank => '指定なし'
-      %p
-        = f.label :delivery_fee_id_eq, '配送料の負担'
-        = f.collection_select :delivery_fee_id_eq, @delivery_fees, :id, :name, :include_blank => '指定なし'
-      %p 販売状況
-      = f.submit
+.wrapper
+  = render "detail_search_form"
   .search_item
     .search_item__title
       = "#{params[:keyword]}の商品一覧"

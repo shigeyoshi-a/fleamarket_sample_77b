@@ -1,29 +1,38 @@
-.Wrapper
+.wrapper
   .detail_search
+    .title
+      %P 詳細検索
     = search_form_for(@q, url: detail_search_items_path) do |f|
-      %p
-        = f.label :name_cont, 'キーワードを追加する'
-        = f.search_field :name_cont
-      %p.item-detail__category
-        = f.label :category_id_eq, 'カテゴリーを選択する'
-        = f.collection_select(:category_id_eq, Category.roots, :id, :name, {include_blank: "---"}, {class: "category-form", id: 'parent_category'})
-      %p
-        = f.label :brand_cont, 'ブランドを追加する'
-        = f.search_field :brand_cont
-      %p
-        = f.label :price_gteq, "価格"
-        = f.number_field :price_gteq
-      %p
-        = f.label :price_lteq, " ~ "
-        = f.number_field :price_lteq
-      %p
-        = f.label :condition_id_eq, '商品の状態'
-        = f.collection_select :condition_id_eq, @conditions, :id, :name, :include_blank => '指定なし'
-      %p
-        = f.label :delivery_fee_id_eq, '配送料の負担'
-        = f.collection_select :delivery_fee_id_eq, @delivery_fees, :id, :name, :include_blank => '指定なし'
-      %p 販売状況
-      = f.submit
+      .detail_search__topics
+        %p
+          = f.label :name_cont, 'キーワードを追加する'
+          = f.search_field :name_cont, class: "keyword_box"
+        %p.item-detail__category
+          = f.label :category_id_eq, 'カテゴリーを選択する'
+          - if @detail_items.present?
+            = f.collection_select :category_id_eq, @category_parent_array, :id, :name, {},{selected:@parent_array, id:"parent_category", class:"category-form"}
+            = f.collection_select :category_id_eq, @category_children_array, :id, :name, {},{selected:@child_array, id:"children_wrapper", class:"category-form"}
+            = f.collection_select :category_id_eq, @category_grandchildren_array, :id, :name, {},{selected:@grandchild_array, id:"grandchildren_wrapper", class:"category-form"}
+          - else
+            = f.collection_select(:category_id_eq, Category.roots, :id, :name, {include_blank: "---"}, {class: "category-form", id: 'parent_category'})
+        %p
+          = f.label :brand_cont, 'ブランドを追加する'
+          = f.search_field :brand_cont, class: "brand_box"
+        %p
+          = f.label :price_gteq, "最小価格"
+          = f.number_field :price_gteq, class: "low_price_box"
+        %p
+          = f.label :price_lteq, "最大価格"
+          = f.number_field :price_lteq, class: "high_price_box"
+        %p.condition_container
+          = f.label :condition_id_in, '商品の状態', class: "condition_text"
+          = f.collection_check_boxes :condition_id_in, @conditions, :id, :name, {:include_blank => '指定なし'}, {class: 'condition_box'}
+        %p
+          = f.label :delivery_fee_id_in, '配送料の負担'
+          = f.collection_check_boxes :delivery_fee_id_in, @delivery_fees, :id, :name, {:include_blank => '指定なし'}, {class: "delivery_fee_box"}
+        -# %p 販売状況
+        .submit_form
+          = f.submit '検索する', class: "form_btn"
   .search_item
     .search_item__title
       = "検索結果"
@@ -47,3 +56,5 @@
                 = icon("fa","star")
                 0
             .search_item__tax (税込)
+
+
