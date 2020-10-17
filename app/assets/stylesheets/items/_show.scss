@@ -33,6 +33,7 @@
 }
 
 .item{
+  
   &__name{
     font-size: 30px;
     text-align: center;
@@ -47,10 +48,25 @@
       height: 350px;
       background-color: lightgray;
       margin: auto;
+      position: relative;
       img{
         width: 550px;
         height: 350px;
         object-fit: cover;
+      }
+      .sold{
+        position: absolute;
+        z-index: 1;
+        top: 40%;
+        left: 25%;
+        width: 50%;
+        background-color: red;
+        transform: rotate(-10deg);
+        color: white;
+        font-size: 50px;
+        font-weight: bold;
+        border-radius: 10px;
+
       }
     }
     ul{
@@ -163,7 +179,6 @@
           }
         }
       }
-
     }
   }
 }
