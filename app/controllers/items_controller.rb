@@ -56,6 +56,8 @@ class ItemsController < ApplicationController
     @sending_days = @item.sending_days
     @category = @item.category
     @categories =  @category.items.order("created_at DESC").limit(3)
+    @comment = Comment.new
+    @comments = @item.comments.includes(:user)
   end
 
   def destroy
