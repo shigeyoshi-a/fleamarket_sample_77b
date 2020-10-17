@@ -22,15 +22,12 @@
               %spen.unit円
               - if user_signed_in? && Like.like_method(item, current_user)
                 %li.show__icon--like
-                  = link_to "/items/#{item.id}/likes/:id" , method: :DELETE ,remote: true do
-                    = icon("fas", "star")
+                  = icon("fas", "star")
               - elsif user_signed_in?
                 %li.show__icon
-                  = link_to "/items/#{item.id}/likes", method: :POST ,remote: true do
-                    = icon("fas", "star")
+                  = icon("fas", "star")
               - else
                 %li.show__icon
-                  = link_to new_user_session_path do
-                    = icon("fas", "star")
+                  = icon("fas", "star")
               = item.likes.length
           .another_item__tax (税込)

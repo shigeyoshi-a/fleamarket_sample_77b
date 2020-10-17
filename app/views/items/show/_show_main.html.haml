@@ -1,7 +1,7 @@
 %br/
 .field
   .item
-    %P.item__name 
+    %P.item__name
       = @item.name
     .item__image
       .item__image__first
@@ -42,8 +42,8 @@
           %tr
             %th 出品者
             %td= @item.saler.nickname
-          %tr 
-            %th カテゴリー    
+          %tr
+            %th カテゴリー
             %td
               = link_to "#{@item.category.parent.parent.name}",category_path(@category.parent.parent_id)
               %br/
@@ -52,10 +52,10 @@
               = link_to "#{@item.category.name}",category_path(@category.id)
           %tr
             %th ブランド
-            %td 
+            %td
               -if @item.brand != ""
                 = @item.brand
-              -else 
+              -else
                 ブランドの指定はありません
           %tr
             %th 商品サイズ
@@ -76,14 +76,14 @@
             %td= @sending_days.name
     .check_btn
       - if user_signed_in? && Like.like_method(@item, current_user)
-        .check_btn__like--add
-          = link_to "/items/#{@item.id}/likes/:id" , method: :DELETE ,remote: true do
+        .check_btn__like--add{data: {item_id: @item.id}}
+          = link_to "/items/#{@item.id}/likes/:id" , method: :DELETE do
             = icon( "fa", "star")
             お気に入り
             = @item.likes.length
       - elsif user_signed_in?
-        .check_btn__like
-          = link_to "/items/#{@item.id}/likes", method: :POST ,remote: true do
+        .check_btn__like{data: {item_id: @item.id}}
+          = link_to "/items/#{@item.id}/likes", method: :POST do
             = icon( "fa", "star")
             お気に入り
             = @item.likes.length
@@ -103,7 +103,7 @@
   .comment
     .comment__box
       %textarea
-    .comment__message 
+    .comment__message
       相手のことを考え丁寧なコメントを心がけましょう。
       %br/
       不快な言葉遣いなどは利用制限や退会処分となることがあります。
