@@ -92,43 +92,44 @@
     - @newitems.each do |item|
       = link_to item_path(item.id) do
         - if item.buyer_id.present?
-          .products__box__image
-            = link_to item_path(item.id) do
-              = image_tag item.item_images[0].image.url
-              %spen.out SOLD
-          .products__box__body
-            %h3.name
-              = item.name
-            %ul.details
-              %li.details__price
-                = item.price.to_s
-                %spen.unit円
-              %li.details__icon
-                = link_to root_path do
-                  = icon("fas", "star")
-              %li.details__count
-                0
-            .tax
-              = "（税込）"
-      - else
-        .products__box
-          .products__box__image
-            = link_to item_path(item.id) do
-              = image_tag item.item_images[0].image.url
-          .products__box__body
-            %h3.name
-              = item.name
-            %ul.details
-              %li.details__price
-                = item.price.to_s
-                %spen.unit円
-              %li.details__icon
-                = link_to root_path do
-                  = icon("fas", "star")
-              %li.details__count
-                0
-            .tax
-              = "（税込）"
+          .products__box
+            .products__box__image
+              = link_to item_path(item.id) do
+                = image_tag item.item_images[0].image.url
+                %spen.out SOLD
+            .products__box__body
+              %h3.name
+                = item.name
+              %ul.details
+                %li.details__price
+                  = item.price.to_s
+                  %spen.unit円
+                %li.details__icon
+                  = link_to root_path do
+                    = icon("fas", "star")
+                %li.details__count
+                  0
+              .tax
+                = "（税込）"
+        - else
+          .products__box
+            .products__box__image
+              = link_to item_path(item.id) do
+                = image_tag item.item_images[0].image.url
+            .products__box__body
+              %h3.name
+                = item.name
+              %ul.details
+                %li.details__price
+                  = item.price.to_s
+                  %spen.unit円
+                %li.details__icon
+                  = link_to root_path do
+                    = icon("fas", "star")
+                %li.details__count
+                  0
+              .tax
+                = "（税込）"
 
 %section.pickup
   %h2.title
@@ -139,40 +140,41 @@
     - @branditems.each do |item|
       = link_to item_path(item.id) do
         - if item.buyer_id.present? && item.brand.present?
-          .products__box__image
-            = link_to item_path(item.id) do
-              = image_tag item.item_images[0].image.url
-              %spen.out SOLD
-          .products__box__body
-            %h3.name
-              = item.name
-            %ul.details
-              %li.details__price
-                = item.price.to_s
-                %spen.unit円
-              %li.details__icon
-                = link_to root_path do
-                  = icon("fas", "star")
-              %li.details__count
-                0
-            .tax
-              = "（税込）"
-      - elsif item.brand.present?
-        .products__box
-          .products__box__image
-            = link_to item_path(item.id) do
-              = image_tag item.item_images[0].image.url
-          .products__box__body
-            %h3.name
-              = item.name
-            %ul.details
-              %li.details__price
-                = item.price.to_s
-                %spen.unit円
-              %li.details__icon
-                = link_to root_path do
-                  = icon("fas", "star")
-              %li.details__count
-                0
-            .tax
-              = "（税込）"
+          .products__box
+            .products__box__image
+              = link_to item_path(item.id) do
+                = image_tag item.item_images[0].image.url
+                %spen.out SOLD
+            .products__box__body
+              %h3.name
+                = item.name
+              %ul.details
+                %li.details__price
+                  = item.price.to_s
+                  %spen.unit円
+                %li.details__icon
+                  = link_to root_path do
+                    = icon("fas", "star")
+                %li.details__count
+                  0
+              .tax
+                = "（税込）"
+        - elsif item.brand.present?
+          .products__box
+            .products__box__image
+              = link_to item_path(item.id) do
+                = image_tag item.item_images[0].image.url
+            .products__box__body
+              %h3.name
+                = item.name
+              %ul.details
+                %li.details__price
+                  = item.price.to_s
+                  %spen.unit円
+                %li.details__icon
+                  = link_to root_path do
+                    = icon("fas", "star")
+                %li.details__count
+                  0
+              .tax
+                = "（税込）"
