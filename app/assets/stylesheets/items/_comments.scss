@@ -1,4 +1,8 @@
 .comment{
+  p{
+    text-align: center;
+    margin-top: 20px;
+   }
   &__box{
     text-align: center;
     margin-top: 20px;
@@ -8,23 +12,45 @@
     }
   }
   &__list{
-    p{
-      text-align: center;
-     }
-    &__main{
-      padding: 20px;
-      background-color: ghostwhite;
-      border:1px solid dodgerblue;
+      padding: 30px;
+      background-color: white;
+      border:1px solid rgb(66, 223, 215);
       margin: 20px;
       max-height: 200px;
       overflow: scroll;
+      width: 580px;
+      border-radius: 3px;
 
-    }
     &__user{
-
+      margin-bottom: 5px;
+      display: flex;
+      justify-content: space-between;
+      &--name{
+        font-weight: bold;
+        display: flex;
+      }
+      &--delete{
+        font-size: 18px;
+        a{
+          color: rgb(50, 153, 250);
+        }
+      }
     }
     &__content{
-      
+      display: flex;
+      justify-content: space-between;
+      border-bottom: solid 1px lightgray;
+      margin-bottom: 5px;
+      &--body{
+        width: 500px;
+        flex-wrap: wrap;
+        margin-right: 5px;
+        margin-top: 5px;
+      }
+      &--time{
+        font-size: 12px;
+        margin-bottom: 10px;
+      }
     }
   }
   &__caution{
@@ -32,6 +58,13 @@
     margin: 10px 20px;
     padding: 10px;
     font-size: 14px;
+    &__login{
+      text-align: center;
+      margin: 10px;
+      a{
+        color: rgb(240, 157, 2);
+      }
+    }
     }
 
   &__submit{
@@ -56,4 +89,14 @@
       }
     }
   }
+}
+
+.comment_buyer_name{
+  font-size: 12px;
+  margin-left: 5px;
+  background-color: lightgray;
+  height: 20px;
+  padding: 3px;
+  font-weight: normal;
+  border-radius: 5px;
 }
