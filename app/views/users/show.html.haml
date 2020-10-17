@@ -5,6 +5,12 @@
     %pマイページ
   %section.mypage_boxes
     .mypage_boxes__box
+      = link_to "/users/#{current_user.id}/likes" do
+        .icon
+          = icon("fas", "star")
+        .menu
+          お気に入り
+    .mypage_boxes__box
       = link_to card_path(current_user) do
         .icon
           = icon("fas", "credit-card")

@@ -8,8 +8,8 @@ class User < ApplicationRecord
   has_many :items
   has_one :address
   has_one :card
+  has_many :likes, dependent: :destroy
   has_many :sns_credentials
-  
   full_width = {with: /\A[ぁ-んァ-ン一-龥]/, message: 'を全角で入力してください' }
   full_width_kana = { with: /\A([ァ-ン]|ー)+\z/, message: 'を全角カタカナで入力してください' }
 
@@ -39,3 +39,4 @@ class User < ApplicationRecord
     { user: user, sns: sns }
   end
 end
+

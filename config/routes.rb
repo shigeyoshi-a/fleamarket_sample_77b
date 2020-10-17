@@ -28,11 +28,14 @@ Rails.application.routes.draw do
       post 'pay', to: 'purchase#pay'
     end
   end
-  
+
+
   root 'items#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :items, only: [:new, :create, :edit, :update, :show, :destroy] do
+    resources :likes, only: [:create, :destroy]
     resources :comments, only: [:create,:destroy]
+
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
@@ -47,7 +50,10 @@ Rails.application.routes.draw do
     end
     
   end
-  
-  resources :users, only: [:show]
+
+  resources :users, only: [:show] do
+    resources :likes, only: [:index]
+  end
   get '*wrong_routes', to: 'routing_errors#index'
+
 end

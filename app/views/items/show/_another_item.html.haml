@@ -6,20 +6,28 @@
     .another_item__box__link
       -@categories.each do |item|
         .product
-          = link_to item_path(item.id) do
-            .another_item__box__link__image
-              - if item.brand && item.buyer_id
-                = image_tag "#{item.item_images[0].image}"   
-                %spen.out SOLD
-              - else item.brand
-                = image_tag "#{item.item_images[0].image}"   
-            .another_item__box__link__name
-              = item.name
-            %ul
-              %li 
-                = item.price.to_s(:delimited)
-                %spen.unit円              
-              %li 
-                = icon("fa","star")
-                0
-            .another_item__tax (税込)
+          .another_item__box__link__image
+            - if item.brand && item.buyer_id
+              = link_to item_path(item.id) do
+                = image_tag "#{item.item_images[0].image}"
+              %spen.out SOLD
+            - else item.brand
+              = link_to item_path(item.id) do
+                = image_tag "#{item.item_images[0].image}"
+          .another_item__box__link__name
+            = item.name
+          %ul
+            %li
+              = item.price.to_s(:delimited)
+              %spen.unit円
+              - if user_signed_in? && Like.like_method(item, current_user)
+                %li.show__icon--like
+                  = icon("fas", "star")
+              - elsif user_signed_in?
+                %li.show__icon
+                  = icon("fas", "star")
+              - else
+                %li.show__icon
+                  = icon("fas", "star")
+              = item.likes.length
+          .another_item__tax (税込)

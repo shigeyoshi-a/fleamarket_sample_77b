@@ -1,7 +1,7 @@
 %br/
 .field
   .item
-    %P.item__name 
+    %P.item__name
       = @item.name
     .item__image
       .item__image__first
@@ -45,8 +45,8 @@
           %tr
             %th 出品者
             %td= @item.saler.nickname
-          %tr 
-            %th カテゴリー    
+          %tr
+            %th カテゴリー
             %td
               = link_to "#{@item.category.parent.parent.name}",category_path(@category.parent.parent_id)
               %br/
@@ -55,10 +55,10 @@
               = link_to "#{@item.category.name}",category_path(@category.id)
           %tr
             %th ブランド
-            %td 
+            %td
               -if @item.brand != ""
                 = @item.brand
-              -else 
+              -else
                 ブランドの指定はありません
           %tr
             %th 商品サイズ
@@ -76,17 +76,26 @@
             %th 発送日の目安
             %td= @sending_days.name
     .check_btn
-      .check_btn__like
-        =link_to "#" do
-          = icon( "fa", "star")
-          お気に入り 1
+      - if user_signed_in? && Like.like_method(@item, current_user)
+        .check_btn__like--add{data: {item_id: @item.id}}
+          = link_to "/items/#{@item.id}/likes/:id" , method: :DELETE do
+            = icon( "fa", "star")
+            お気に入り
+            = @item.likes.length
+      - elsif user_signed_in?
+        .check_btn__like{data: {item_id: @item.id}}
+          = link_to "/items/#{@item.id}/likes", method: :POST do
+            = icon( "fa", "star")
+            お気に入り
+            = @item.likes.length
+      - else
+        .check_btn__like
+          = link_to new_user_session_path do
+            = icon( "fa", "star")
+            お気に入り
+            = @item.likes.length
       .check_btn__bad
         =link_to "#" do
           = icon("fa", "flag")
           不適切な商品の通報
   %br/
-
-
-
-
- 
