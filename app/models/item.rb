@@ -18,4 +18,10 @@ class Item < ApplicationRecord
   validates :name,        length: { maximum: 40, :message => '文字数が41字以上です' }
   validates :description, length: { maximum: 1000, :message => '文字数が1001文字以上です' }
   validates :price,       numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, :message => '入力値が300~9,999,999の範囲外です' }
+
+  def self.search(search)
+    return Item.all unless search
+    Item.where('name LIKE(?)', "%#{search}%")
+  end
+
 end

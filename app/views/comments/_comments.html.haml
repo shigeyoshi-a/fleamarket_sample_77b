@@ -1,0 +1,47 @@
+%br/
+.field
+  .comment
+    %p コメント一覧
+    .comment__list
+      -@item.comments.each do |comment|
+        .comment__main{id: "comment-#{comment.id}"}
+          .comment__list__user
+            .comment__list__user--name
+              -if comment.user.id == @item.saler_id
+                = comment.user.nickname 
+                .comment_buyer_name
+                  出品者
+              -else 
+                =comment.user.nickname
+
+            .comment__list__user--delete
+              -if user_signed_in? && comment.user.id == current_user.id || user_signed_in? && current_user.id == @item.saler.id
+                = link_to item_comment_path(comment.item_id,comment.id), method: :delete, remote: true, data: { confirm: 'コメントを削除しますか？' }  do
+                  = icon("fa","trash-alt")
+          .comment__list__content
+            .comment__list__content--body
+              = comment.comment
+            .comment__list__content--time
+              = comment.created_at.strftime("%Y-%m-%d %H:%M")
+    .comment__caution 
+      相手のことを考え丁寧なコメントを心がけましょう。
+      %br/
+      不快な言葉遣いなどは利用制限や退会処分となることがあります。
+      %br/
+ 
+    .comment__area
+      -if current_user
+        = form_with model: [@item, @comment], local: true , id: "new_comment" do |form|
+          .comment__box
+            = form.text_area :comment, rows: "2", class: "textbox"
+            .comment__submit
+            %button{type: "submit", class:'comment__submit__btn'} 
+              %i.fas.fa-comment
+                コメントする
+      -else
+        .comment__caution__login
+          ※※※ コメントの投稿には
+          =link_to "新規登録" ,new_user_registration_path 
+          または
+          =link_to "ログイン", new_user_session_path 
+          が必要です ※※※

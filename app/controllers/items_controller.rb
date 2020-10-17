@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:edit, :update, :show, :destroy]
+  before_action :set_ransack, only: [:search, :detail_search]
 
   def index
     @parents = Category.where(ancestry: nil)
@@ -56,6 +57,8 @@ class ItemsController < ApplicationController
     @sending_days = @item.sending_days
     @category = @item.category
     @categories =  @category.items.order("created_at DESC").limit(3)
+    @comment = Comment.new
+    @comments = @item.comments.includes(:user)
   end
 
   def destroy
@@ -65,13 +68,55 @@ class ItemsController < ApplicationController
     redirect_to root_path
   end
 
+  def search
+    @items = Item.search(params[:keyword])
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
+
+  def detail_search
+    # カテゴリーボックスの生成
+    if @detail_items.present?
+      grandchild = @detail_items[0].category
+      child = grandchild.parent
+
+      @category_parent_array = Category.where(ancestry: nil)
+      @parent_array = []
+      @parent_array << @detail_items[0].category.parent.parent
+      @parent_array << @detail_items[0].category.parent.parent.id
+
+      @category_children_array = Category.where(ancestry: child.ancestry)
+      @child_array = []
+      @child_array << child
+      @child_array << child.id
+
+      @category_grandchildren_array = Category.where(ancestry: grandchild.ancestry)
+      @grandchild_array = []
+      @grandchild_array << grandchild
+      @grandchild_array << grandchild.id
+    end
+  end
+
   private
   def item_params
     params.require(:item).permit(:name, :description, :category_id, :brand, :condition_id, :delivery_fee_id, :sending_area_id, :sending_days_id, :price, item_images_attributes: [:image, :_destroy, :id]).merge(saler_id: current_user.id, user_id: current_user.id)
   end
 
+  def search_params
+    params.require(:q).permit(:name_cont, :brand_cont, :condition_id_in, :delivery_fee_id_in, :category_id_eq, :price_gteq, :price_lteq)
+  end
+
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def set_ransack
+    @q = Item.ransack(params[:q])
+    @conditions = Condition.all
+    @delivery_fees = DeliveryFee.all
+    @detail_items = @q.result(distinct: true)
   end
 
   def set_category
