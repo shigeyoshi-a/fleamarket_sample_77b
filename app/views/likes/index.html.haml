@@ -1,24 +1,24 @@
--# .mypage_Wrapper
--#   %section.mypage_title
--#     お気に入り一覧
--#   %section.like_Wrapper
--#     .like__box
--#       - @items.each do |item|
--#         - if user_signed_in? && Like.like_method(item, current_user)
--#           .like__box__product
--#             .like__image
--#               = link_to item_path(item.id) do
--#                 = image_tag item.item_images[0].image.url
--#             .like__name
--#               = item.name
--#             %ul
--#               %li
--#                 = item.price.to_s
--#               %li
--#                 = "円"
--#               %li.like__tax
--#                 = "(税込)"
--#               %li.like__icon
--#                 = link_to "/items/#{item.id}/likes/:id" , method: :DELETE do
--#                   = icon("fas", "star")
--# .bottom_Wrapper
+.mypage_Wrapper
+  %section.mypage_title
+    お気に入り一覧
+  %section.like_Wrapper
+    .like__box
+      - @items.each do |item|
+        - if user_signed_in? && Like.like_method(item, current_user)
+          .like__box__product
+            .like__image
+              = link_to item_path(item.id) do
+                = image_tag item.item_images[0].image.url
+            .like__name
+              = item.name
+            %ul
+              %li
+                = item.price.to_s
+              %li
+                = "円"
+              %li.like__tax
+                = "(税込)"
+              %li.like__icon
+                = link_to "/items/#{item.id}/likes/:id" , method: :DELETE do
+                  = icon("fas", "star")
+.bottom_Wrapper

@@ -75,25 +75,25 @@
           %tr
             %th 発送日の目安
             %td= @sending_days.name
-    -# .check_btn
-    -#   - if user_signed_in? && Like.like_method(@item, current_user)
-    -#     .check_btn__like--add{data: {item_id: @item.id}}
-    -#       = link_to "/items/#{@item.id}/likes/:id" , method: :DELETE do
-    -#         = icon( "fa", "star")
-    -#         お気に入り
-    -#         = @item.likes.length
-    -#   - elsif user_signed_in?
-    -#     .check_btn__like{data: {item_id: @item.id}}
-    -#       = link_to "/items/#{@item.id}/likes", method: :POST do
-    -#         = icon( "fa", "star")
-    -#         お気に入り
-    -#         = @item.likes.length
-    -#   - else
-    -#     .check_btn__like
-    -#       = link_to new_user_session_path do
-    -#         = icon( "fa", "star")
-    -#         お気に入り
-    -#         = @item.likes.length
+    .check_btn
+      - if user_signed_in? && Like.like_method(@item, current_user)
+        .check_btn__like--add{data: {item_id: @item.id}}
+          = link_to "/items/#{@item.id}/likes/:id" , method: :DELETE do
+            = icon( "fa", "star")
+            お気に入り
+            = @item.likes.length
+      - elsif user_signed_in?
+        .check_btn__like{data: {item_id: @item.id}}
+          = link_to "/items/#{@item.id}/likes", method: :POST do
+            = icon( "fa", "star")
+            お気に入り
+            = @item.likes.length
+      - else
+        .check_btn__like
+          = link_to new_user_session_path do
+            = icon( "fa", "star")
+            お気に入り
+            = @item.likes.length
       .check_btn__bad
         =link_to "#" do
           = icon("fa", "flag")
