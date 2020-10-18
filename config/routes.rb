@@ -33,7 +33,7 @@ Rails.application.routes.draw do
   root 'items#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :items, only: [:new, :create, :edit, :update, :show, :destroy] do
-    # resources :likes, only: [:create, :destroy]
+    resources :likes, only: [:create, :destroy]
     resources :comments, only: [:create,:destroy]
 
     collection do
@@ -52,7 +52,7 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:show] do
-    # resources :likes, only: [:index]
+    resources :likes, only: [:index]
   end
   get '*wrong_routes', to: 'routing_errors#index'
 
