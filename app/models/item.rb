@@ -5,7 +5,7 @@ class Item < ApplicationRecord
   belongs_to :saler, class_name: "User"
   has_many :item_images
   has_many :comments
-  has_many :likes, dependent: :destroy
+  # has_many :likes, dependent: :destroy
   belongs_to_active_hash :condition
   belongs_to_active_hash :delivery_fee
   belongs_to_active_hash :sending_days
