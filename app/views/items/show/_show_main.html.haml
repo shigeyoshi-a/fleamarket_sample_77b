@@ -78,13 +78,13 @@
     .check_btn
       - if user_signed_in? && Like.like_method(@item, current_user)
         .check_btn__like--add{data: {item_id: @item.id}}
-          = link_to "/items/#{@item.id}/likes/:id" , method: :DELETE do
+          = link_to  item_like_path(@item.id,:id), method: :DELETE do
             = icon( "fa", "star")
             お気に入り
             = @item.likes.length
       - elsif user_signed_in?
         .check_btn__like{data: {item_id: @item.id}}
-          = link_to "/items/#{@item.id}/likes", method: :POST do
+          = link_to item_likes_path(@item.id), method: :POST do
             = icon( "fa", "star")
             お気に入り
             = @item.likes.length
