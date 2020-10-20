@@ -19,6 +19,6 @@
               %li.like__tax
                 = "(税込)"
               %li.like__icon
-                = link_to "/items/#{item.id}/likes/:id" , method: :DELETE do
+                = link_to  item_like_path(item.id,:id), method: :DELETE do
                   = icon("fas", "star")
 .bottom_Wrapper
