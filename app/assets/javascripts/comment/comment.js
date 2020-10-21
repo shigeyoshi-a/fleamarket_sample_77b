@@ -1,15 +1,22 @@
 $(document).on('turbolinks:load', ()=> {
   $(function(){
     function buildHTML(comment){
-      let html = `<div class="comment__list__user--name">
-                  ${comment.user_nickname}
-                  </div>
-                  <div class="comment__list__content">
-                    <div class="comment__list__content--body">
-                    ${comment.comment}
+      let html = `<div class ="comment__main" id= "comment-${comment.id}">
+                    <div class="comment__list__user" >
+                    <div class="comment__list__user--name">
+                    ${comment.user_nickname}
                     </div>
-                    <div class="comment__list__content--time">
-                    ${comment.created_at}<br>
+                    <div class ="comment__list__user--delete">
+                      <a href = "/items/${comment.item_id}/comments/${comment.id}" data-method="delete" data-remote="true" ><i class="fas fa-trash-alt"></i></a>
+                    </div>
+                  </div>
+                    <div class="comment__list__content">
+                      <div class="comment__list__content--body">
+                      ${comment.comment}
+                      </div>
+                      <div class="comment__list__content--time">
+                      ${comment.created_at}<br>
+                      </div>
                     </div>
                   </div>`
       return html;
