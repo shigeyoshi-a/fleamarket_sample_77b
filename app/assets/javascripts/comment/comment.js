@@ -7,7 +7,7 @@ $(document).on('turbolinks:load', ()=> {
                     ${comment.user_nickname}
                     </div>
                     <div class ="comment__list__user--delete">
-                      <a href = "/items/${comment.item_id}/comments/${comment.id}" data-method="delete" data-remote="true" ><i class="fas fa-trash-alt"></i></a>
+                      <a href = "/items/${comment.item_id}/comments/${comment.id}" data-method="delete" data-remote="true" data-confirm= 'コメントを削除しますか？'><i class="fas fa-trash-alt"></i></a>
                     </div>
                   </div>
                     <div class="comment__list__content">
