@@ -52,4 +52,4 @@ production:
   database: fleamarket_sample_77b_production
   username: root            #rootに変更
   password: <%= ENV['DATABASE_PASSWORD'] %>
-  socket: /tmp/mysql.sock
+  socket: /var/lib/mysql/mysql.sock
