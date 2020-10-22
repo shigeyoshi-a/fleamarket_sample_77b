@@ -1,3 +1,9 @@
+- if @category.root?
+  - breadcrumb :parent_category
+- elsif @category.has_children?
+  - breadcrumb :child_category
+- else
+  - breadcrumb :grandchild_category
 .Wrapper
   .category_item
     .category_item__title

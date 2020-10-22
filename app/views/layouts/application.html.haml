@@ -42,6 +42,8 @@
                 = link_to "新規会員登録", new_user_registration_path
               .rightbox__sign_up
                 = link_to "ログイン", new_user_session_path
+        .pankuzu
+          = breadcrumbs
 
     = yield
     -# 出品ボタン
@@ -104,4 +106,5 @@
             = image_tag ("logo-white.png")
         .footer__logo__text
           © FURIMA
+          - breadcrumb :root
 
