@@ -32,7 +32,7 @@ document.addEventListener("turbolinks:load"
         $('.item-detail__category').append(grandchildSelectHtml);
       }
 
-      $('#parent_category').on('change', function(){
+      $('#parent_category_detail').on('change', function(){
         var parentCategory = document.getElementById('parent_category').value;
         if (parentCategory != "---"){
           $.ajax({
