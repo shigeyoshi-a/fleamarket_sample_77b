@@ -63,7 +63,7 @@ document.addEventListener("turbolinks:load"
         }
       });
 
-      $('.item-detail__category').on('change', '#child_category', function(){
+      $('.item-detail__category__search').on('change', '#child_category', function(){
         var childId = $('#child_category option:selected').data('category');
         if (childId != "---"){
           $.ajax({

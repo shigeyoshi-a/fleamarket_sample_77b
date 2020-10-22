@@ -6,7 +6,7 @@
       %p
         = f.label :name_cont, 'キーワードを追加する'
         = f.search_field :name_cont, class: "keyword_box"
-      %p.item-detail__category
+      %p.item-detail__category__search
         = f.label :category_id_eq, 'カテゴリーを選択する'
         = f.collection_select(:category_id_eq, Category.roots, :id, :name, {include_blank: "---"}, {class: "category-form", id: 'parent_category_detail'})
       %p
