@@ -16,7 +16,7 @@ document.addEventListener("turbolinks:load"
                               <select>
                             </div>
                           </div>`;
-        $('.item-detail__category').append(childSelectHtml);
+        $('.item-detail__category__search').append(childSelectHtml);
       }
 
       function appendGrandchildrenBox(insertHTML){
@@ -29,7 +29,7 @@ document.addEventListener("turbolinks:load"
                                     </select>
                                   </div>
                                 </div>`;
-        $('.item-detail__category').append(grandchildSelectHtml);
+        $('.item-detail__category__search').append(grandchildSelectHtml);
       }
 
       $('#parent_category_detail').on('change', function(){
