@@ -33,7 +33,7 @@ document.addEventListener("turbolinks:load"
       }
 
       $('#parent_category_detail').on('change', function(){
-        var parentCategory = document.getElementById('parent_category').value;
+        var parentCategory = document.getElementById('parent_category_detail').value;
         if (parentCategory != "---"){
           $.ajax({
             url: '/items/get_category_children',
