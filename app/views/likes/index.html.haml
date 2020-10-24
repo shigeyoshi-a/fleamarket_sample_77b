@@ -10,6 +10,9 @@
             .like__image
               = link_to item_path(item.id) do
                 = image_tag item.item_images[0].image.url
+                - if item.buyer_id.present?
+                  .sold
+                    SOLD
             .like__name
               = item.name
             %ul
