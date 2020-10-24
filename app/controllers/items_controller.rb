@@ -1,6 +1,8 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:edit, :update, :show, :destroy]
   before_action :set_ransack, only: [:search, :detail_search]
+  before_action :login_check, only: [:new, :edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   def index
     @parents = Category.where(ancestry: nil)
@@ -140,4 +142,18 @@ class ItemsController < ApplicationController
     @grandchild_array << child.name
     @grandchild_array << child.id
   end
+
+  def login_check
+    unless user_signed_in?
+      flash[:alert] = "ログインしてください"
+      redirect_to root_path
+    end
+  end
+
+  def correct_user
+    unless @item.user == current_user
+      redirect_to root_path
+    end
+  end
+
 end
