@@ -13,7 +13,11 @@ crumb :likes do
 end
 
 crumb :category_index do
-  link "カテゴリー一覧", category_path(current_user)
+  if user_signed_in?
+    link "カテゴリー一覧", category_path(current_user)
+  else
+    link "カテゴリー一覧", category_index_path
+  end
 end
 
 crumb :parent_category do |category|
