@@ -47,6 +47,7 @@ class ItemsController < ApplicationController
     else
       set_category
       set_item
+      flash.now[:alert] = '商品編集に失敗しました'
       render :edit
     end
   end
