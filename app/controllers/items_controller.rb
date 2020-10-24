@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
   def index
     @parents = Category.where(ancestry: nil)
     @newitems = Item.includes(:item_images).order("created_at DESC").limit(5)
-    @branditems = Item.includes(:item_images).order("brand DESC").limit(5)
+    @branditems = Item.includes(:item_images).where("brand IS NOT NULL").order("brand DESC").limit(5)
     @likes = Like.all
   end
 
@@ -46,6 +46,7 @@ class ItemsController < ApplicationController
       redirect_to root_path, notice: '商品を編集しました'
     else
       set_category
+      set_item
       render :edit
     end
   end

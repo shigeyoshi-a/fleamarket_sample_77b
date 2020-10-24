@@ -10,3 +10,6 @@ ja:
         sending_days_id: 発送までの日数
         price: 販売価格
         category_id: カテゴリー
+        category: カテゴリー
+        item_images: 商品画像
+        item_images.image: 商品画像
