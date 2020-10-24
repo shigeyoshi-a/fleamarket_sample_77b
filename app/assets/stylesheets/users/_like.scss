@@ -18,10 +18,26 @@
       width: 180px;
       height: 140px;
       margin-bottom: 3%;
+      position: relative;
       img{
         width: 100%;
         height: 100%;
         object-fit: cover;
+      }
+      .sold{
+        position: absolute;
+        z-index: 1;
+        top: 36%;
+        left: 16%;
+        background-color: red;
+        transform: rotate(-12deg);
+        color: white;
+        font-size: 1.8rem;
+        font-weight: 900;
+        border-radius: 10px;
+        width: 120px;
+        padding-left: 8px;
+        letter-spacing: 0.3em;
       }
     }
     .like__name {

@@ -6,8 +6,8 @@
     .item__image
       .item__image__first
         = image_tag "#{@item.item_images[0].image}"
-          - if @item.buyer_id.present? 
-          .sold 
+          - if @item.buyer_id.present?
+          .sold
             SOLD
       %ul
         - @item.item_images.each do |image|
