@@ -2,28 +2,30 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :basic_auth, if: :production?
   before_action :parents
-  # rescue_from ActionController::RoutingError, with: :routing_error 
-  # rescue_from Exception, with: :rescue_from_exception
-  # rescue_from ActiveRecord::RecordNotFound, with: :record_not_found 
+
+  # それぞれエラー表示された場合に表示するページへ移動する
+  rescue_from ActionController::RoutingError, with: :routing_error 
+  rescue_from Exception, with: :rescue_from_exception
+  rescue_from ActiveRecord::RecordNotFound, with: :record_not_found 
   
   # それぞれエラー表示された場合に表示するページへ移動する
-  # 制作途中のためエラーの内容を表示するためコメントアウトにする
   
-  # def record_not_found(e) 
-  #   @exception = e
-  #   render 'errors/record_not_found'
-  # end 
+  def record_not_found(e) 
+    @exception = e
+    render 'errors/record_not_found'
+  end 
 
-  # def rescue_from_exception(e)
-  #   @exception = e 
-  #   render 'errors/500'
-  # end 
+  def rescue_from_exception(e)
+    @exception = e 
+    render 'errors/500'
+  end 
   
-  # def routing_error(e)
-  #   @exception = e 
-  #   render 'errors/routing_error'
-  # end 
+  def routing_error(e)
+    @exception = e 
+    render 'errors/routing_error'
+  end 
 
+  
   def parents
     @parents = Category.where(ancestry: nil)
   end
