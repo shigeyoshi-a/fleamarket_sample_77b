@@ -1,6 +1,9 @@
 class PurchaseController < ApplicationController
   require 'payjp'
+  before_action :login_check
   before_action :set_card , :set_item , :address
+  before_action :correct_user
+  
 
   def index
     card = Card.find_by(user_id: current_user.id)
@@ -50,5 +53,17 @@ class PurchaseController < ApplicationController
     @item = Item.find(params[:item_id])
   end
 
+  def login_check
+    unless user_signed_in?
+      flash[:alert] = "ログインしてください"
+      redirect_to root_path
+    end
+  end
+
+  def correct_user
+    if @item.saler_id == current_user.id or @item.buyer_id != nil
+      redirect_to root_path
+    end
+  end
 
 end
